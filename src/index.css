@@ -720,3 +720,22 @@ select:focus {
     border-right: 1px solid var(--border);
   }
 }
+
+/* ─── Print ─── */
+@media print {
+  .bottom-nav, .chat-input-row, .btn { display: none !important; }
+  .page { padding-bottom: 1rem; }
+}
+
+/* ─── Focus visible (accessibilità) ─── */
+button:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { animation: none; }
+  .pulse { animation: none; }
+  * { transition: none !important; }
+}
