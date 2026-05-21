@@ -1,19 +1,10 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
-import { spiegaMeglio, chatTutor, generaDomandeExtra } from '../utils/anthropic'
+import { spiegaMeglio, chatTutor, generaDomandeExtra } from '../utils/groq'
 import { getWorstSections } from '../utils/storage'
 import domandeData from '../data/domande.json'
 
 const SEZIONI = domandeData.metadata.sezioni
-
-function shuffle(arr) {
-  const a = [...arr]
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]]
-  }
-  return a
-}
 
 function TypingDots() {
   return (

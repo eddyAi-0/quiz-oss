@@ -2,18 +2,10 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import domandeData from '../data/domande.json'
 import { saveSession } from '../utils/storage'
+import { shuffle } from '../utils/shuffle'
 
 const SEZIONI = domandeData.metadata.sezioni
 const TUTTE = 'Tutte le sezioni'
-
-function shuffle(arr) {
-  const a = [...arr]
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]]
-  }
-  return a
-}
 
 function QuestionCard({ q, index, total, onAnswer, answered, selected }) {
   const navigate = useNavigate()
@@ -72,7 +64,7 @@ function QuestionCard({ q, index, total, onAnswer, answered, selected }) {
               className="btn btn-ghost btn-sm mt-2"
               onClick={() =>
                 navigate(`/tutor/${encodeURIComponent(q.sezione)}`, {
-                  state: { domanda: q }
+                  state: { domanda: { ...q, rispostaData: selected } }
                 })
               }
             >

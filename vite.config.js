@@ -50,7 +50,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/generativelanguage\.googleapis\.com\/.*/i,
+            urlPattern: /^https:\/\/api\.groq\.com\/.*/i,
             handler: 'NetworkOnly'
           }
         ]

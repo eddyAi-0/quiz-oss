@@ -62,7 +62,7 @@ export default function Dashboard() {
     if (active && payload?.length) {
       const d = payload[0].payload
       return (
-        <div style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', fontSize: '0.85rem' }}>
+        <div style={{ background: 'var(--card)', color: 'var(--text)', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', fontSize: '0.85rem' }}>
           <p style={{ fontWeight: 600 }}>{d.fullName}</p>
           <p style={{ color: pctColor(d.pct) }}>{d.pct}% ({d.correct}/{d.total})</p>
         </div>

@@ -1,18 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import domandeData from '../data/domande.json'
 import { saveSession } from '../utils/storage'
+import { shuffle } from '../utils/shuffle'
 
 const TOTAL_Q = 15
 const TOTAL_SEC = 25 * 60
-
-function shuffle(arr) {
-  const a = [...arr]
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]]
-  }
-  return a
-}
 
 function formatTime(sec) {
   const m = Math.floor(sec / 60).toString().padStart(2, '0')
@@ -146,7 +138,7 @@ function ResultScreen({ questions, answers, elapsed, onRestart }) {
 
 export default function SimulationMode() {
   const [phase, setPhase] = useState('start')
-  const [questions] = useState(() => shuffle(domandeData.domande).slice(0, TOTAL_Q))
+  const [questions, setQuestions] = useState(() => shuffle(domandeData.domande).slice(0, TOTAL_Q))
   const [currentIdx, setCurrentIdx] = useState(0)
   const [answers, setAnswers] = useState(Array(TOTAL_Q).fill(null))
   const [selected, setSelected] = useState(null)
@@ -213,6 +205,7 @@ export default function SimulationMode() {
   function restart() {
     clearInterval(timerRef.current)
     setPhase('start')
+    setQuestions(shuffle(domandeData.domande).slice(0, TOTAL_Q))
     setCurrentIdx(0)
     setAnswers(Array(TOTAL_Q).fill(null))
     setSelected(null)
