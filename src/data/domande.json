@@ -23,11 +23,11 @@
       "domanda": "Quante vertebre compongono la colonna vertebrale umana?",
       "opzioni": [
         "28",
-        "33",
+        "36",
         "24",
-        "36"
+        "33"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La colonna vertebrale è composta da 33-34 vertebre suddivise in 5 segmenti: 7 cervicali, 12 toraciche, 5 lombari, 5 sacrali (fuse) e 4-5 coccigee (fuse)."
     },
     {
@@ -36,12 +36,12 @@
       "difficolta": "media",
       "domanda": "Quale dei seguenti organi produce l'insulina?",
       "opzioni": [
+        "Milza",
         "Fegato",
         "Reni",
-        "Pancreas",
-        "Milza"
+        "Pancreas"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 3,
       "spiegazione": "L'insulina è prodotta dalle cellule beta delle isole di Langerhans nel pancreas. È un ormone fondamentale per la regolazione della glicemia."
     },
     {
@@ -51,11 +51,11 @@
       "domanda": "Qual è il numero normale di battiti cardiaci al minuto in un adulto a riposo?",
       "opzioni": [
         "40-60",
+        "120-140",
         "60-100",
-        "100-120",
-        "120-140"
+        "100-120"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La frequenza cardiaca normale in un adulto a riposo è tra 60 e 100 battiti al minuto. Valori inferiori a 60 si chiamano bradicardia, superiori a 100 tachicardia."
     },
     {
@@ -64,12 +64,12 @@
       "difficolta": "media",
       "domanda": "In quale parte del nefrone avviene principalmente il riassorbimento del glucosio?",
       "opzioni": [
-        "Capsula di Bowman",
         "Tubulo prossimale",
-        "Ansa di Henle",
-        "Tubulo distale"
+        "Capsula di Bowman",
+        "Tubulo distale",
+        "Ansa di Henle"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il riassorbimento del glucosio avviene quasi completamente nel tubulo prossimale. In condizioni normali, tutto il glucosio filtrato viene riassorbito qui."
     },
     {
@@ -78,12 +78,12 @@
       "difficolta": "difficile",
       "domanda": "Quale dei seguenti valori rappresenta una pressione arteriosa normale secondo le linee guida ESC?",
       "opzioni": [
-        "90/60 mmHg",
         "120/80 mmHg",
         "140/90 mmHg",
+        "90/60 mmHg",
         "160/100 mmHg"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La pressione arteriosa ottimale è 120/80 mmHg. Valori ≥ 140/90 mmHg definiscono l'ipertensione arteriosa. Valori < 90/60 mmHg indicano ipotensione."
     },
     {
@@ -92,8 +92,8 @@
       "difficolta": "facile",
       "domanda": "Qual è la funzione principale dei globuli rossi?",
       "opzioni": [
-        "Difesa immunitaria",
         "Coagulazione del sangue",
+        "Difesa immunitaria",
         "Trasporto dell'ossigeno",
         "Produzione di anticorpi"
       ],
@@ -120,12 +120,12 @@
       "difficolta": "facile",
       "domanda": "Quanti litri di sangue circolano mediamente nel corpo di un adulto?",
       "opzioni": [
-        "2-3 litri",
         "5-6 litri",
+        "2-3 litri",
         "8-10 litri",
         "12-15 litri"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il volume di sangue in un adulto è circa 5-6 litri, pari a circa il 7-8% del peso corporeo. Nelle donne il volume è leggermente inferiore rispetto agli uomini."
     },
     {
@@ -134,12 +134,12 @@
       "difficolta": "difficile",
       "domanda": "Quale dei seguenti NON è un componente del sistema nervoso autonomo?",
       "opzioni": [
-        "Sistema simpatico",
-        "Sistema parasimpatico",
         "Sistema somatico",
-        "Sistema enterico"
+        "Sistema parasimpatico",
+        "Sistema enterico",
+        "Sistema simpatico"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "Il sistema nervoso somatico controlla i movimenti volontari e NON fa parte del sistema nervoso autonomo. Il SNA comprende il sistema simpatico, parasimpatico ed enterico."
     },
     {
@@ -148,12 +148,12 @@
       "difficolta": "media",
       "domanda": "Dove avviene principalmente l'assorbimento dei nutrienti?",
       "opzioni": [
-        "Stomaco",
-        "Intestino tenue",
         "Intestino crasso",
-        "Duodeno"
+        "Duodeno",
+        "Intestino tenue",
+        "Stomaco"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'intestino tenue è il principale sito di assorbimento dei nutrienti. Le sue pareti presentano villi e microvilli che aumentano enormemente la superficie di assorbimento."
     },
     {
@@ -162,12 +162,12 @@
       "difficolta": "facile",
       "domanda": "Qual è la durata minima raccomandata per il lavaggio delle mani secondo l'OMS?",
       "opzioni": [
-        "10 secondi",
         "20-30 secondi",
+        "2 minuti",
         "1 minuto",
-        "2 minuti"
+        "10 secondi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "L'OMS raccomanda un lavaggio delle mani della durata di almeno 20-30 secondi con acqua e sapone per rimuovere efficacemente i microrganismi patogeni."
     },
     {
@@ -176,12 +176,12 @@
       "difficolta": "media",
       "domanda": "Quale dei seguenti è un esempio di trasmissione per via aerea?",
       "opzioni": [
-        "Salmonellosi",
-        "Tubercolosi",
         "Epatite B",
-        "Tetano"
+        "Tetano",
+        "Tubercolosi",
+        "Salmonellosi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La tubercolosi si trasmette per via aerea attraverso droplet nuclei (particelle < 5 micron) che possono restare sospese nell'aria per lunghi periodi. Richiede precauzioni airborne."
     },
     {
@@ -190,12 +190,12 @@
       "difficolta": "facile",
       "domanda": "A quale temperatura deve essere mantenuto il frigorifero per la conservazione degli alimenti?",
       "opzioni": [
-        "0-2°C",
         "4-6°C",
         "8-10°C",
-        "10-12°C"
+        "10-12°C",
+        "0-2°C"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il frigorifero deve mantenere una temperatura tra 4-6°C per rallentare la proliferazione batterica. Temperature superiori favoriscono la moltiplicazione microbica negli alimenti."
     },
     {
@@ -205,11 +205,11 @@
       "domanda": "Cosa si intende con il termine 'sterilizzazione'?",
       "opzioni": [
         "Riduzione del 99% dei microrganismi",
+        "Inibizione della crescita microbica",
         "Eliminazione di tutti i microrganismi incluse le spore",
-        "Eliminazione solo dei batteri patogeni",
-        "Inibizione della crescita microbica"
+        "Eliminazione solo dei batteri patogeni"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La sterilizzazione è un processo che elimina TUTTI i microrganismi presenti, incluse le spore batteriche. Si distingue dalla disinfezione che elimina solo i patogeni ma non le spore."
     },
     {
@@ -218,12 +218,12 @@
       "difficolta": "difficile",
       "domanda": "Quale dei seguenti DPI è indicato per la protezione da agenti biologici trasmessi per via aerea?",
       "opzioni": [
-        "Mascherina chirurgica",
         "Respiratore FFP2/FFP3",
-        "Visiera facciale",
-        "Guanti in nitrile"
+        "Mascherina chirurgica",
+        "Guanti in nitrile",
+        "Visiera facciale"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "I respiratori FFP2 (filtrazione ≥94%) e FFP3 (filtrazione ≥99%) proteggono da aerosol e particelle fini. Le mascherine chirurgiche proteggono dalle goccioline ma non dai droplet nuclei."
     },
     {
@@ -232,12 +232,12 @@
       "difficolta": "media",
       "domanda": "Quale tecnica si usa per vestire/svestire i DPI in sicurezza?",
       "opzioni": [
+        "LIFO",
         "FIFO",
-        "DOFFING e DONNING",
         "HACCP",
-        "LIFO"
+        "DOFFING e DONNING"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "DONNING è la procedura di vestizione dei DPI (si indossano prima i guanti, poi camice, mascherina, visiera). DOFFING è la svestizione, che avviene in ordine inverso per evitare la contaminazione."
     },
     {
@@ -246,12 +246,12 @@
       "difficolta": "facile",
       "domanda": "Qual è il significato dell'acronimo HACCP?",
       "opzioni": [
-        "Hazard Analysis Critical Control Points",
+        "Hazard Assessment and Contamination Control Plan",
         "Health And Care Control Procedure",
         "Hygiene And Contamination Control Protocol",
-        "Hazard Assessment and Contamination Control Plan"
+        "Hazard Analysis Critical Control Points"
       ],
-      "risposta_corretta": 0,
+      "risposta_corretta": 3,
       "spiegazione": "HACCP (Hazard Analysis Critical Control Points) è un sistema preventivo per garantire la sicurezza alimentare, identificando e controllando i punti critici nella filiera alimentare."
     },
     {
@@ -261,11 +261,11 @@
       "domanda": "Cosa si intende per 'infezione ospedaliera' o nosocomiale?",
       "opzioni": [
         "Infezione contratta prima del ricovero",
-        "Infezione contratta durante la degenza in ospedale",
+        "Infezione del personale sanitario",
         "Infezione da agenti resistenti agli antibiotici",
-        "Infezione del personale sanitario"
+        "Infezione contratta durante la degenza in ospedale"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Un'infezione nosocomiale è acquisita in ambiente ospedaliero, non presente né in incubazione al momento del ricovero. Si manifesta di solito dopo 48-72 ore dall'ingresso."
     },
     {
@@ -274,12 +274,12 @@
       "difficolta": "difficile",
       "domanda": "Quale metodo di sterilizzazione è più indicato per materiale termosensibile?",
       "opzioni": [
-        "Autoclave a vapore (121°C)",
-        "Ossido di etilene (ETO)",
         "Calore secco (160-180°C)",
-        "Ebollizione"
+        "Autoclave a vapore (121°C)",
+        "Ebollizione",
+        "Ossido di etilene (ETO)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "L'ossido di etilene (ETO) è un gas sterilizzante usato per materiali termosensibili (plastica, gomma, dispositivi elettronici) che non tollerano alte temperature. Ha però tempi lunghi e richiede aerazione."
     },
     {
@@ -288,9 +288,9 @@
       "difficolta": "facile",
       "domanda": "I rifiuti sanitari a rischio infettivo devono essere smaltiti in contenitori di che colore?",
       "opzioni": [
-        "Verde",
-        "Giallo",
         "Rosso",
+        "Giallo",
+        "Verde",
         "Nero"
       ],
       "risposta_corretta": 1,
@@ -303,11 +303,11 @@
       "domanda": "Con quale frequenza va riposizionato un paziente allettato per prevenire le lesioni da pressione?",
       "opzioni": [
         "Ogni 30 minuti",
-        "Ogni 2 ore",
         "Ogni 4 ore",
+        "Ogni 2 ore",
         "Una volta al giorno"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il riposizionamento ogni 2 ore è lo standard per prevenire le lesioni da pressione (LdP). In pazienti ad alto rischio può essere necessario ogni ora, valutato con scale come Braden o Norton."
     },
     {
@@ -317,11 +317,11 @@
       "domanda": "Quale scala viene utilizzata per valutare il rischio di lesioni da pressione?",
       "opzioni": [
         "Scala di Glasgow",
-        "Scala di Braden",
         "Scala di Barthel",
+        "Scala di Braden",
         "Scala NRS"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La scala di Braden valuta il rischio di LdP considerando 6 parametri: percezione sensoriale, umidità, attività, mobilità, nutrizione, attrito/scivolamento. Punteggio ≤18 indica rischio."
     },
     {
@@ -330,9 +330,9 @@
       "difficolta": "facile",
       "domanda": "Come si chiama il posizionamento con la testa del letto sollevata di 30-45°?",
       "opzioni": [
-        "Posizione di Trendelenburg",
-        "Posizione semi-Fowler",
         "Posizione laterale di sicurezza",
+        "Posizione semi-Fowler",
+        "Posizione di Trendelenburg",
         "Posizione prona"
       ],
       "risposta_corretta": 1,
@@ -344,12 +344,12 @@
       "difficolta": "media",
       "domanda": "Quale scala misura il livello di autonomia nelle attività della vita quotidiana (ADL)?",
       "opzioni": [
-        "Scala di Glasgow",
         "Indice di Barthel",
         "Scala di Braden",
-        "Scala MMSE"
+        "Scala MMSE",
+        "Scala di Glasgow"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "L'indice di Barthel misura il grado di indipendenza in 10 ADL (lavarsi, vestirsi, igiene personale, uso bagno, alimentazione, trasferimenti, deambulazione, scale, controllo vescica/intestino). Max 100 punti."
     },
     {
@@ -358,9 +358,9 @@
       "difficolta": "difficile",
       "domanda": "In quale stadio secondo la classificazione EPUAP/NPUAP si osserva la presenza di tessuto necrotico nero (escara)?",
       "opzioni": [
-        "Stadio 1",
-        "Stadio 2",
         "Stadio 3",
+        "Stadio 2",
+        "Stadio 1",
         "Stadio 4"
       ],
       "risposta_corretta": 3,
@@ -372,12 +372,12 @@
       "difficolta": "media",
       "domanda": "Cosa si intende per 'ab ingestis'?",
       "opzioni": [
-        "Difficoltà nella deglutizione",
-        "Inalazione di contenuto gastrico o alimenti nelle vie aeree",
         "Alimentazione tramite sondino nasogastrico",
-        "Deficit nutrizionale grave"
+        "Deficit nutrizionale grave",
+        "Inalazione di contenuto gastrico o alimenti nelle vie aeree",
+        "Difficoltà nella deglutizione"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'ab ingestis (o aspirazione) è l'inalazione accidentale di materiale (cibo, liquidi, secreti orali, contenuto gastrico) nelle vie aeree. Può causare polmonite ab ingestis, grave e potenzialmente letale."
     },
     {
@@ -386,12 +386,12 @@
       "difficolta": "facile",
       "domanda": "Qual è la temperatura corporea normale (normotermia) nell'adulto?",
       "opzioni": [
-        "35-36°C",
-        "36-37.2°C",
         "37.5-38°C",
-        "38-39°C"
+        "38-39°C",
+        "36-37.2°C",
+        "35-36°C"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La temperatura corporea normale oscilla tra 36°C e 37.2°C. Si parla di febbricola tra 37.2-38°C, febbre oltre 38°C, iperpiressia oltre 40°C e ipotermia sotto 36°C."
     },
     {
@@ -400,9 +400,9 @@
       "difficolta": "media",
       "domanda": "Dove si misura preferibilmente la temperatura corporea in un paziente adulto non collaborante?",
       "opzioni": [
-        "Orale",
-        "Ascellare",
         "Rettale",
+        "Ascellare",
+        "Orale",
         "Timpanica"
       ],
       "risposta_corretta": 3,
@@ -415,11 +415,11 @@
       "domanda": "Qual è la posizione corretta per un'assistenza sicura durante la mobilizzazione dal letto alla sedia?",
       "opzioni": [
         "Operatore con piedi uniti e schiena curva",
-        "Operatore con base di appoggio larga, ginocchia flesse e schiena dritta",
+        "Operatore di lato con una mano sulla spalla del paziente",
         "Operatore dietro al paziente con presa ascellare",
-        "Operatore di lato con una mano sulla spalla del paziente"
+        "Operatore con base di appoggio larga, ginocchia flesse e schiena dritta"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La corretta biomeccanica prevede: piedi divaricati (base stabile), ginocchia piegate, schiena dritta, baricentro basso. Questo protegge la colonna vertebrale dell'operatore dagli infortuni durante la mobilizzazione."
     },
     {
@@ -428,12 +428,12 @@
       "difficolta": "facile",
       "domanda": "Ogni quanto tempo va eseguita l'igiene orale in un paziente con tubo naso-gastrico?",
       "opzioni": [
-        "Una volta al giorno",
-        "Due volte al giorno",
+        "Solo al mattino",
         "Almeno 3-4 volte al giorno",
-        "Solo al mattino"
+        "Una volta al giorno",
+        "Due volte al giorno"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "In pazienti con sondino nasogastrico l'igiene orale va eseguita almeno 3-4 volte al giorno perché non si alimentano per bocca, aumentando il rischio di secchezza mucose e infezioni orali."
     },
     {
@@ -442,10 +442,10 @@
       "difficolta": "facile",
       "domanda": "Cosa indica la sigla 'OS' nella prescrizione farmacologica?",
       "opzioni": [
-        "Orecchio sinistro",
+        "Per via sottocutanea",
         "Per via orale",
-        "Occhio sinistro",
-        "Per via sottocutanea"
+        "Orecchio sinistro",
+        "Occhio sinistro"
       ],
       "risposta_corretta": 1,
       "spiegazione": "OS (dal latino 'os, oris') significa 'per bocca', ovvero somministrazione orale. Da non confondere con OD (occhio destro), OS (occhio sinistro) o AU (entrambi gli orecchi)."
@@ -457,9 +457,9 @@
       "domanda": "Quale via di somministrazione consente l'effetto più rapido di un farmaco?",
       "opzioni": [
         "Orale",
-        "Intramuscolare",
+        "Transdermica",
         "Endovenosa",
-        "Transdermica"
+        "Intramuscolare"
       ],
       "risposta_corretta": 2,
       "spiegazione": "La via endovenosa (EV o IV) garantisce l'effetto più rapido perché il farmaco entra direttamente nel circolo sanguigno senza dover essere assorbito. È usata nelle emergenze."
@@ -470,9 +470,9 @@
       "difficolta": "difficile",
       "domanda": "L'OSS può somministrare farmaci in modo autonomo?",
       "opzioni": [
+        "No, mai in nessun caso",
         "Sì, tutti i farmaci orali",
         "Sì, solo i farmaci salvavita",
-        "No, mai in nessun caso",
         "Solo sotto supervisione diretta dell'infermiere e secondo le procedure aziendali"
       ],
       "risposta_corretta": 3,
@@ -484,12 +484,12 @@
       "difficolta": "media",
       "domanda": "Cosa si intende per 'effetto collaterale' di un farmaco?",
       "opzioni": [
+        "Un errore nella somministrazione del farmaco",
         "L'effetto terapeutico principale",
         "Un effetto indesiderato che si verifica alla dose terapeutica",
-        "Un errore nella somministrazione del farmaco",
         "Un'allergia grave al farmaco"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Gli effetti collaterali sono effetti indesiderati ma prevedibili che si verificano alle dosi terapeutiche normali. Si distinguono dagli effetti tossici (da overdose) e dalle reazioni allergiche (immunologiche)."
     },
     {
@@ -498,12 +498,12 @@
       "difficolta": "facile",
       "domanda": "Cosa significa la sigla SOS nella terapia farmacologica?",
       "opzioni": [
-        "Somministrazione ogni sera",
         "Solo se necessario (al bisogno)",
+        "Somministrazione ogni sera",
         "Senza orario stabilito",
         "Somministrazione ospedaliera speciale"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "SOS (dal latino 'si opus sit', 'se necessario') indica una somministrazione al bisogno, non programmata. Va somministrata solo se si verifica la condizione indicata in prescrizione (es. dolore, febbre)."
     },
     {
@@ -512,12 +512,12 @@
       "difficolta": "media",
       "domanda": "Quale dei seguenti farmaci è un anticoagulante orale diretto (NAO/DOAC)?",
       "opzioni": [
+        "Rivaroxaban",
         "Warfarin",
         "Aspirina",
-        "Rivaroxaban",
         "Eparina"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "Il rivaroxaban è un anticoagulante orale diretto (DOAC/NAO) inibitore del fattore Xa. A differenza del warfarin non richiede monitoraggio INR. Eparina è parenterale; aspirina è antiaggregante."
     },
     {
@@ -526,12 +526,12 @@
       "difficolta": "difficile",
       "domanda": "Quale delle seguenti è una controindicazione assoluta all'uso degli FANS (es. ibuprofene)?",
       "opzioni": [
-        "Cefalea lieve",
         "Ulcera peptica attiva",
         "Febbre moderata",
+        "Cefalea lieve",
         "Dolore muscolare"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "L'ulcera peptica attiva è una controindicazione assoluta ai FANS perché inibendo le prostaglandine riducono la protezione della mucosa gastrica, aggravando l'ulcera e il rischio di sanguinamento."
     },
     {
@@ -540,12 +540,12 @@
       "difficolta": "facile",
       "domanda": "Dove devono essere conservati i farmaci salvavita nei reparti ospedalieri?",
       "opzioni": [
-        "In qualsiasi armadietto del reparto",
-        "In appositi armadietti con accesso controllato",
         "Sul carrello delle medicazioni",
-        "Nel comodino del paziente"
+        "Nel comodino del paziente",
+        "In appositi armadietti con accesso controllato",
+        "In qualsiasi armadietto del reparto"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "I farmaci, specialmente quelli salvavita e i veleni/stupefacenti, devono essere conservati in armadietti chiusi a chiave con accesso controllato, separati per tipologia, lontano da fonti di calore e luce."
     },
     {
@@ -554,12 +554,12 @@
       "difficolta": "media",
       "domanda": "Quale legge regola il profilo professionale dell'OSS in Italia?",
       "opzioni": [
-        "Legge 42/1999",
         "D.M. 22 febbraio 2001",
+        "D.Lgs 502/1992",
         "Legge 833/1978",
-        "D.Lgs 502/1992"
+        "Legge 42/1999"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il D.M. 22 febbraio 2001 definisce il profilo professionale dell'Operatore Socio-Sanitario in Italia, stabilendo le competenze, il percorso formativo (1000 ore) e il ruolo nell'équipe di cura."
     },
     {
@@ -568,12 +568,12 @@
       "difficolta": "facile",
       "domanda": "Cosa tutela il 'segreto professionale' per l'OSS?",
       "opzioni": [
-        "La privacy dell'operatore",
         "Le informazioni riservate acquisite nell'esercizio delle proprie funzioni sull'assistito",
+        "Le informazioni sui colleghi",
         "I dati amministrativi dell'ente",
-        "Le informazioni sui colleghi"
+        "La privacy dell'operatore"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il segreto professionale obbliga l'OSS a non divulgare informazioni riservate sull'assistito acquisite durante il lavoro. La violazione è reato penale ai sensi dell'art. 622 c.p."
     },
     {
@@ -583,9 +583,9 @@
       "domanda": "Quale decreto legislativo disciplina il trattamento dei dati personali in Italia (in attuazione del GDPR)?",
       "opzioni": [
         "D.Lgs 196/2003 aggiornato dal D.Lgs 101/2018",
-        "L. 833/1978",
         "D.Lgs 81/2008",
-        "L. 104/1992"
+        "L. 104/1992",
+        "L. 833/1978"
       ],
       "risposta_corretta": 0,
       "spiegazione": "Il Codice della Privacy italiano (D.Lgs 196/2003, aggiornato con D.Lgs 101/2018) recepisce il GDPR europeo. I dati sanitari sono dati 'particolari' con protezione rafforzata."
@@ -596,10 +596,10 @@
       "difficolta": "difficile",
       "domanda": "Il D.Lgs 81/2008 è il Testo Unico in materia di:",
       "opzioni": [
-        "Ordinamento del SSN",
+        "Assistenza sociale",
         "Salute e sicurezza sul lavoro",
         "Professioni sanitarie",
-        "Assistenza sociale"
+        "Ordinamento del SSN"
       ],
       "risposta_corretta": 1,
       "spiegazione": "Il D.Lgs 81/2008 (Testo Unico Sicurezza) disciplina la tutela della salute e sicurezza nei luoghi di lavoro. Stabilisce obblighi per datori di lavoro (DVR, formazione) e lavoratori (uso DPI, segnalazione rischi)."
@@ -611,11 +611,11 @@
       "domanda": "La legge 833/1978 ha istituito:",
       "opzioni": [
         "L'ordine degli infermieri",
-        "Il Servizio Sanitario Nazionale (SSN)",
+        "La formazione professionale OSS",
         "Il sistema pensionistico sanitario",
-        "La formazione professionale OSS"
+        "Il Servizio Sanitario Nazionale (SSN)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La legge 833 del 23 dicembre 1978 ha istituito il Servizio Sanitario Nazionale italiano, basato sui principi di universalità, uguaglianza ed equità nell'accesso alle cure."
     },
     {
@@ -624,12 +624,12 @@
       "difficolta": "facile",
       "domanda": "Cosa si intende per 'consenso informato'?",
       "opzioni": [
+        "Il consenso della direzione sanitaria",
         "Il consenso firmato dall'équipe medica",
-        "Il consenso del paziente a un trattamento sanitario dopo essere stato adeguatamente informato",
         "Il consenso del familiare per i trattamenti",
-        "Il consenso della direzione sanitaria"
+        "Il consenso del paziente a un trattamento sanitario dopo essere stato adeguatamente informato"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Il consenso informato è il diritto del paziente di acconsentire o rifiutare un trattamento sanitario dopo aver ricevuto informazioni complete. È tutelato dalla L. 219/2017 (Legge sul biotestamento)."
     },
     {
@@ -638,12 +638,12 @@
       "difficolta": "difficile",
       "domanda": "Quali sono le DAT (Disposizioni Anticipate di Trattamento)?",
       "opzioni": [
+        "Protocolli assistenziali standardizzati",
         "Linee guida per il trattamento dei pazienti gravi",
         "Indicazioni che una persona lascia per i futuri trattamenti sanitari quando non sarà più capace",
-        "Prescrizioni mediche d'urgenza",
-        "Protocolli assistenziali standardizzati"
+        "Prescrizioni mediche d'urgenza"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Le DAT (o 'testamento biologico') sono le disposizioni che una persona capace lascia sui trattamenti sanitari futuri, nel caso non possa più esprimere la propria volontà. Regolate dalla L. 219/2017."
     },
     {
@@ -653,11 +653,11 @@
       "domanda": "Qual è la sequenza corretta della RCP (Rianimazione Cardio-Polmonare) secondo le linee guida ERC 2021?",
       "opzioni": [
         "A-B-C (Airways-Breathing-Circulation)",
-        "C-A-B (Chest compressions - Airways - Breathing)",
+        "A-C-B (Airways - Circulation - Breathing)",
         "B-C-A (Breathing - Circulation - Airways)",
-        "A-C-B (Airways - Circulation - Breathing)"
+        "C-A-B (Chest compressions - Airways - Breathing)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Le linee guida ERC 2021 indicano C-A-B: iniziare con 30 compressioni toraciche (C), poi aprire le vie aeree (A) e dare 2 ventilazioni (B). Le compressioni sono la priorità assoluta."
     },
     {
@@ -668,8 +668,8 @@
       "opzioni": [
         "2-3 cm",
         "5-6 cm",
-        "7-8 cm",
-        "Più di 8 cm"
+        "Più di 8 cm",
+        "7-8 cm"
       ],
       "risposta_corretta": 1,
       "spiegazione": "Le linee guida ERC 2021 indicano compressioni di 5-6 cm di profondità nel centro del torace, a una frequenza di 100-120/min, consentendo il completo ritorno elastico del torace tra una compressione e l'altra."
@@ -680,12 +680,12 @@
       "difficolta": "facile",
       "domanda": "Cosa fare PRIMA di iniziare la RCP su un adulto che si trova a terra?",
       "opzioni": [
+        "Controllare il polso per 30 secondi",
         "Iniziare immediatamente le compressioni",
         "Verificare la sicurezza della scena, controllare la coscienza e chiamare i soccorsi",
-        "Controllare il polso per 30 secondi",
         "Posizionare il DAE"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La sequenza corretta è: 1) Sicurezza della scena, 2) Stimola e controlla coscienza, 3) Chiama aiuto/112, 4) Apertura vie aeree, 5) Verifica respiro (max 10 sec), 6) Se assente: inizia RCP e chiedi DAE."
     },
     {
@@ -695,11 +695,11 @@
       "domanda": "Cosa fare in caso di epistassi (emorragia nasale)?",
       "opzioni": [
         "Inclinare la testa all'indietro",
-        "Inclinare la testa in avanti e comprimere le narici",
         "Sdraiare il paziente in posizione supina",
-        "Introdurre garze nelle narici"
+        "Introdurre garze nelle narici",
+        "Inclinare la testa in avanti e comprimere le narici"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "In caso di epistassi: far sedere il paziente, inclinare la testa in AVANTI (non indietro, per evitare deglutire sangue), comprimere le narici per 10-15 minuti. Se non cessa, rivolgersi al pronto soccorso."
     },
     {
@@ -709,11 +709,11 @@
       "domanda": "Qual è il segno classico dell'ipoglicemia grave?",
       "opzioni": [
         "Poliuria e polidipsia",
-        "Confusione mentale, sudorazione fredda e tremore",
         "Iperpiressia e rigidità",
+        "Confusione mentale, sudorazione fredda e tremore",
         "Cute secca e arrossata"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "I segni dell'ipoglicemia grave sono: confusione/agitazione, sudorazione fredda, tremore, pallore, tachicardia, fame intensa. Nei casi gravi: perdita di coscienza, convulsioni. Trattamento: glucosio orale o ev."
     },
     {
@@ -722,9 +722,9 @@
       "difficolta": "media",
       "domanda": "Come si classifica una scottatura con formazione di vescicole (bolle)?",
       "opzioni": [
-        "Ustione di 1° grado",
-        "Ustione di 2° grado",
         "Ustione di 3° grado",
+        "Ustione di 2° grado",
+        "Ustione di 1° grado",
         "Ustione di 4° grado"
       ],
       "risposta_corretta": 1,
@@ -737,8 +737,8 @@
       "domanda": "Qual è il numero unico per le emergenze in Italia?",
       "opzioni": [
         "112",
-        "113",
         "115",
+        "113",
         "118"
       ],
       "risposta_corretta": 0,
@@ -750,10 +750,10 @@
       "difficolta": "facile",
       "domanda": "Quanti grammi di proteine per kg di peso corporeo sono raccomandati per un adulto sano?",
       "opzioni": [
-        "0.2-0.4 g/kg",
+        "2.5-3.0 g/kg",
         "0.8-1.0 g/kg",
         "1.5-2.0 g/kg",
-        "2.5-3.0 g/kg"
+        "0.2-0.4 g/kg"
       ],
       "risposta_corretta": 1,
       "spiegazione": "Il fabbisogno proteico raccomandato per un adulto sano è 0.8-1.0 g/kg/die. Nei pazienti malnutriti, anziani o con piaghe da decubito il fabbisogno può aumentare fino a 1.2-1.5 g/kg."
@@ -764,9 +764,9 @@
       "difficolta": "media",
       "domanda": "Quale scala viene utilizzata per valutare il rischio di malnutrizione nel paziente ospedalizzato?",
       "opzioni": [
-        "Scala di Barthel",
-        "MNA (Mini Nutritional Assessment)",
         "Scala di Braden",
+        "MNA (Mini Nutritional Assessment)",
+        "Scala di Barthel",
         "Scala NRS-2002"
       ],
       "risposta_corretta": 3,
@@ -778,12 +778,12 @@
       "difficolta": "facile",
       "domanda": "Quale dei seguenti alimenti è ricco di vitamina C?",
       "opzioni": [
-        "Pane bianco",
-        "Arance e agrumi",
         "Carne rossa",
-        "Latte"
+        "Latte",
+        "Pane bianco",
+        "Arance e agrumi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La vitamina C (acido ascorbico) è abbondante negli agrumi (arance, limoni, pompelmi), nei kiwi, nei peperoni e in molti altri vegetali freschi. È termolabile, si deteriora con la cottura."
     },
     {
@@ -792,12 +792,12 @@
       "difficolta": "media",
       "domanda": "Cosa si intende per disfagia?",
       "opzioni": [
-        "Eccesso di appetito",
-        "Difficoltà nella deglutizione",
+        "Dolore addominale dopo i pasti",
         "Intolleranza alimentare",
-        "Dolore addominale dopo i pasti"
+        "Eccesso di appetito",
+        "Difficoltà nella deglutizione"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La disfagia è la difficoltà o impossibilità a deglutire cibi solidi e/o liquidi. Può essere orofaringea o esofagea. Nei pazienti con disfagia si usano cibi addensati per ridurre il rischio di ab ingestis."
     },
     {
@@ -806,10 +806,10 @@
       "difficolta": "difficile",
       "domanda": "Qual è il valore dell'IMC (Indice di Massa Corporea) che definisce l'obesità di 1° grado?",
       "opzioni": [
-        "IMC 25-29.9",
+        "IMC ≥ 40",
         "IMC 30-34.9",
         "IMC 35-39.9",
-        "IMC ≥ 40"
+        "IMC 25-29.9"
       ],
       "risposta_corretta": 1,
       "spiegazione": "La classificazione OMS dell'IMC: sottopeso <18.5, normopeso 18.5-24.9, sovrappeso 25-29.9, obesità I° 30-34.9, obesità II° 35-39.9, obesità III° (grave) ≥40. IMC = peso(kg)/altezza²(m)."
@@ -820,12 +820,12 @@
       "difficolta": "media",
       "domanda": "Quanti ml di liquidi deve assumere mediamente un adulto sano al giorno?",
       "opzioni": [
-        "500-800 ml",
-        "1000-1200 ml",
         "1500-2000 ml",
-        "3000-4000 ml"
+        "3000-4000 ml",
+        "500-800 ml",
+        "1000-1200 ml"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "Il fabbisogno idrico giornaliero per un adulto sano è di circa 1500-2000 ml/die (acqua + bevande + acqua contenuta negli alimenti). Aumenta con febbre, sudorazione, diarrea, clima caldo."
     },
     {
@@ -834,12 +834,12 @@
       "difficolta": "facile",
       "domanda": "Quale nutriente fornisce il maggior apporto energetico per grammo?",
       "opzioni": [
+        "Fibra (2 kcal/g)",
         "Carboidrati (4 kcal/g)",
         "Proteine (4 kcal/g)",
-        "Lipidi (9 kcal/g)",
-        "Fibra (2 kcal/g)"
+        "Lipidi (9 kcal/g)"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 3,
       "spiegazione": "I lipidi (grassi) forniscono 9 kcal/g, il doppio rispetto a carboidrati e proteine (4 kcal/g ciascuno). L'alcool fornisce 7 kcal/g ma è considerato antinutriente."
     },
     {
@@ -849,11 +849,11 @@
       "domanda": "Quale complicanza è associata all'alimentazione enterale tramite SNG?",
       "opzioni": [
         "Iperglicemia",
+        "Trombosi venosa",
         "Polmonite ab ingestis",
-        "Insufficienza renale",
-        "Trombosi venosa"
+        "Insufficienza renale"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La polmonite ab ingestis è la complicanza più temibile dell'alimentazione enterale tramite SNG. Si previene: verificando il posizionamento del sondino, mantenendo il paziente semiseduto (30-45°), controllando il ristagno gastrico."
     },
     {
@@ -864,8 +864,8 @@
       "opzioni": [
         "Comunicazione scritta",
         "Comunicazione attraverso gesti, espressioni, postura e contatto visivo",
-        "Comunicazione telefonica",
-        "Comunicazione per segni"
+        "Comunicazione per segni",
+        "Comunicazione telefonica"
       ],
       "risposta_corretta": 1,
       "spiegazione": "La comunicazione non verbale include: espressioni facciali, gesti, postura, contatto visivo, tono di voce, prossemica (distanza interpersonale), aptica (contatto fisico). Rappresenta circa il 65-93% della comunicazione totale."
@@ -876,10 +876,10 @@
       "difficolta": "media",
       "domanda": "Quale delle seguenti è una caratteristica dell'ascolto attivo?",
       "opzioni": [
-        "Interrompere il paziente per completare le sue frasi",
+        "Dare consigli immediati",
         "Mantenere il contatto visivo e riformulare quanto detto",
-        "Prendere appunti durante il colloquio",
-        "Dare consigli immediati"
+        "Interrompere il paziente per completare le sue frasi",
+        "Prendere appunti durante il colloquio"
       ],
       "risposta_corretta": 1,
       "spiegazione": "L'ascolto attivo include: contatto visivo, postura aperta, non interrompere, riformulazione ('Ho capito che lei sta dicendo...'), domande aperte, silenzio terapeutico, validazione emotiva."
@@ -890,12 +890,12 @@
       "difficolta": "media",
       "domanda": "Il 'burnout' negli operatori sanitari è caratterizzato da:",
       "opzioni": [
+        "Aggressività verso i pazienti",
         "Eccessiva motivazione al lavoro",
         "Esaurimento emotivo, depersonalizzazione e ridotta realizzazione professionale",
-        "Aggressività verso i pazienti",
         "Aumento dell'efficienza lavorativa"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il burnout (Maslach, 1981) ha 3 dimensioni: esaurimento emotivo (svuotamento), depersonalizzazione (distacco cinico dai pazienti), ridotta realizzazione personale. È frequente nelle professioni di cura ad alto contatto emotivo."
     },
     {
@@ -918,12 +918,12 @@
       "difficolta": "difficile",
       "domanda": "Quale dei seguenti è un segnale di rischio suicidario che richiede attenzione immediata?",
       "opzioni": [
-        "Paziente che parla dei propri problemi",
         "Paziente che regala oggetti personali e dice di 'non farcela più'",
         "Paziente che piange occasionalmente",
+        "Paziente che parla dei propri problemi",
         "Paziente che esprime preoccupazione per il futuro"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Regalare oggetti personali e verbalizzare disperazione ('non ce la faccio più') sono segnali di allarme suicidario. Vanno segnalati immediatamente al team sanitario. Non lasciare il paziente solo e non sminuire le sue parole."
     },
     {
@@ -932,12 +932,12 @@
       "difficolta": "media",
       "domanda": "In quale fase del processo di elaborazione del lutto secondo Kübler-Ross si trova chi dice 'Perché proprio a me?'",
       "opzioni": [
+        "Patteggiamento",
         "Negazione",
         "Collera/Rabbia",
-        "Patteggiamento",
         "Depressione"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Le 5 fasi di Kübler-Ross sono: 1) Negazione ('Non è possibile'), 2) Collera ('Perché proprio a me?'), 3) Patteggiamento ('Farò di tutto se...'), 4) Depressione, 5) Accettazione. Non sono lineari né obbligatorie."
     },
     {
@@ -946,12 +946,12 @@
       "difficolta": "facile",
       "domanda": "Cosa significa 'approccio centrato sulla persona' nelle cure sociosanitarie?",
       "opzioni": [
-        "Concentrarsi sulla malattia più che sulla persona",
-        "Rispettare i bisogni, i valori e le preferenze individuali della persona assistita",
+        "Applicare protocolli standard senza eccezioni",
         "Trattare tutti i pazienti allo stesso modo",
-        "Applicare protocolli standard senza eccezioni"
+        "Rispettare i bisogni, i valori e le preferenze individuali della persona assistita",
+        "Concentrarsi sulla malattia più che sulla persona"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'approccio centrato sulla persona (Carl Rogers) pone la persona al centro del processo di cura, rispettandone l'autonomia, i valori, la storia di vita e le preferenze. Si contrappone all'approccio biomedico centrato sulla patologia."
     },
     {
@@ -960,12 +960,12 @@
       "difficolta": "media",
       "domanda": "Qual è la differenza tra 'confine professionale' e 'distanza emotiva'?",
       "opzioni": [
-        "Non c'è differenza, sono sinonimi",
-        "Il confine professionale è la gestione sana del rapporto, la distanza emotiva è l'indifferenza",
+        "Il confine professionale riguarda solo il medico, non l'OSS",
         "La distanza emotiva è obbligatoria, il confine professionale è facoltativo",
-        "Il confine professionale riguarda solo il medico, non l'OSS"
+        "Non c'è differenza, sono sinonimi",
+        "Il confine professionale è la gestione sana del rapporto, la distanza emotiva è l'indifferenza"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Il confine professionale permette una relazione autentica e terapeutica senza perdere il proprio ruolo. La distanza emotiva è invece un meccanismo difensivo disfunzionale che impoverisce la relazione di cura (tipico del burnout)."
     },
     {
@@ -974,12 +974,12 @@
       "difficolta": "media",
       "domanda": "Quale delle seguenti soluzioni è utilizzata come disinfettante per superfici in ambito sanitario?",
       "opzioni": [
-        "Acqua ossigenata al 10%",
-        "Ipoclorito di sodio allo 0.1-0.5%",
         "Alcool etilico al 30%",
-        "Acqua distillata"
+        "Acqua distillata",
+        "Ipoclorito di sodio allo 0.1-0.5%",
+        "Acqua ossigenata al 10%"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'ipoclorito di sodio (varechina) allo 0.1-0.5% è uno dei disinfettanti più usati per superfici in ambito sanitario: battericida, virucida, fungicida. Per strumenti si usa spesso l'alcool etilico al 70%."
     },
     {
@@ -988,12 +988,12 @@
       "difficolta": "media",
       "domanda": "Quale posizione si adotta per un paziente in stato di incoscienza che respira normalmente?",
       "opzioni": [
-        "Posizione supina",
-        "Posizione laterale di sicurezza (PLS)",
         "Posizione di Fowler",
-        "Posizione prona"
+        "Posizione prona",
+        "Posizione supina",
+        "Posizione laterale di sicurezza (PLS)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La posizione laterale di sicurezza (PLS) viene adottata in paziente incosciente che respira, per mantenere pervie le vie aeree e prevenire l'ab ingestis in caso di vomito. Il paziente viene posto sul fianco."
     },
     {
@@ -1002,12 +1002,12 @@
       "difficolta": "media",
       "domanda": "Quali sono i segni classici dell'ictus che si valutano con il test FAST?",
       "opzioni": [
-        "Febbre, Agitazione, Sudorazione, Tremore",
-        "Face (viso), Arm (braccio), Speech (linguaggio), Time (tempo)",
+        "Fiato, Addome, Sensibilità, Tono",
         "Frequenza, Attività, Saturazione, Temperatura",
-        "Fiato, Addome, Sensibilità, Tono"
+        "Febbre, Agitazione, Sudorazione, Tremore",
+        "Face (viso), Arm (braccio), Speech (linguaggio), Time (tempo)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Il test FAST (Face, Arm, Speech, Time) è uno strumento di screening per l'ictus: asimmetria del viso, debolezza/caduta di un braccio, difficoltà nel linguaggio. Il tempo è fondamentale: 'Time is brain'."
     },
     {
@@ -1016,12 +1016,12 @@
       "difficolta": "media",
       "domanda": "La L. 104/1992 tutela:",
       "opzioni": [
-        "I lavoratori dipendenti in genere",
         "Le persone con handicap e le loro famiglie",
-        "I minori in difficoltà",
-        "Gli anziani non autosufficienti"
+        "Gli anziani non autosufficienti",
+        "I lavoratori dipendenti in genere",
+        "I minori in difficoltà"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La Legge 104/1992 è la legge quadro per l'assistenza, l'integrazione sociale e i diritti delle persone con handicap. Prevede benefici lavorativi per il disabile e i suoi caregivers (permessi retribuiti, congedi)."
     },
     {
@@ -1030,12 +1030,12 @@
       "difficolta": "media",
       "domanda": "Qual è la funzione principale dei reni?",
       "opzioni": [
-        "Produzione di ormoni sessuali",
         "Filtrazione del sangue ed eliminazione delle scorie metaboliche con le urine",
-        "Digestione dei grassi",
-        "Produzione di globuli rossi"
+        "Produzione di globuli rossi",
+        "Produzione di ormoni sessuali",
+        "Digestione dei grassi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "I reni filtrano circa 180 litri di plasma al giorno, producendo 1-2 litri di urina. Regolano l'equilibrio idroelettrolitico, acido-base, la pressione arteriosa (sistema renina-angiotensina) e producono eritropoietina."
     },
     {
@@ -1045,8 +1045,8 @@
       "domanda": "Quale vitamina è prodotta dalla pelle in seguito all'esposizione ai raggi ultravioletti?",
       "opzioni": [
         "Vitamina A",
-        "Vitamina B12",
         "Vitamina C",
+        "Vitamina B12",
         "Vitamina D"
       ],
       "risposta_corretta": 3,
@@ -1059,11 +1059,11 @@
       "domanda": "Come si chiama la valutazione del dolore con una scala da 0 a 10?",
       "opzioni": [
         "Scala di Braden",
+        "Scala VAS analogica",
         "NRS (Numeric Rating Scale)",
-        "Scala di Glasgow",
-        "Scala VAS analogica"
+        "Scala di Glasgow"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'NRS (Numeric Rating Scale) è una scala numerica da 0 (nessun dolore) a 10 (dolore massimo immaginabile). È semplice e rapida. La VAS (Visual Analogue Scale) usa una linea di 10 cm. Per bambini o non verbali si usa la scala delle facce."
     },
     {
@@ -1072,12 +1072,12 @@
       "difficolta": "facile",
       "domanda": "Cosa si intende per 'posologia' di un farmaco?",
       "opzioni": [
+        "Le controindicazioni",
         "Il nome chimico del farmaco",
-        "La dose e la frequenza di somministrazione",
         "La via di somministrazione",
-        "Le controindicazioni"
+        "La dose e la frequenza di somministrazione"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La posologia indica dose, frequenza e durata della somministrazione di un farmaco. Esempio: 'amoxicillina 500 mg ogni 8 ore per 7 giorni'. Va sempre seguita scrupolosamente per garantire efficacia terapeutica e sicurezza."
     },
     {
@@ -1086,12 +1086,12 @@
       "difficolta": "media",
       "domanda": "Qual è la fase del colloquio di aiuto in cui si esplora il problema con il paziente?",
       "opzioni": [
-        "Fase iniziale (apertura)",
         "Fase centrale (esplorazione)",
         "Fase conclusiva (chiusura)",
+        "Fase iniziale (apertura)",
         "Fase di valutazione"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il colloquio di aiuto si articola in: fase iniziale (accoglienza, creazione del rapporto), fase centrale (esplorazione del problema, obiettivi, risorse) e fase conclusiva (sintesi, piano d'azione, chiusura)."
     },
     {
@@ -1101,11 +1101,11 @@
       "domanda": "Quale tipo di isolamento si applica per un paziente con varicella attiva?",
       "opzioni": [
         "Isolamento da contatto",
-        "Isolamento da droplet",
         "Isolamento aereo (airborne) + contatto",
+        "Isolamento da droplet",
         "Nessun isolamento necessario"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "La varicella richiede precauzioni airborne + contatto: il virus si trasmette sia per via aerea (particelle < 5 μm) che per contatto diretto con le lesioni. Il paziente deve essere in camera singola con pressione negativa se disponibile."
     },
     {
@@ -1114,12 +1114,12 @@
       "difficolta": "media",
       "domanda": "Qual è il sito corretto per la misurazione della glicemia capillare?",
       "opzioni": [
-        "Centro del polpastrello",
         "Lato del polpastrello",
         "Palmo della mano",
+        "Centro del polpastrello",
         "Lobo dell'orecchio"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La puntura deve essere effettuata sul lato del polpastrello (lateralmente), non al centro dove la sensibilità è maggiore. Alternare le dita per evitare callosità. L'area deve essere pulita ma non alcolizzata prima della puntura."
     },
     {
@@ -1128,9 +1128,9 @@
       "difficolta": "media",
       "domanda": "Come si gestisce una ferita da taglio con abbondante sanguinamento?",
       "opzioni": [
-        "Applicare un tourniquet immediatamente",
-        "Compressione diretta con garza sterile, elevazione dell'arto, chiamare i soccorsi",
         "Applicare ghiaccio direttamente sulla ferita",
+        "Compressione diretta con garza sterile, elevazione dell'arto, chiamare i soccorsi",
+        "Applicare un tourniquet immediatamente",
         "Lavare abbondantemente con acqua ossigenata"
       ],
       "risposta_corretta": 1,
@@ -1142,12 +1142,12 @@
       "difficolta": "difficile",
       "domanda": "Qual è la dieta raccomandata per un paziente con insufficienza renale cronica?",
       "opzioni": [
-        "Dieta iperproteica e ipercalorica",
         "Dieta a ridotto contenuto di proteine, fosforo, potassio e sodio",
+        "Dieta iperproteica e ipercalorica",
         "Dieta mediterranea standard",
         "Dieta ad alto contenuto di fibre e liquidi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Nell'IRC la dieta prevede restrizione proteica (riduce scorie azotate), fosforo (rischio iperfosfatemia e calcificazioni), potassio (rischio iperkaliemia e aritmie) e sodio (controllo pressione e ritenzione idrica)."
     },
     {
@@ -1156,12 +1156,12 @@
       "difficolta": "difficile",
       "domanda": "Il D.Lgs 502/1992 ha introdotto la cosiddetta 'aziendalizzazione' del SSN. Cosa prevede principalmente?",
       "opzioni": [
-        "La privatizzazione completa del SSN",
-        "La trasformazione delle USL in Aziende Sanitarie Locali con autonomia gestionale",
+        "L'istituzione delle Regioni sanitarie",
         "L'abolizione del medico di base",
-        "L'istituzione delle Regioni sanitarie"
+        "La trasformazione delle USL in Aziende Sanitarie Locali con autonomia gestionale",
+        "La privatizzazione completa del SSN"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il D.Lgs 502/1992 ha riformato il SSN introducendo le Aziende Sanitarie Locali (ASL) e Aziende Ospedaliere con personalità giuridica e autonomia gestionale, il ruolo delle Regioni e i principi di efficienza ed efficacia."
     },
     {
@@ -1170,12 +1170,12 @@
       "difficolta": "difficile",
       "domanda": "Qual è il valore normale della saturazione di ossigeno (SpO2) in un adulto sano?",
       "opzioni": [
-        "85-89%",
         "90-94%",
-        "95-100%",
-        "Oltre 100%"
+        "Oltre 100%",
+        "85-89%",
+        "95-100%"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 3,
       "spiegazione": "La SpO2 normale è 95-100%. Valori 90-94% indicano ipossiemia lieve, 85-89% moderata, <85% grave. Il pulsossimetro misura la saturazione in modo non invasivo. Sotto il 90% si parla di ipossiemia clinicamente significativa."
     },
     {
@@ -1184,12 +1184,12 @@
       "difficolta": "difficile",
       "domanda": "Qual è la differenza tra cateterismo vescicale a permanenza e cateterismo ad intermittenza?",
       "opzioni": [
-        "Non c'è differenza pratica",
         "Il catetere a permanenza rimane in sede, quello ad intermittenza viene rimosso dopo lo svuotamento",
         "Il catetere ad intermittenza è più grande",
-        "Solo il catetere a permanenza è sterile"
+        "Solo il catetere a permanenza è sterile",
+        "Non c'è differenza pratica"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il cateterismo a permanenza (Foley) rimane in sede con palloncino di fissaggio; il cateterismo ad intermittenza viene inserito e rimosso ad ogni svuotamento. Quest'ultimo riduce il rischio di infezioni urinarie associate a catetere (CAUTI)."
     },
     {
@@ -1198,10 +1198,10 @@
       "difficolta": "difficile",
       "domanda": "Nella comunicazione con un paziente affetto da demenza di Alzheimer in fase avanzata, quale approccio è più efficace?",
       "opzioni": [
-        "Correggere sistematicamente i disorientamenti temporali e spaziali",
+        "Usare frasi lunghe e articolate per stimolare la memoria",
         "Validation therapy: incontrare il paziente nella sua realtà emotiva senza contraddirlo",
         "Evitare qualsiasi comunicazione per non agitarlo",
-        "Usare frasi lunghe e articolate per stimolare la memoria"
+        "Correggere sistematicamente i disorientamenti temporali e spaziali"
       ],
       "risposta_corretta": 1,
       "spiegazione": "La Validation Therapy (Feil, 1992) consiste nell'entrare nel mondo emotivo della persona con demenza, validando i suoi sentimenti senza contraddire la sua realtà. Si contrappone alla Reality Orientation Therapy, che può aumentare l'agitazione in fase avanzata."
@@ -1212,12 +1212,12 @@
       "difficolta": "facile",
       "domanda": "Quante fasi prevede la procedura OMS per l'igiene delle mani con gel alcolico?",
       "opzioni": [
-        "3",
         "5",
-        "7",
-        "9"
+        "9",
+        "3",
+        "7"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 3,
       "spiegazione": "La procedura OMS per la frizione con gel alcolico prevede 7 fasi in 20-30 secondi: palmo su palmo, dorso delle mani, dita intrecciate, dorso delle dita, pollici, polpastrelli, polsi. Il gel alcolico non richiede acqua ma non è efficace in presenza di sporco visibile."
     },
     {
@@ -1226,12 +1226,12 @@
       "difficolta": "media",
       "domanda": "Cosa si intende per 'interazione farmacologica'?",
       "opzioni": [
-        "Il rapporto tra medico e farmacista",
         "La modificazione dell'effetto di un farmaco da parte di un altro farmaco, cibo o sostanza",
-        "Il costo di un farmaco rispetto a un altro",
-        "La somiglianza chimica tra due farmaci"
+        "La somiglianza chimica tra due farmaci",
+        "Il rapporto tra medico e farmacista",
+        "Il costo di un farmaco rispetto a un altro"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Le interazioni farmacologiche si verificano quando l'effetto di un farmaco è modificato da altro farmaco, alimento (es. pompelmo e statine) o sostanza. Possono essere sinergiche (potenziamento), antagoniste (riduzione) o tossiche."
     },
     {
@@ -1240,12 +1240,12 @@
       "difficolta": "facile",
       "domanda": "Cosa si intende per 'nursing' in ambito sanitario?",
       "opzioni": [
-        "La tecnica di medicazione delle ferite",
         "L'insieme delle attività di assistenza infermieristica e di cura alla persona",
-        "La somministrazione di farmaci",
-        "La gestione amministrativa del reparto"
+        "La tecnica di medicazione delle ferite",
+        "La gestione amministrativa del reparto",
+        "La somministrazione di farmaci"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il nursing comprende tutte le attività di assistenza alla persona: igiene, mobilizzazione, alimentazione, sorveglianza, supporto emotivo, prevenzione complicanze. È fondato su un approccio olistico (fisico, psicologico, sociale, spirituale)."
     },
     {
@@ -1255,11 +1255,11 @@
       "domanda": "Qual è il trattamento iniziale per un paziente in stato di shock ipovolemico?",
       "opzioni": [
         "Posizione seduta e acqua da bere",
-        "Posizione Trendelenburg, accesso venoso, fluidi EV, chiamare i soccorsi",
+        "Somministrazione di vasocostrittori orali",
         "Bendaggio compressivo e osservazione",
-        "Somministrazione di vasocostrittori orali"
+        "Posizione Trendelenburg, accesso venoso, fluidi EV, chiamare i soccorsi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Lo shock ipovolemico richiede: posizione Trendelenburg (gambe elevate), mantenere caldo, accesso venoso (gestito dal medico/infermiere), fluidi EV aggressivi, identificare e trattare la causa. Chiamare immediatamente il 112."
     },
     {
@@ -1268,12 +1268,12 @@
       "difficolta": "media",
       "domanda": "Quale condizione può verificarsi in un paziente diabetico che salta i pasti dopo aver assunto insulina?",
       "opzioni": [
+        "Nessun problema",
         "Iperglicemia",
         "Ipoglicemia",
-        "Chetoacidosi",
-        "Nessun problema"
+        "Chetoacidosi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Se un paziente diabetico assume insulina e non mangia, la glicemia scende eccessivamente causando ipoglicemia (glicemia < 70 mg/dl). È una complicanza acuta e potenzialmente pericolosa che richiede somministrazione di zuccheri rapidamente disponibili."
     },
     {
@@ -1282,12 +1282,12 @@
       "difficolta": "facile",
       "domanda": "Quale organo è responsabile della produzione della bile?",
       "opzioni": [
+        "Intestino tenue",
         "Pancreas",
-        "Fegato",
         "Cistifellea",
-        "Intestino tenue"
+        "Fegato"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La bile è prodotta dal fegato e immagazzinata nella cistifellea (colecisti). Viene rilasciata nel duodeno durante la digestione per emulsionare i grassi e facilitarne l'assorbimento."
     },
     {
@@ -1297,11 +1297,11 @@
       "domanda": "L'OSS può eseguire prelievi di sangue venoso in modo autonomo?",
       "opzioni": [
         "Sì, dopo adeguata formazione",
-        "No, questa è una competenza infermieristica",
         "Sì, solo nei laboratori di analisi",
+        "No, questa è una competenza infermieristica",
         "Sì, ma solo con supervisione medica"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il prelievo ematico venoso è di competenza infermieristica (o medica). L'OSS non può eseguirlo autonomamente. Il profilo dell'OSS (D.M. 2001) non include procedure invasive come i prelievi venosi."
     },
     {
@@ -1311,11 +1311,11 @@
       "domanda": "Cosa si intende per 'resilienza' in psicologia?",
       "opzioni": [
         "La tendenza ad evitare i problemi",
-        "La capacità di affrontare le avversità e riprendersi dalle difficoltà",
         "La dipendenza dagli altri nei momenti di crisi",
-        "L'incapacità di gestire lo stress"
+        "L'incapacità di gestire lo stress",
+        "La capacità di affrontare le avversità e riprendersi dalle difficoltà"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La resilienza è la capacità di adattarsi positivamente di fronte alle avversità, traumi, stress. Non significa assenza di sofferenza, ma capacità di elaborarla e riprendersi. È una competenza potenziabile."
     },
     {
@@ -1324,12 +1324,12 @@
       "difficolta": "media",
       "domanda": "Quale dei seguenti è un esempio di profilassi primaria?",
       "opzioni": [
-        "Screening per tumore del colon",
-        "Vaccinazione antinfluenzale",
         "Riabilitazione post-ictus",
-        "Chemioterapia per tumore in fase iniziale"
+        "Screening per tumore del colon",
+        "Chemioterapia per tumore in fase iniziale",
+        "Vaccinazione antinfluenzale"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La prevenzione primaria evita l'insorgere della malattia (vaccinazioni, stili di vita sani). La secondaria identifica precocemente la malattia (screening). La terziaria riduce le complicanze (riabilitazione). La vaccinazione è il classico esempio di primaria."
     },
     {
@@ -1352,12 +1352,12 @@
       "difficolta": "difficile",
       "domanda": "Quale classe di farmaci è indicata nel trattamento del dolore neuropatico?",
       "opzioni": [
-        "FANS (ibuprofene, naprossene)",
-        "Antiepilettici (gabapentin, pregabalin) e antidepressivi triciclici",
+        "Antibiotici",
         "Antiacidi",
-        "Antibiotici"
+        "FANS (ibuprofene, naprossene)",
+        "Antiepilettici (gabapentin, pregabalin) e antidepressivi triciclici"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Il dolore neuropatico (da lesione nervosa) risponde poco ai FANS. I farmaci di prima scelta sono antiepilettici (gabapentin, pregabalin) che modulano i canali del calcio, e antidepressivi (duloxetina, amitriptilina) che agiscono sulle vie discendenti del dolore."
     },
     {
@@ -1366,12 +1366,12 @@
       "difficolta": "facile",
       "domanda": "Cosa si deve fare in caso di sospetta frattura di un arto?",
       "opzioni": [
-        "Tentare di ridurre la frattura manualmente",
-        "Immobilizzare l'arto nella posizione in cui si trova e chiamare i soccorsi",
         "Massaggiare l'area dolente",
-        "Far camminare il paziente per valutare la gravità"
+        "Far camminare il paziente per valutare la gravità",
+        "Immobilizzare l'arto nella posizione in cui si trova e chiamare i soccorsi",
+        "Tentare di ridurre la frattura manualmente"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "In caso di sospetta frattura: NON muovere il segmento osseo, immobilizzare nella posizione trovata (con stecche o oggetti rigidi imbottiti), applicare ghiaccio avvolto, calmare il paziente e chiamare i soccorsi."
     },
     {
@@ -1380,12 +1380,12 @@
       "difficolta": "media",
       "domanda": "Dove avviene la produzione dei linfociti T?",
       "opzioni": [
-        "Midollo osseo rosso",
-        "Timo",
         "Milza",
-        "Linfonodi"
+        "Linfonodi",
+        "Timo",
+        "Midollo osseo rosso"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "I linfociti T maturano nel timo (da cui il nome T), dove acquisiscono la capacità di distinguere il self dal non-self. I linfociti B maturano nel midollo osseo. Entrambi originano da cellule staminali nel midollo osseo rosso."
     },
     {
@@ -1394,10 +1394,10 @@
       "difficolta": "difficile",
       "domanda": "Qual è la corretta gestione del catetere venoso periferico (CVP) per prevenire le infezioni?",
       "opzioni": [
-        "Sostituirlo ogni 7 giorni",
+        "Coprirlo con cerotto tradizionale e cambiarlo ogni 2 settimane",
         "Medicazione sterile, sostituzione ogni 72-96 ore o al primo segno di flebite, lavaggio con soluzione fisiologica",
         "Utilizzarlo fino a quando non dà problemi senza sostituirlo",
-        "Coprirlo con cerotto tradizionale e cambiarlo ogni 2 settimane"
+        "Sostituirlo ogni 7 giorni"
       ],
       "risposta_corretta": 1,
       "spiegazione": "I CVP vanno sostituiti ogni 72-96 ore (o prima se ci sono segni di flebite: eritema, dolore, gonfiore). Medicazione trasparente sterile, lavaggio con SF prima e dopo ogni infusione (tecnica push-pause)."
@@ -1408,12 +1408,12 @@
       "difficolta": "media",
       "domanda": "Quale dei seguenti è un principio etico fondamentale delle professioni di cura?",
       "opzioni": [
-        "Paternalismo (decidere per il paziente nel suo interesse)",
-        "Non maleficenza ('primum non nocere': prima di tutto non fare del male)",
+        "Omologazione (trattare tutti allo stesso modo)",
         "Efficienza economica sopra ogni cosa",
-        "Omologazione (trattare tutti allo stesso modo)"
+        "Paternalismo (decidere per il paziente nel suo interesse)",
+        "Non maleficenza ('primum non nocere': prima di tutto non fare del male)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "I 4 principi della bioetica (Beauchamp e Childress) sono: autonomia, beneficenza, non maleficenza e giustizia. 'Primum non nocere' (prima di tutto non fare del male) è il principio di non maleficenza, cardine dell'etica sanitaria."
     },
     {
@@ -1422,12 +1422,12 @@
       "difficolta": "facile",
       "domanda": "Come si chiama il muscolo principale della respirazione?",
       "opzioni": [
+        "Muscolo intercostale",
         "Muscolo grande pettorale",
         "Diaframma",
-        "Muscolo sternocleidomastoideo",
-        "Muscolo intercostale"
+        "Muscolo sternocleidomastoideo"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il diaframma è il principale muscolo respiratorio. Durante l'inspirazione si abbassa, aumentando il volume della cavità toracica. I muscoli accessori (intercostali, sternocleidomastoideo) entrano in gioco durante la dispnea."
     },
     {
@@ -1437,11 +1437,11 @@
       "domanda": "Quale dei seguenti microrganismi è responsabile della MRSA?",
       "opzioni": [
         "Mycobacterium tuberculosis resistente",
-        "Staphylococcus aureus meticillino-resistente",
+        "Pseudomonas aeruginosa multi-resistente",
         "Streptococcus pneumoniae resistente",
-        "Pseudomonas aeruginosa multi-resistente"
+        "Staphylococcus aureus meticillino-resistente"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "MRSA = Methicillin-Resistant Staphylococcus aureus. È un batterio resistente alla meticillina e alla maggior parte dei beta-lattamici. Causa gravi infezioni ospedaliere. Richiede isolamento da contatto e decolonizzazione."
     },
     {
@@ -1452,8 +1452,8 @@
       "opzioni": [
         "Solo a fine turno",
         "In tempo reale, contestualmente all'assistenza prestata",
-        "Una volta alla settimana",
-        "Solo quando ci sono problemi"
+        "Solo quando ci sono problemi",
+        "Una volta alla settimana"
       ],
       "risposta_corretta": 1,
       "spiegazione": "La documentazione assistenziale va compilata in tempo reale (o immediatamente dopo l'assistenza), in modo accurato, leggibile e firmato. La cartella è un documento medico-legale; le omissioni o ritardi possono avere implicazioni legali."
@@ -1464,12 +1464,12 @@
       "difficolta": "media",
       "domanda": "Cosa si intende per farmaco 'generico' o 'equivalente'?",
       "opzioni": [
+        "Un farmaco prodotto in Italia",
         "Un farmaco di bassa qualità",
         "Un farmaco con lo stesso principio attivo del branded, stessa dose e biodisponibilità",
-        "Un farmaco senza effetti collaterali",
-        "Un farmaco prodotto in Italia"
+        "Un farmaco senza effetti collaterali"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il farmaco generico (equivalente) contiene lo stesso principio attivo, stessa dose, stessa via di somministrazione del farmaco di riferimento (branded) e bioequivalenza documentata. Ha lo stesso effetto terapeutico ma costo inferiore."
     },
     {
@@ -1478,12 +1478,12 @@
       "difficolta": "media",
       "domanda": "Quali sono i segni di una reazione allergica grave (anafilassi)?",
       "opzioni": [
+        "Febbre alta e brividi",
         "Solo orticaria e prurito",
         "Ipotensione, broncospasmo, edema laringeo, tachicardia, perdita di coscienza",
-        "Solo eritema localizzato",
-        "Febbre alta e brividi"
+        "Solo eritema localizzato"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'anafilassi è una reazione allergica sistemica grave e potenzialmente letale: ipotensione, broncospasmo, edema delle vie aeree, shock. Trattamento d'emergenza: adrenalina IM, chiamata 112, posizione supina con gambe elevate."
     },
     {
@@ -1493,11 +1493,11 @@
       "domanda": "Quale minerale è fondamentale per la salute delle ossa e dei denti?",
       "opzioni": [
         "Ferro",
-        "Calcio",
         "Potassio",
+        "Calcio",
         "Sodio"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il calcio è il minerale più abbondante nell'organismo: il 99% si trova nelle ossa e nei denti. La sua carenza causa osteoporosi. Le principali fonti sono: latte e derivati, legumi, verdure a foglia verde (cavolo, broccoli)."
     },
     {
@@ -1507,11 +1507,11 @@
       "domanda": "Qual è l'ente che accredita le strutture sanitarie in Italia?",
       "opzioni": [
         "Ministero della Salute direttamente",
-        "Le Regioni, che rilasciano l'accreditamento istituzionale",
         "L'Ordine dei Medici",
+        "Le Regioni, che rilasciano l'accreditamento istituzionale",
         "L'INPS"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "In Italia l'accreditamento istituzionale delle strutture sanitarie è di competenza regionale (D.Lgs 502/1992). Le Regioni verificano il possesso dei requisiti di qualità oltre all'autorizzazione (che verifica i requisiti minimi)."
     },
     {
@@ -1520,12 +1520,12 @@
       "difficolta": "difficile",
       "domanda": "Quale approccio è indicato nell'assistenza a pazienti con disturbo borderline di personalità?",
       "opzioni": [
-        "Ignorare le manifestazioni emotive eccessive",
-        "Approccio strutturato, limiti chiari, coerenza del team, evitare splitting",
         "Soddisfare tutte le richieste per evitare crisi",
-        "Isolamento terapeutico"
+        "Ignorare le manifestazioni emotive eccessive",
+        "Isolamento terapeutico",
+        "Approccio strutturato, limiti chiari, coerenza del team, evitare splitting"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Nel disturbo borderline è fondamentale: struttura e prevedibilità, limiti chiari e condivisi, coerenza del team (evitare splitting: idealizzazione/svalutazione di diversi operatori), validazione emotiva e contenimento."
     },
     {
@@ -1534,12 +1534,12 @@
       "difficolta": "facile",
       "domanda": "Qual è il principale veicolo di trasmissione del Clostridium difficile?",
       "opzioni": [
-        "Via aerea",
         "Contatto con feci contaminate (fecale-orale) e superfici",
+        "Via aerea",
         "Via ematica",
         "Via sessuale"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Clostridium difficile si trasmette per via fecale-orale attraverso spore resistenti che sopravvivono mesi sulle superfici. NON è eliminato dall'alcool: richiedono lavaggio mani con acqua e sapone e decontaminazione con ipoclorito."
     },
     {
@@ -1562,12 +1562,12 @@
       "difficolta": "difficile",
       "domanda": "Quale struttura anatomica è comunemente interessata nell'ictus ischemico dell'arteria cerebrale media?",
       "opzioni": [
-        "Cervelletto",
-        "Corteccia motoria e sensitiva controlaterale, area di Broca",
         "Tronco encefalico",
-        "Ipotalamo"
+        "Ipotalamo",
+        "Corteccia motoria e sensitiva controlaterale, area di Broca",
+        "Cervelletto"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'arteria cerebrale media irrora gran parte dell'emisfero: corteccia motoria/sensitiva (emiplegia/emianestesia controlaterale), area di Broca a sinistra (afasia motoria). È la sede più frequente di ictus ischemico."
     },
     {
@@ -1576,10 +1576,10 @@
       "difficolta": "difficile",
       "domanda": "Quale farmaco richiede il monitoraggio dell'INR (International Normalized Ratio)?",
       "opzioni": [
-        "Aspirina",
-        "Warfarin",
         "Eparina a basso peso molecolare",
-        "Clopidogrel"
+        "Warfarin",
+        "Clopidogrel",
+        "Aspirina"
       ],
       "risposta_corretta": 1,
       "spiegazione": "Il warfarin (Coumadin) è un anticoagulante orale vitamina K-antagonista con finestra terapeutica stretta. Richiede monitoraggio periodico dell'INR (target 2-3 per FA, 2.5-3.5 per valvole meccaniche) perché molti farmaci e alimenti ne modificano l'effetto."
@@ -1590,12 +1590,12 @@
       "difficolta": "media",
       "domanda": "Quale tipo di fibra alimentare è più efficace nel ridurre il colesterolo LDL?",
       "opzioni": [
-        "Fibra insolubile (crusca di frumento)",
         "Fibra solubile (beta-glucani avena, pectine frutta)",
+        "La fibra alimentare non influenza il colesterolo",
         "Entrambe hanno lo stesso effetto",
-        "La fibra alimentare non influenza il colesterolo"
+        "Fibra insolubile (crusca di frumento)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La fibra solubile (beta-glucani dell'avena, pectine di mele/agrumi, inulina) forma un gel viscoso nell'intestino che sequestra il colesterolo e gli acidi biliari, riducendo l'LDL. La fibra insolubile favorisce il transito intestinale."
     },
     {
@@ -1604,12 +1604,12 @@
       "difficolta": "facile",
       "domanda": "Qual è l'obiettivo principale dell'assistenza palliativa?",
       "opzioni": [
-        "Guarire la malattia di base",
         "Migliorare la qualità di vita del paziente e della famiglia di fronte a malattia inguaribile",
+        "Ridurre i costi sanitari",
         "Prolungare la vita a qualsiasi costo",
-        "Ridurre i costi sanitari"
+        "Guarire la malattia di base"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Le cure palliative (OMS) mirano a migliorare la qualità di vita di paziente e famiglia di fronte a malattia inguaribile, attraverso la prevenzione e il sollievo dalla sofferenza (fisica, psicologica, sociale, spirituale). Non accelerano né ritardano la morte."
     },
     {
@@ -1618,12 +1618,12 @@
       "difficolta": "difficile",
       "domanda": "Qual è la differenza tra 'responsabilità penale' e 'responsabilità civile' per un OSS?",
       "opzioni": [
-        "Non c'è differenza",
-        "La penale riguarda reati (condotte illecite punite con sanzioni), la civile riguarda il risarcimento del danno",
         "La penale riguarda solo i medici",
-        "La civile riguarda solo i dirigenti"
+        "La civile riguarda solo i dirigenti",
+        "Non c'è differenza",
+        "La penale riguarda reati (condotte illecite punite con sanzioni), la civile riguarda il risarcimento del danno"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La responsabilità penale consegue a condotte costituenti reato (es. lesioni colpose, omissione di soccorso) e comporta sanzioni penali. La responsabilità civile obbliga al risarcimento del danno causato a terzi (es. per negligenza)."
     },
     {
@@ -1633,11 +1633,11 @@
       "domanda": "Quale delle seguenti pratiche contribuisce maggiormente alla prevenzione delle infezioni correlate all'assistenza (ICA)?",
       "opzioni": [
         "Uso routinario di antibiotici profilattici",
-        "Corretta igiene delle mani degli operatori",
+        "Somministrazione di vaccini a tutti i pazienti",
         "Isolamento di tutti i pazienti in camere singole",
-        "Somministrazione di vaccini a tutti i pazienti"
+        "Corretta igiene delle mani degli operatori"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "L'igiene delle mani è la misura singola più efficace per prevenire le ICA (Infezioni Correlate all'Assistenza). L'OMS stima che possa prevenire oltre il 30% delle infezioni nosocomiali. È il fondamento delle precauzioni standard."
     },
     {
@@ -1647,11 +1647,11 @@
       "domanda": "Quale delle seguenti è una corretta controindicazione all'uso del DEA (Defibrillatore Automatico Esterno)?",
       "opzioni": [
         "Paziente bagnato (nella norma)",
+        "Presenza di peli toracici",
         "Bambino sotto gli 8 anni (senza pads pediatriche disponibili)",
-        "Paziente incosciente senza polso",
-        "Presenza di peli toracici"
+        "Paziente incosciente senza polso"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il DEA va usato in qualsiasi paziente in arresto cardiaco. Nei bambini sotto 8 anni (<25 kg) si usano pads pediatriche riduttrici; se non disponibili, si usano quelle standard. Il paziente bagnato va asciugato rapidamente ma il DEA NON va ritardato."
     },
     {
@@ -1660,12 +1660,12 @@
       "difficolta": "media",
       "domanda": "Cosa si intende per 'comunicazione terapeutica'?",
       "opzioni": [
-        "Comunicare solo informazioni mediche al paziente",
         "Un uso intenzionale della comunicazione per favorire il benessere e la guarigione del paziente",
-        "La comunicazione tra medici dell'équipe",
-        "L'uso di farmaci per migliorare la comunicazione"
+        "L'uso di farmaci per migliorare la comunicazione",
+        "Comunicare solo informazioni mediche al paziente",
+        "La comunicazione tra medici dell'équipe"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La comunicazione terapeutica utilizza tecniche specifiche (ascolto attivo, empatia, silenzio, riformulazione, domande aperte) con l'obiettivo di favorire il benessere psicologico del paziente, la compliance e la relazione di fiducia."
     },
     {
@@ -1674,12 +1674,12 @@
       "difficolta": "media",
       "domanda": "Quale ghiandola endocrina produce la tireotropina (TSH)?",
       "opzioni": [
+        "Surrene",
         "Tiroide",
-        "Ipofisi",
         "Ipotalamo",
-        "Surrene"
+        "Ipofisi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Il TSH (Thyroid Stimulating Hormone) è prodotto dall'ipofisi anteriore (adenoipofisi) e stimola la tiroide a produrre T3 e T4. Il TSH è regolato dal TRH ipotalamico e dal feedback negativo degli ormoni tiroidei."
     },
     {
@@ -1690,8 +1690,8 @@
       "opzioni": [
         "Edema agli arti inferiori",
         "Confusione mentale e mucose secche",
-        "Ipertensione arteriosa",
-        "Aumento della diuresi"
+        "Aumento della diuresi",
+        "Ipertensione arteriosa"
       ],
       "risposta_corretta": 1,
       "spiegazione": "Nell'anziano la disidratazione si manifesta precocemente con: confusione mentale (spesso primo segno), mucose secche, cute poco elastica (turgore ridotto), ipotensione ortostatica, tachicardia. La sete è spesso assente per riduzione del meccanismo della sete con l'età."
@@ -1702,12 +1702,12 @@
       "difficolta": "media",
       "domanda": "Quale articolo della Costituzione italiana sancisce che la salute è un diritto fondamentale dell'individuo e un interesse della collettività?",
       "opzioni": [
+        "Art. 32",
         "Art. 2",
         "Art. 3",
-        "Art. 32",
         "Art. 38"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "L'art. 32 della Costituzione tutela il diritto alla salute come diritto fondamentale del singolo e interesse collettivo, garantisce cure gratuite agli indigenti e stabilisce che nessuno può essere sottoposto a trattamenti sanitari obbligatori senza una legge che li preveda."
     },
     {
@@ -1716,9 +1716,9 @@
       "difficolta": "media",
       "domanda": "L'art. 38 della Costituzione riguarda principalmente:",
       "opzioni": [
-        "Il diritto all'istruzione pubblica",
-        "Il diritto all'assistenza e alla previdenza sociale per inabili e lavoratori",
         "La libertà di associazione sindacale",
+        "Il diritto all'assistenza e alla previdenza sociale per inabili e lavoratori",
+        "Il diritto all'istruzione pubblica",
         "Il diritto di voto dei cittadini"
       ],
       "risposta_corretta": 1,
@@ -1730,12 +1730,12 @@
       "difficolta": "facile",
       "domanda": "Quale legge ha istituito un sistema integrato di servizi sociali affidandone la gestione ai Comuni?",
       "opzioni": [
-        "Legge 833/1978",
         "Legge 104/1992",
         "Legge 328/2000",
+        "Legge 833/1978",
         "Legge 180/1978"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "La Legge 328/2000 è la legge quadro per il sistema integrato di interventi e servizi sociali. Assegna ai Comuni la titolarità della programmazione e gestione dei servizi sociali, prevedendo integrazione tra ASL e Comuni per rispondere ai bisogni complessi dei cittadini."
     },
     {
@@ -1744,12 +1744,12 @@
       "difficolta": "difficile",
       "domanda": "L'art. 117 della Costituzione in materia di politiche sociali assegna allo Stato il compito di:",
       "opzioni": [
-        "Gestire direttamente tutti i servizi sociali sul territorio",
         "Definire i livelli essenziali delle prestazioni e i principi fondamentali",
+        "Gestire direttamente tutti i servizi sociali sul territorio",
         "Delegare interamente alle Regioni ogni competenza assistenziale",
         "Finanziare i Comuni senza stabilire standard minimi"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Secondo l'art. 117 Cost. e la L. 328/2000, la competenza statale è limitata alla definizione dei livelli essenziali delle prestazioni sociali e dei principi fondamentali, garantendo uniformità dei diritti su tutto il territorio nazionale. Le Regioni e i Comuni gestiscono l'erogazione concreta."
     },
     {
@@ -1758,12 +1758,12 @@
       "difficolta": "media",
       "domanda": "Cosa sono i 'poteri sostitutivi' dello Stato in materia sociale?",
       "opzioni": [
-        "La facoltà dello Stato di aumentare le tasse regionali",
-        "Interventi statali che scattano quando le Regioni non rispettano i propri obblighi assistenziali",
         "La possibilità dei Comuni di sostituire le ASL nei servizi sanitari",
-        "Il diritto dei cittadini di scegliere il proprio medico"
+        "Il diritto dei cittadini di scegliere il proprio medico",
+        "Interventi statali che scattano quando le Regioni non rispettano i propri obblighi assistenziali",
+        "La facoltà dello Stato di aumentare le tasse regionali"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "I poteri sostitutivi permettono allo Stato di intervenire direttamente quando Regioni o enti locali non assolvono agli obblighi previsti dalla L. 328/2000, garantendo comunque i livelli essenziali dei servizi ai cittadini su tutto il territorio nazionale."
     },
     {
@@ -1772,12 +1772,12 @@
       "difficolta": "facile",
       "domanda": "La Legge 180/1978 (Legge Basaglia) ha determinato:",
       "opzioni": [
-        "L'istituzione del Servizio Sanitario Nazionale",
-        "La regolamentazione dell'interruzione volontaria di gravidanza",
         "La chiusura dei manicomi e la riforma della salute mentale",
-        "La tutela delle persone con disabilità fisica"
+        "La regolamentazione dell'interruzione volontaria di gravidanza",
+        "La tutela delle persone con disabilità fisica",
+        "L'istituzione del Servizio Sanitario Nazionale"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "La Legge 180/1978, nota come Legge Basaglia dal nome dello psichiatra Franco Basaglia che ne fu il principale promotore, ha sancito la chiusura progressiva dei manicomi e ha riformato la psichiatria verso un modello di cura territoriale e comunitaria."
     },
     {
@@ -1786,12 +1786,12 @@
       "difficolta": "media",
       "domanda": "Durante il bagno a letto, qual è l'ordine corretto per lavare le diverse parti del corpo?",
       "opzioni": [
-        "Zona perineale → arti inferiori → addome → viso",
-        "Viso → arti superiori → torace → addome → arti inferiori → zona dorsale e perineale",
+        "Arti inferiori → addome → torace → viso",
         "Torace → viso → arti inferiori → zona perineale",
-        "Arti inferiori → addome → torace → viso"
+        "Viso → arti superiori → torace → addome → arti inferiori → zona dorsale e perineale",
+        "Zona perineale → arti inferiori → addome → viso"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il bagno a letto segue un ordine codificato che va dalla zona più pulita a quella più contaminata: viso, arti superiori, torace, addome, arti inferiori, zona dorsale e infine zona perineale. Questo riduce il rischio di contaminazione crociata."
     },
     {
@@ -1800,12 +1800,12 @@
       "difficolta": "media",
       "domanda": "Durante la vestizione di una persona emiplegica, qual è la sequenza corretta?",
       "opzioni": [
-        "Prima l'arto sano, poi l'arto plegico",
-        "Prima l'arto plegico, poi l'arto sano",
+        "La sequenza non ha importanza clinica",
         "Sempre dall'alto verso il basso indipendentemente dalla plegia",
-        "La sequenza non ha importanza clinica"
+        "Prima l'arto plegico, poi l'arto sano",
+        "Prima l'arto sano, poi l'arto plegico"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Nella vestizione si inizia dall'arto plegico (compromesso) e poi si procede con l'arto sano: questo perché l'arto sano è più mobile e può essere infilato più facilmente in un secondo momento. Per la svestizione si procede in ordine inverso: prima l'arto sano, poi quello plegico."
     },
     {
@@ -1814,10 +1814,10 @@
       "difficolta": "difficile",
       "domanda": "Nell'igiene del cavo orale di una persona con ossigenoterapia con maschera di Venturi, quale affermazione è corretta?",
       "opzioni": [
-        "La maschera va rimossa per tutta la durata della procedura",
-        "La maschera può essere rimossa solo se autorizzato e per il tempo strettamente necessario, monitorando il paziente",
         "Non si effettua mai l'igiene orale durante l'ossigenoterapia",
-        "Si può usare collutorio alcolico per una disinfezione più efficace"
+        "La maschera può essere rimossa solo se autorizzato e per il tempo strettamente necessario, monitorando il paziente",
+        "Si può usare collutorio alcolico per una disinfezione più efficace",
+        "La maschera va rimossa per tutta la durata della procedura"
       ],
       "risposta_corretta": 1,
       "spiegazione": "La maschera di Venturi può essere rimossa temporaneamente solo se autorizzato dal personale infermieristico e per il tempo minimo indispensabile, monitorando la SpO2 e le condizioni del paziente. In alternativa si può scostare leggermente. È controindicato il collutorio alcolico perché secca le mucose già compromesse dall'ossigenoterapia."
@@ -1828,12 +1828,12 @@
       "difficolta": "media",
       "domanda": "Nell'igiene del naso di una persona portatrice di sondino naso-gastrico, cosa è fondamentale evitare?",
       "opzioni": [
+        "Usare i guanti monouso",
         "Usare la soluzione fisiologica",
         "Movimenti che possano spostare o dislocare il sondino",
-        "Pulire le narici esternamente",
-        "Usare i guanti monouso"
+        "Pulire le narici esternamente"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Durante l'igiene nasale con SNG presente, è fondamentale evitare qualsiasi movimento che possa spostare o dislocare il sondino. Si usano garze o cotton fioc imbevuti di soluzione fisiologica con movimenti delicati, senza esercitare pressione sul presidio."
     },
     {
@@ -1843,11 +1843,11 @@
       "domanda": "Nella somministrazione del pasto al paziente allettato, quale posizione è raccomandata per prevenire l'ab ingestis?",
       "opzioni": [
         "Posizione supina (letto piatto)",
-        "Posizione di Trendelenburg (testa in basso)",
         "Posizione semi-Fowler (testa sollevata 30-45°)",
-        "Posizione laterale destra"
+        "Posizione laterale destra",
+        "Posizione di Trendelenburg (testa in basso)"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "La posizione semi-Fowler, con il capo del letto sollevato a 30-45°, è fondamentale durante la somministrazione del pasto al paziente allettato. Favorisce la deglutizione per gravità e riduce il rischio di aspirazione. Va mantenuta anche dopo il pasto per almeno 30 minuti."
     },
     {
@@ -1856,10 +1856,10 @@
       "difficolta": "difficile",
       "domanda": "Qual è il criterio corretto per il taglio delle unghie dei piedi in un paziente diabetico?",
       "opzioni": [
-        "Taglio arrotondato molto corto, per prevenire gli incarnimenti",
+        "Si taglia ogni 15 giorni con forbici sterili senza particolari accorgimenti",
         "Taglio dritto non troppo corto, con cautela; spesso da affidare a personale specializzato",
-        "Non si tagliano mai le unghie ai diabetici",
-        "Si taglia ogni 15 giorni con forbici sterili senza particolari accorgimenti"
+        "Taglio arrotondato molto corto, per prevenire gli incarnimenti",
+        "Non si tagliano mai le unghie ai diabetici"
       ],
       "risposta_corretta": 1,
       "spiegazione": "Nei pazienti diabetici il taglio delle unghie va eseguito in modo dritto (non curvo agli angoli) e non troppo corto, per evitare il rischio di incarnimenti e lesioni che potrebbero evolvere in ulcere difficilmente guaribili. Spesso è prudente affidare questa procedura a un podologo, data la ridotta sensibilità periferica."
@@ -1870,12 +1870,12 @@
       "difficolta": "media",
       "domanda": "Qual è la misura più importante per prevenire le infezioni urinarie in un paziente portatore di catetere vescicale a permanenza?",
       "opzioni": [
+        "Irrigare il catetere con soluzione fisiologica ogni 8 ore",
         "Sostituire la sacca di raccolta ogni 12 ore",
         "Mantenere il sistema di drenaggio chiuso ed evitare disconnessioni inutili",
-        "Somministrare antibiotici profilattici di routine",
-        "Irrigare il catetere con soluzione fisiologica ogni 8 ore"
+        "Somministrare antibiotici profilattici di routine"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Il mantenimento del sistema di drenaggio chiuso è la misura più efficace per prevenire le CAUTI (infezioni urinarie associate a catetere). Ogni disconnessione è una via d'ingresso per i batteri. La sacca va tenuta sempre al di sotto del livello della vescica, senza piegature del tubo."
     },
     {
@@ -1885,11 +1885,11 @@
       "domanda": "In una persona portatrice di colostomia, che colore deve avere la stomia in condizioni normali?",
       "opzioni": [
         "Pallido o biancastro",
+        "Giallastro",
         "Roseo o rosso vivo e umido",
-        "Scuro o brunastro",
-        "Giallastro"
+        "Scuro o brunastro"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Una stomia sana appare rosea o rosso viva e umida, simile alla mucosa buccale. Un colore pallido può indicare scarso apporto di sangue; il colore scuro o viola può segnalare ischemia. Qualsiasi variazione cromatica va segnalata immediatamente all'infermiere."
     },
     {
@@ -1899,11 +1899,11 @@
       "domanda": "Cosa si intende per 'igiene intima' accurata nella prevenzione delle infezioni urinarie?",
       "opzioni": [
         "Lavaggio con soluzioni antibiotiche due volte al giorno",
-        "Detersione con acqua e detergenti delicati nella zona perineale, con attenzione alla direzione (dall'avanti verso l'indietro nella donna)",
         "Utilizzo quotidiano di antisettici concentrati",
-        "Pulizia solo in caso di perdite visibili"
+        "Pulizia solo in caso di perdite visibili",
+        "Detersione con acqua e detergenti delicati nella zona perineale, con attenzione alla direzione (dall'avanti verso l'indietro nella donna)"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "L'igiene perineale corretta prevede acqua e detergenti delicati a pH neutro. Nella donna la detersione va eseguita dall'avanti verso l'indietro (dalla vulva verso l'ano) per evitare la contaminazione batterica fecale dell'uretra, che è molto corta e facilmente esposta a infezione."
     },
     {
@@ -1912,9 +1912,9 @@
       "difficolta": "difficile",
       "domanda": "Nel paziente con ematemesi (vomito con sangue), qual è la priorità assistenziale dell'OSS?",
       "opzioni": [
-        "Misurare la pressione arteriosa prima di chiamare i soccorsi",
-        "Posizionare il paziente in decubito laterale o semi-seduto e allertare immediatamente l'infermiere",
         "Somministrare antiacidi per ridurre il sanguinamento",
+        "Posizionare il paziente in decubito laterale o semi-seduto e allertare immediatamente l'infermiere",
+        "Misurare la pressione arteriosa prima di chiamare i soccorsi",
         "Rimuovere immediatamente il materiale vomitato senza osservarlo"
       ],
       "risposta_corretta": 1,
@@ -1926,9 +1926,9 @@
       "difficolta": "facile",
       "domanda": "Cosa deve fare l'OSS in presenza di nausea e vomito nel paziente?",
       "opzioni": [
-        "Somministrare un antinausea dal carrello terapia",
-        "Posizionare il paziente correttamente, garantire igiene orale dopo l'episodio e riferire all'infermiere",
         "Far digiunare il paziente per 24 ore",
+        "Posizionare il paziente correttamente, garantire igiene orale dopo l'episodio e riferire all'infermiere",
+        "Somministrare un antinausea dal carrello terapia",
         "Applicare impacchi freddi sullo stomaco in autonomia"
       ],
       "risposta_corretta": 1,
@@ -1941,11 +1941,11 @@
       "domanda": "Quale dei seguenti è un carattere anomalo delle urine che richiede segnalazione immediata?",
       "opzioni": [
         "Colore giallo paglierino chiaro",
-        "Lieve variazione di intensità del giallo durante la giornata",
         "Presenza di sangue (ematuria) o urine torbide con cattivo odore",
+        "Lieve variazione di intensità del giallo durante la giornata",
         "Aumento della diuresi dopo abbondante assunzione di liquidi"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "L'ematuria (sangue nelle urine), la torbidità anomala, il cattivo odore e i sedimenti sono segni che richiedono segnalazione immediata in quanto possono indicare infezione urinaria, calcoli, traumi o patologie renali. Le variazioni fisiologiche del colore (più o meno concentrato) sono invece normali."
     },
     {
@@ -1954,9 +1954,9 @@
       "difficolta": "media",
       "domanda": "L'OSS rileva nelle feci del paziente striature di sangue rosso vivo. Quale è il comportamento corretto?",
       "opzioni": [
-        "Eliminare le feci senza segnalare, considerandolo normale",
-        "Segnalare subito all'infermiere descrivendo quantità e caratteristiche, conservando eventualmente il campione",
         "Annotare nella cartella e aspettare il turno successivo per riferirlo",
+        "Segnalare subito all'infermiere descrivendo quantità e caratteristiche, conservando eventualmente il campione",
+        "Eliminare le feci senza segnalare, considerandolo normale",
         "Contattare direttamente il medico di reparto scavalcando l'infermiere"
       ],
       "risposta_corretta": 1,
@@ -1968,12 +1968,12 @@
       "difficolta": "difficile",
       "domanda": "Quale differenza fondamentale esiste tra la gestione di una colostomia e di una ileostomia in termini di rischio cutaneo?",
       "opzioni": [
-        "La colostomia richiede più attenzione perché le feci sono più liquide",
-        "L'ileostomia richiede maggiore attenzione cutanea perché il contenuto è più liquido e ricco di enzimi digestivi, molto aggressivi per la cute",
         "Non ci sono differenze pratiche nella cura cutanea",
-        "La colostomia è più rischiosa perché posizionata più in alto nell'addome"
+        "La colostomia è più rischiosa perché posizionata più in alto nell'addome",
+        "L'ileostomia richiede maggiore attenzione cutanea perché il contenuto è più liquido e ricco di enzimi digestivi, molto aggressivi per la cute",
+        "La colostomia richiede più attenzione perché le feci sono più liquide"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "L'ileostomia produce effluente liquido ricco di enzimi pancreatici e biliari ancora attivi, che sono molto aggressivi per la cute peristomale. La colostomia produce feci più formate e meno aggressive. Per questo l'ileostomia richiede maggiore attenzione alla protezione cutanea, anche con paste barriera."
     },
     {
@@ -1982,10 +1982,10 @@
       "difficolta": "facile",
       "domanda": "Quale delle seguenti è la classificazione corretta del lavaggio delle mani in ambito sanitario?",
       "opzioni": [
-        "Lavaggio base, lavaggio medio, lavaggio avanzato",
+        "Lavaggio standard, lavaggio di emergenza, lavaggio post-intervento",
         "Lavaggio sociale, lavaggio antisettico, lavaggio chirurgico",
         "Lavaggio freddo, lavaggio caldo, lavaggio sterile",
-        "Lavaggio standard, lavaggio di emergenza, lavaggio post-intervento"
+        "Lavaggio base, lavaggio medio, lavaggio avanzato"
       ],
       "risposta_corretta": 1,
       "spiegazione": "I tre livelli di lavaggio delle mani in ambito sanitario sono: sociale (rimuove sporco e flora transitoria, 40-60 sec), antisettico (riduce significativamente la carica microbica con detergente disinfettante, 60 sec) e chirurgico (elimina flora transitoria e riduce quella residente, 3-5 min, usato prima di interventi)."
@@ -1996,12 +1996,12 @@
       "difficolta": "media",
       "domanda": "Cosa distingue la sterilizzazione dalla disinfezione?",
       "opzioni": [
-        "La sterilizzazione si usa solo per i ferri chirurgici, la disinfezione per tutto il resto",
-        "La sterilizzazione elimina tutti i microrganismi incluse le spore; la disinfezione riduce la carica microbica ma non elimina le spore",
+        "Sono sinonimi con metodi di applicazione diversi",
         "La disinfezione è più efficace della sterilizzazione",
-        "Sono sinonimi con metodi di applicazione diversi"
+        "La sterilizzazione si usa solo per i ferri chirurgici, la disinfezione per tutto il resto",
+        "La sterilizzazione elimina tutti i microrganismi incluse le spore; la disinfezione riduce la carica microbica ma non elimina le spore"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La sterilizzazione determina la completa assenza di microrganismi viventi, incluse le spore batteriche (le forme più resistenti). La disinfezione riduce la carica microbica ma non garantisce l'eliminazione delle spore. Per i dispositivi che penetrano nei tessuti sterili è obbligatoria la sterilizzazione."
     },
     {
@@ -2010,10 +2010,10 @@
       "difficolta": "difficile",
       "domanda": "Quale delle seguenti fasi del processo di sterilizzazione è quella che precede la sterilizzazione vera e propria?",
       "opzioni": [
-        "Stoccaggio del materiale sterile",
         "Distribuzione del materiale",
+        "Controllo di qualità finale",
         "Decontaminazione seguita da detersione, asciugatura e confezionamento",
-        "Controllo di qualità finale"
+        "Stoccaggio del materiale sterile"
       ],
       "risposta_corretta": 2,
       "spiegazione": "Il processo di sterilizzazione prevede in sequenza: 1) decontaminazione (riduzione carica microbica iniziale), 2) detersione (rimozione sporco visibile), 3) asciugatura e confezionamento, 4) sterilizzazione vera e propria, 5) conservazione/stoccaggio. Saltare le fasi preparatorie compromette l'efficacia della sterilizzazione."
@@ -2024,12 +2024,12 @@
       "difficolta": "media",
       "domanda": "Perché nella sanificazione dei ferri chirurgici sono necessari guanti resistenti e non solo guanti monouso standard?",
       "opzioni": [
-        "Per motivi estetici e professionali",
         "Per proteggersi sia dal rischio biologico (sangue, liquidi) sia da sostanze chimiche disinfettanti e da taglienti",
         "Perché i guanti monouso non sono disponibili in reparto",
-        "I guanti monouso sono sufficienti, i resistenti sono facoltativi"
+        "I guanti monouso sono sufficienti, i resistenti sono facoltativi",
+        "Per motivi estetici e professionali"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Durante la sanificazione dei ferri chirurgici sono necessari guanti resistenti per una doppia protezione: dal rischio biologico (presenze di sangue e liquidi infetti sui ferri usati) e dal rischio chimico/fisico (sostanze disinfettanti aggressive e bordi taglienti degli strumenti). I guanti monouso standard non offrono protezione sufficiente in questo contesto."
     },
     {
@@ -2038,12 +2038,12 @@
       "difficolta": "facile",
       "domanda": "Il Clostridium difficile non viene eliminato dalla frizione con gel alcolico. Quale procedura è quindi obbligatoria?",
       "opzioni": [
-        "Doppia frizione alcolica",
         "Lavaggio delle mani con acqua e sapone seguito da risciacquo abbondante",
-        "Uso di guanti doppi in lattice",
-        "Mascherina FFP3 e visiera"
+        "Doppia frizione alcolica",
+        "Mascherina FFP3 e visiera",
+        "Uso di guanti doppi in lattice"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Le spore del Clostridium difficile sono resistenti all'alcool. Per questa ragione, dopo il contatto con un paziente colonizzato/infetto, il lavaggio con acqua e sapone è obbligatorio: l'azione meccanica del risciacquo rimuove fisicamente le spore dalle mani. Il gel alcolico da solo non è sufficiente."
     },
     {
@@ -2054,8 +2054,8 @@
       "opzioni": [
         "Precauzioni per via aerea con mascherina FFP3",
         "Precauzioni da contatto: guanti e camice monouso a ogni accesso, stanza singola o coorte, attrezzatura dedicata",
-        "Nessuna precauzione aggiuntiva, bastano le standard",
-        "Precauzioni da droplet con mascherina chirurgica"
+        "Precauzioni da droplet con mascherina chirurgica",
+        "Nessuna precauzione aggiuntiva, bastano le standard"
       ],
       "risposta_corretta": 1,
       "spiegazione": "L'MRSA si trasmette per contatto (diretto con il paziente e indiretto con superfici contaminate). Richiede precauzioni da contatto: stanza singola o coorte con pazienti con lo stesso germe, guanti e camice monouso a ogni accesso, attrezzature dedicate e sanificazione accurata dell'ambiente. Il lavaggio delle mani con acqua e sapone è prioritario."
@@ -2066,12 +2066,12 @@
       "difficolta": "difficile",
       "domanda": "Quale caratteristica distingue le precauzioni 'airborne' (via aerea) dalle precauzioni 'droplet'?",
       "opzioni": [
+        "Non c'è differenza pratica tra le due tipologie",
         "Le precauzioni airborne riguardano solo le infezioni batteriche, le droplet quelle virali",
         "Le particelle airborne sono < 5 micron e restano sospese nell'aria a distanza; le droplet sono > 5 micron e cadono entro 1 metro",
-        "Le precauzioni droplet richiedono camera a pressione negativa, le airborne no",
-        "Non c'è differenza pratica tra le due tipologie"
+        "Le precauzioni droplet richiedono camera a pressione negativa, le airborne no"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "Le particelle airborne (es. TBC, varicella, morbillo) hanno diametro < 5 micron e restano sospese nell'aria per lungo tempo e a distanza: richiedono mascherine FFP2/FFP3 e stanza a pressione negativa. Le droplet (es. influenza, pertosse) sono > 5 micron e cadono entro 1-2 metri: richiedono mascherina chirurgica e distanza."
     },
     {
@@ -2080,12 +2080,12 @@
       "difficolta": "facile",
       "domanda": "In quale struttura viene ricoverato un paziente affetto da malattia inguaribile in fase terminale per il controllo dei sintomi e il miglioramento della qualità di vita?",
       "opzioni": [
-        "Reparto di medicina interna",
         "Hospice",
-        "Day hospital",
-        "Centro di salute mentale"
+        "Reparto di medicina interna",
+        "Centro di salute mentale",
+        "Day hospital"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "L'Hospice è una struttura residenziale dedicata alle cure palliative per persone con malattia inguaribile in fase avanzata. L'obiettivo non è la guarigione ma il controllo dei sintomi, il sollievo dal dolore e il supporto alla persona e alla famiglia. L'assistenza è multidisciplinare (medico, infermiere, OSS, psicologo)."
     },
     {
@@ -2096,8 +2096,8 @@
       "opzioni": [
         "Evitare il contatto con i familiari, riferirli sempre all'infermiere",
         "Offrire presenza, ascolto e supporto emotivo rispettando la loro sofferenza, in collaborazione con l'équipe",
-        "Fornire informazioni cliniche dettagliate per rassicurarli",
-        "Scoraggiare le visite per non disturbare il paziente"
+        "Scoraggiare le visite per non disturbare il paziente",
+        "Fornire informazioni cliniche dettagliate per rassicurarli"
       ],
       "risposta_corretta": 1,
       "spiegazione": "In Hospice l'OSS ha una forte valenza relazionale: offre ascolto, presenza e supporto emotivo anche ai familiari, rispettandone il dolore. Non fornisce informazioni cliniche (compito del medico), ma garantisce una presenza umana e discreta. La famiglia è parte integrante del processo di cura palliativa."
@@ -2108,9 +2108,9 @@
       "difficolta": "facile",
       "domanda": "Quali sono le fasi di adattamento a una diagnosi di malattia terminale secondo Kübler-Ross?",
       "opzioni": [
-        "Confusione, accettazione, negazione, guarigione, pace",
-        "Negazione, rabbia, contrattazione, depressione, accettazione",
         "Shock, dolore, risoluzione, adattamento, recupero",
+        "Negazione, rabbia, contrattazione, depressione, accettazione",
+        "Confusione, accettazione, negazione, guarigione, pace",
         "Paura, collera, tristezza, elaborazione, serenità"
       ],
       "risposta_corretta": 1,
@@ -2122,9 +2122,9 @@
       "difficolta": "media",
       "domanda": "Quale ruolo svolge l'OSS in un centro diurno psichiatrico rispetto alle attività della vita quotidiana degli ospiti?",
       "opzioni": [
-        "Solo igiene e alimentazione, senza coinvolgimento relazionale",
-        "Supporto alle ADL con obiettivo riabilitativo: favorire autonomia, socializzazione e osservare variazioni comportamentali",
         "Prescrivere attività terapeutiche specifiche in autonomia",
+        "Supporto alle ADL con obiettivo riabilitativo: favorire autonomia, socializzazione e osservare variazioni comportamentali",
+        "Solo igiene e alimentazione, senza coinvolgimento relazionale",
         "Limitarsi alla sorveglianza passiva degli ospiti"
       ],
       "risposta_corretta": 1,
@@ -2137,11 +2137,11 @@
       "domanda": "In una struttura riabilitativa psichiatrica, qual è la differenza tra l'assistenza nelle ADL rispetto a un contesto di lungodegenza ordinaria?",
       "opzioni": [
         "Non ci sono differenze, l'OSS fa le stesse cose in tutti i contesti",
-        "In psichiatria l'obiettivo non è solo assistenziale ma anche educativo-riabilitativo: si incoraggia l'autonomia anche quando richiederebbe più tempo",
         "In psichiatria l'OSS può prescrivere la terapia farmacologica",
+        "In psichiatria l'obiettivo non è solo assistenziale ma anche educativo-riabilitativo: si incoraggia l'autonomia anche quando richiederebbe più tempo",
         "In psichiatria si evitano le attività di gruppo per la sicurezza degli ospiti"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "In ambito psichiatrico riabilitativo, l'obiettivo dell'assistenza nelle ADL è duplice: soddisfare il bisogno immediato E favorire il recupero progressivo dell'autonomia. L'OSS non 'fa al posto di' ma 'fa insieme a', rispettando i tempi della persona, anche se questo è meno efficiente. È parte del progetto terapeutico individualizzato."
     },
     {
@@ -2151,11 +2151,11 @@
       "domanda": "Cosa si intende per 'splitting' nel contesto dell'assistenza a persone con disturbo borderline di personalità?",
       "opzioni": [
         "Una tecnica di rilassamento usata in terapia",
-        "La tendenza del paziente a idealizzare alcuni operatori e svalutarne altri, creando divisioni nel team",
         "Un metodo di comunicazione alternativa",
-        "La scissione dell'équipe in turni diversi"
+        "La scissione dell'équipe in turni diversi",
+        "La tendenza del paziente a idealizzare alcuni operatori e svalutarne altri, creando divisioni nel team"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Lo splitting è un meccanismo difensivo tipico del disturbo borderline: il paziente tende a vedere gli operatori come 'tutto buono' o 'tutto cattivo', idealizzando alcuni e svalutando altri. Questo può creare tensioni nel team. La risposta terapeutica è la coerenza e la comunicazione tra tutti i membri dell'équipe."
     },
     {
@@ -2164,12 +2164,12 @@
       "difficolta": "media",
       "domanda": "Secondo il profilo professionale (Accordo Stato-Regioni 22/02/2001), l'OSS può svolgere in autonomia quale delle seguenti attività?",
       "opzioni": [
-        "Somministrazione di terapia orale prescritta",
         "Igiene personale, mobilizzazione e cura dell'ambiente della persona assistita",
         "Prelievi ematici venosi",
-        "Medicazione di ferite chirurgiche infette"
+        "Medicazione di ferite chirurgiche infette",
+        "Somministrazione di terapia orale prescritta"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "L'Accordo Stato-Regioni del 22/02/2001 stabilisce che le competenze autonome dell'OSS riguardano: assistenza nelle ADL (igiene, vestizione, mobilizzazione, alimentazione), cura dell'ambiente e supporto relazionale. Le attività sanitarie invasive (prelievi, medicazioni complesse, somministrazione farmaci) sono di competenza infermieristica."
     },
     {
@@ -2178,10 +2178,10 @@
       "difficolta": "facile",
       "domanda": "Prima dell'istituzione dell'OSS (2001), quale figura professionale svolgeva compiti prevalentemente di supporto sanitario in ambito ospedaliero?",
       "opzioni": [
-        "ASA (Ausiliario Socio Assistenziale)",
+        "OTS (Operatore Tecnico Sanitario)",
         "OTA (Operatore Tecnico Addetto all'Assistenza)",
         "ADB (Assistente di Base)",
-        "OTS (Operatore Tecnico Sanitario)"
+        "ASA (Ausiliario Socio Assistenziale)"
       ],
       "risposta_corretta": 1,
       "spiegazione": "L'OTA (Operatore Tecnico Addetto all'Assistenza) era la figura di supporto sanitario in ambito ospedaliero, mentre l'ASA (Ausiliario Socio Assistenziale) operava prevalentemente in ambito sociale. Il profilo OSS nel 2001 ha unificato e integrato queste due figure precedenti."
@@ -2192,12 +2192,12 @@
       "difficolta": "media",
       "domanda": "Quale dei seguenti comportamenti è corretto durante il passaggio di consegne (cambio turno) per l'OSS?",
       "opzioni": [
-        "Riferire solo gli eventi critici, omettendo le attività ordinarie",
         "Comunicare osservazioni precise e obiettive (es. 'ha mangiato metà pasto', 'ha dormito poco') evitando giudizi personali",
+        "Limitarsi ad ascoltare senza intervenire mai",
         "Riportare impressioni e supposizioni per dare più contesto",
-        "Limitarsi ad ascoltare senza intervenire mai"
+        "Riferire solo gli eventi critici, omettendo le attività ordinarie"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "L'OSS nel passaggio di consegne deve comunicare fatti oggettivi e misurabili, non opinioni. Es: 'il paziente ha mangiato metà pasto e ha dormito 2 ore' è corretto; 'sembrava di cattivo umore' è inappropriato. La precisione e l'oggettività delle informazioni garantiscono la continuità assistenziale e la sicurezza del paziente."
     },
     {
@@ -2206,10 +2206,10 @@
       "difficolta": "difficile",
       "domanda": "Quale tra i seguenti è un contenuto tipico che l'OSS riferisce durante il rapporto di cambio turno?",
       "opzioni": [
-        "La diagnosi medica aggiornata e le ultime analisi del sangue",
-        "Lo stato dell'igiene personale, l'assunzione di cibo e liquidi, la mobilizzazione, eventuali variazioni comportamentali osservate",
         "Le prescrizioni farmacologiche del turno successivo",
-        "Le decisioni terapeutiche prese dall'équipe medica"
+        "Lo stato dell'igiene personale, l'assunzione di cibo e liquidi, la mobilizzazione, eventuali variazioni comportamentali osservate",
+        "Le decisioni terapeutiche prese dall'équipe medica",
+        "La diagnosi medica aggiornata e le ultime analisi del sangue"
       ],
       "risposta_corretta": 1,
       "spiegazione": "L'OSS nel cambio turno riferisce osservazioni assistenziali: stato igienico, quanto e cosa ha mangiato e bevuto, se è stato mobilizzato, l'aspetto e le caratteristiche di urine/feci, variazioni del comportamento, del tono dell'umore o dello stato fisico. Non riporta dati clinici complessi che competono all'infermiere."
@@ -2220,12 +2220,12 @@
       "difficolta": "media",
       "domanda": "Cosa significa 'continuità assistenziale' nel contesto del passaggio di consegne?",
       "opzioni": [
-        "Che gli stessi operatori devono lavorare sempre con gli stessi pazienti",
         "Che le informazioni trasmesse tra turni garantiscono un'assistenza senza interruzioni né errori, indipendentemente da chi è in servizio",
         "Che il paziente non deve cambiare reparto durante la degenza",
-        "Che l'OSS non può andare in ferie durante la presa in carico"
+        "Che l'OSS non può andare in ferie durante la presa in carico",
+        "Che gli stessi operatori devono lavorare sempre con gli stessi pazienti"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La continuità assistenziale significa che il piano di cura e le informazioni rilevanti vengono trasmesse correttamente da un turno all'altro, da un operatore all'altro, in modo che la qualità dell'assistenza non dipenda da chi è di turno. Il passaggio di consegne accurato è lo strumento principale per garantirla."
     },
     {
@@ -2235,11 +2235,11 @@
       "domanda": "Cosa si intende per 'ospedale a misura di bambino'?",
       "opzioni": [
         "Un ospedale con stanze più piccole per bambini piccoli",
-        "Una struttura pediatrica che risponde ai bisogni clinici, psicologici e relazionali del bambino, con ambienti accoglienti e presenza dei genitori garantita",
+        "Una struttura con personale esclusivamente pediatrico",
         "Un ospedale in cui i bambini possono muoversi liberamente senza sorveglianza",
-        "Una struttura con personale esclusivamente pediatrico"
+        "Una struttura pediatrica che risponde ai bisogni clinici, psicologici e relazionali del bambino, con ambienti accoglienti e presenza dei genitori garantita"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Un ospedale a misura di bambino (principio sancito dalla Carta dei Diritti del Bambino in Ospedale) risponde non solo ai bisogni clinici ma anche a quelli emotivi e relazionali: ambienti colorati e accoglienti, spazi per il gioco, presenza continua dei genitori, personale con comunicazione adeguata all'età, riduzione dell'impatto traumatico del ricovero."
     },
     {
@@ -2249,11 +2249,11 @@
       "domanda": "Qual è la via di trasmissione principale dell'epatite C?",
       "opzioni": [
         "Via aerea attraverso starnuti e colpi di tosse",
-        "Via oro-fecale attraverso alimenti contaminati",
         "Via ematica attraverso contatto con sangue infetto (aghi condivisi, strumenti contaminati)",
-        "Contatto cutaneo diretto prolungato"
+        "Contatto cutaneo diretto prolungato",
+        "Via oro-fecale attraverso alimenti contaminati"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "L'HCV (virus dell'epatite C) si trasmette prevalentemente per via ematica: uso condiviso di siringhe, aghi o strumenti contaminati da sangue, trasfusioni non controllate, piercing/tatuaggi con materiale non sterile. La trasmissione sessuale è possibile ma rara. NON si trasmette per contatti casuali, abbracci o stoviglie condivise."
     },
     {
@@ -2262,12 +2262,12 @@
       "difficolta": "media",
       "domanda": "Quale DPI è obbligatorio per l'OSS che assiste un paziente con TBC polmonare attiva in fase contagiosa?",
       "opzioni": [
+        "Nessun DPI specifico oltre ai guanti",
         "Mascherina chirurgica standard",
         "Respiratore FFP2 o FFP3",
-        "Occhiali protettivi senza mascherina",
-        "Nessun DPI specifico oltre ai guanti"
+        "Occhiali protettivi senza mascherina"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La TBC polmonare si trasmette per via aerea attraverso droplet nuclei (< 5 micron) che restano sospesi nell'aria anche dopo che il paziente ha lasciato la stanza. La mascherina chirurgica non filtra le particelle così piccole: è obbligatorio il respiratore FFP2 (filtrazione ≥94%) o FFP3 (≥99%). Il paziente deve indossare mascherina chirurgica fuori dalla sua stanza."
     },
     {
@@ -2276,12 +2276,12 @@
       "difficolta": "media",
       "domanda": "Prima di una colonscopia, quale tipo di dieta è prescritta nei giorni precedenti l'esame?",
       "opzioni": [
-        "Dieta iperproteica per rafforzarsi prima dell'esame",
         "Dieta povera di scorie (senza fibre, frutta, verdura, legumi, cereali integrali) e poi dieta liquida il giorno prima",
-        "Dieta mediterranea standard fino al giorno prima",
-        "Digiuno completo per 3 giorni"
+        "Dieta iperproteica per rafforzarsi prima dell'esame",
+        "Digiuno completo per 3 giorni",
+        "Dieta mediterranea standard fino al giorno prima"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La preparazione alla colonscopia prevede: nei giorni precedenti dieta povera di scorie (elimina fibre che rallentano lo svuotamento intestinale), il giorno prima dieta liquida chiara e assunzione di lassativi/soluzioni evacuanti prescritti, nelle ore prima dell'esame digiuno completo. L'OSS deve verificare il rispetto delle indicazioni."
     },
     {
@@ -2291,11 +2291,11 @@
       "domanda": "Quale legge tutela e promuove l'integrazione sociale delle persone con handicap, prevedendo anche permessi retribuiti per i caregiver?",
       "opzioni": [
         "Legge 180/1978",
+        "Legge 833/1978",
         "Legge 104/1992",
-        "Legge 328/2000",
-        "Legge 833/1978"
+        "Legge 328/2000"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 2,
       "spiegazione": "La Legge 104/1992 è la legge quadro per l'assistenza, l'integrazione sociale e i diritti delle persone con handicap. Prevede: integrazione scolastica e lavorativa, permessi retribuiti (3 giorni/mese) per disabili e familiari che li assistono, agevolazioni fiscali, e impone l'eliminazione delle barriere architettoniche."
     },
     {
@@ -2304,9 +2304,9 @@
       "difficolta": "media",
       "domanda": "Cosa si intende per 'Dipartimento di Salute Mentale' (DSM)?",
       "opzioni": [
-        "Il reparto ospedaliero per i ricoveri psichiatrici d'urgenza",
-        "L'insieme organizzato di strutture e servizi per la prevenzione, cura, riabilitazione e reinserimento delle persone con disagio psichico",
         "Il servizio amministrativo che gestisce i farmaci psichiatrici",
+        "L'insieme organizzato di strutture e servizi per la prevenzione, cura, riabilitazione e reinserimento delle persone con disagio psichico",
+        "Il reparto ospedaliero per i ricoveri psichiatrici d'urgenza",
         "L'unità di crisi per i tentativi di suicidio"
       ],
       "risposta_corretta": 1,
@@ -2318,12 +2318,12 @@
       "difficolta": "difficile",
       "domanda": "Nell'assistenza domiciliare, cosa cambia rispetto al contesto ospedaliero nel ruolo dell'OSS?",
       "opzioni": [
-        "L'OSS ha meno responsabilità perché è a casa del paziente",
         "L'OSS opera in un ambiente non strutturato con maggiore autonomia organizzativa, coinvolgendo attivamente la famiglia e adattandosi al contesto culturale della persona",
         "L'OSS può somministrare farmaci in modo autonomo perché non c'è il medico presente",
+        "L'OSS ha meno responsabilità perché è a casa del paziente",
         "L'OSS non ha obblighi di documentazione a domicilio"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "A domicilio l'OSS opera in un ambiente di vita non strutturato, con meno risorse immediate ma maggiore relazione con la persona e la famiglia. Deve adattare gli interventi al contesto, coinvolgere i caregiver familiari, rispettare abitudini e valori culturali della persona, e ha un ruolo cruciale nell'osservazione e segnalazione di variazioni cliniche all'équipe."
     },
     {
@@ -2360,12 +2360,12 @@
       "difficolta": "facile",
       "domanda": "Cosa si intende per 'empatia' nella comunicazione assistenziale?",
       "opzioni": [
-        "Condividere le stesse esperienze di vita del paziente",
         "La capacità di comprendere il vissuto emotivo dell'altro senza perdere la propria identità professionale",
         "Provare pietà per la sofferenza del paziente",
+        "Condividere le stesse esperienze di vita del paziente",
         "Evitare di mostrare qualsiasi emozione per restare neutri"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "L'empatia è la capacità di comprendere il mondo interiore dell'altro — sentimenti, pensieri, prospettive — come se fossimo nei suoi panni, mantenendo però la consapevolezza di essere noi stessi (distanza empatica). È diversa dalla simpatia (fusione emotiva) e dalla pietà. Carl Rogers la considera una delle tre qualità fondamentali della relazione d'aiuto."
     },
     {
@@ -2374,12 +2374,12 @@
       "difficolta": "media",
       "domanda": "Cosa studia la 'prossemia' nella comunicazione?",
       "opzioni": [
-        "L'uso delle parole tecniche in ambito sanitario",
-        "Come il ritmo del parlato influenza la comprensione",
+        "Le tecniche di scrittura della documentazione clinica",
         "L'uso e la gestione dello spazio interpersonale nella comunicazione",
-        "Le tecniche di scrittura della documentazione clinica"
+        "Come il ritmo del parlato influenza la comprensione",
+        "L'uso delle parole tecniche in ambito sanitario"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "La prossemia (Edward Hall) studia come gli individui usano e percepiscono lo spazio fisico nella comunicazione. Hall identificò quattro zone: intima (0-45 cm), personale (45-120 cm), sociale (120-360 cm) e pubblica (>360 cm). L'OSS entra spesso nella zona intima per le cure igieniche: deve farlo con rispetto, spiegando ciò che fa e chiedendo il permesso al paziente."
     },
     {
@@ -2388,12 +2388,12 @@
       "difficolta": "media",
       "domanda": "Quale delle seguenti è la corretta definizione di 'comunicazione assertiva'?",
       "opzioni": [
-        "Comunicare in modo aggressivo per far valere le proprie ragioni",
         "Esprimere pensieri, sentimenti e bisogni in modo chiaro, diretto e rispettoso senza prevaricare gli altri",
+        "Comunicare solo attraverso azioni, senza usare le parole",
         "Cedere sempre alle richieste altrui per evitare conflitti",
-        "Comunicare solo attraverso azioni, senza usare le parole"
+        "Comunicare in modo aggressivo per far valere le proprie ragioni"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "La comunicazione assertiva è lo stile comunicativo di mezzo tra il passivo (rinuncia ai propri bisogni) e l'aggressivo (prevaricazione). Permette di esprimere opinioni, emozioni e bisogni in modo onesto e rispettoso, riconoscendo i diritti degli altri. Per l'OSS è fondamentale nelle relazioni col paziente, con i familiari e nel lavoro d'équipe."
     },
     {
@@ -2402,12 +2402,12 @@
       "difficolta": "media",
       "domanda": "L'OSS ripete con parole proprie ciò che il paziente ha appena detto per verificare di aver capito correttamente. Questa tecnica si chiama:",
       "opzioni": [
-        "Interpretazione",
-        "Suggestione",
         "Riformulazione (o parafrasi)",
-        "Confrontazione"
+        "Suggestione",
+        "Confrontazione",
+        "Interpretazione"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "La riformulazione (parafrasi) è una tecnica di ascolto attivo: l'operatore restituisce al paziente il contenuto del messaggio con parole proprie ('Quindi se ho capito, lei mi sta dicendo che…'). Ha la duplice funzione di verificare la comprensione e di far sentire il paziente ascoltato. È diversa dall'interpretazione, che aggiunge un'analisi del significato non dichiarata dal paziente."
     },
     {
@@ -2416,10 +2416,10 @@
       "difficolta": "difficile",
       "domanda": "Secondo Carl Rogers, quali sono i tre atteggiamenti fondamentali per una relazione d'aiuto efficace?",
       "opzioni": [
-        "Autorità, distanza professionale e neutralità",
-        "Empatia, congruenza (autenticità) e considerazione positiva incondizionata",
         "Competenza tecnica, puntualità e rispetto delle regole",
-        "Simpatia, ottimismo e proattività"
+        "Empatia, congruenza (autenticità) e considerazione positiva incondizionata",
+        "Simpatia, ottimismo e proattività",
+        "Autorità, distanza professionale e neutralità"
       ],
       "risposta_corretta": 1,
       "spiegazione": "Carl Rogers, fondatore dell'approccio centrato sulla persona, identificò tre condizioni necessarie e sufficienti per il cambiamento terapeutico: 1) Empatia: comprendere il mondo soggettivo del paziente; 2) Congruenza: l'operatore è autentico e trasparente; 3) Considerazione positiva incondizionata: accogliere la persona senza giudicarla. Questi principi sono alla base della relazione d'aiuto in ambito OSS."
@@ -2430,12 +2430,12 @@
       "difficolta": "facile",
       "domanda": "Il silenzio nella comunicazione terapeutica con il paziente:",
       "opzioni": [
-        "Va evitato perché crea imbarazzo e va sempre riempito con parole",
-        "Può essere uno strumento potente che dà spazio al paziente di elaborare i propri pensieri",
+        "È appropriato solo con i pazienti incoscienti",
         "Indica disinteresse da parte dell'operatore",
-        "È appropriato solo con i pazienti incoscienti"
+        "Va evitato perché crea imbarazzo e va sempre riempito con parole",
+        "Può essere uno strumento potente che dà spazio al paziente di elaborare i propri pensieri"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "Il silenzio 'attivo' o terapeutico è uno strumento comunicativo prezioso. Usato consapevolmente, comunica presenza, accettazione e rispetto, dando al paziente tempo per elaborare emozioni e pensieri. L'OSS deve saper tollerare il silenzio senza ansia, usando contatto visivo e postura aperta per comunicare vicinanza senza riempire ogni pausa con parole."
     },
     {
@@ -2445,11 +2445,11 @@
       "domanda": "L'OSS assiste un paziente con afasia motoria (di Broca) post-ictus che capisce ma fatica a parlare. Quale strategia è più appropriata?",
       "opzioni": [
         "Parlare al posto suo per accelerare i tempi",
-        "Evitare di comunicare direttamente e rivolgersi solo ai familiari",
         "Usare domande chiuse (sì/no), supporti visivi, parlare lentamente con frasi brevi e dare tempo",
-        "Alzare la voce perché potrebbe avere anche problemi uditivi"
+        "Alzare la voce perché potrebbe avere anche problemi uditivi",
+        "Evitare di comunicare direttamente e rivolgersi solo ai familiari"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 1,
       "spiegazione": "Il paziente con afasia di Broca comprende il linguaggio ma ha difficoltà nell'espressione verbale. Le strategie efficaci sono: domande chiuse (sì/no), supporti visivi (immagini, schede comunicative), frasi brevi e linguaggio semplice, dare tempo senza completare le sue frasi, mantenere il contatto visivo. Non si alza mai la voce (l'afasia non è sordità) e non si ignora la persona rivolvendosi solo ai familiari."
     },
     {
@@ -2458,12 +2458,12 @@
       "difficolta": "difficile",
       "domanda": "Cosa si intende per 'comunicazione non violenta' (CNV) secondo Marshall Rosenberg?",
       "opzioni": [
+        "Evitare qualsiasi forma di critica verso i colleghi",
         "Una comunicazione che evita le discussioni fisiche",
-        "Un modello basato su: osservazione oggettiva, espressione dei sentimenti, identificazione dei bisogni e formulazione di richieste concrete",
         "L'uso di un tono di voce sempre basso e pacato",
-        "Evitare qualsiasi forma di critica verso i colleghi"
+        "Un modello basato su: osservazione oggettiva, espressione dei sentimenti, identificazione dei bisogni e formulazione di richieste concrete"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 3,
       "spiegazione": "La CNV di Rosenberg si articola in 4 componenti: 1) Osservazione: descrivere i fatti senza valutarli ('Ho notato che…'); 2) Sentimenti: esprimere le proprie emozioni ('Mi sento…'); 3) Bisogni: identificare il bisogno sottostante; 4) Richiesta: formulare una richiesta concreta e realizzabile ('Potresti…?'). Riduce i conflitti relazionali e migliora la collaborazione in équipe."
     },
     {
@@ -2472,12 +2472,12 @@
       "difficolta": "media",
       "domanda": "In caso di conflitto con un collega dell'équipe, quale approccio è più corretto per un OSS?",
       "opzioni": [
+        "Rivolgersi immediatamente al dirigente senza prima tentare un confronto diretto",
         "Ignorare il problema sperando che si risolva da solo",
         "Lamentarsi con altri colleghi per ottenere supporto contro la persona",
-        "Affrontare il problema direttamente con il collega in modo assertivo, in un momento e luogo appropriati",
-        "Rivolgersi immediatamente al dirigente senza prima tentare un confronto diretto"
+        "Affrontare il problema direttamente con il collega in modo assertivo, in un momento e luogo appropriati"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 3,
       "spiegazione": "Il conflitto in équipe va gestito in modo costruttivo. L'approccio più appropriato è il confronto diretto e assertivo: scegliere il momento giusto (non davanti ai pazienti), descrivere il comportamento che ha creato il problema (non la persona), esprimere come ci si è sentiti, ascoltare l'altro e cercare insieme una soluzione. Il superiore va coinvolto solo se il confronto diretto non risolve il problema."
     },
     {
@@ -2486,12 +2486,12 @@
       "difficolta": "media",
       "domanda": "Come deve comunicare l'OSS con un familiare quando deve riferire notizie difficili sul paziente?",
       "opzioni": [
-        "Velocemente nel corridoio per limitare il disagio",
-        "Lasciare sempre questo compito esclusivamente al medico",
         "In un luogo privato, con calma, usando linguaggio comprensibile e lasciando spazio alle emozioni e alle domande",
-        "Per iscritto, per dare al familiare tempo di elaborare"
+        "Velocemente nel corridoio per limitare il disagio",
+        "Per iscritto, per dare al familiare tempo di elaborare",
+        "Lasciare sempre questo compito esclusivamente al medico"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "La comunicazione di notizie difficili richiede: luogo privato e tranquillo, tempo sufficiente, linguaggio accessibile (non tecnico), tono empatico, spazio per le emozioni del familiare, disponibilità a rispondere alle domande nei limiti del proprio ruolo. Non si comunica mai di fretta o in luoghi pubblici. L'OSS può riferire ciò che rientra nelle proprie competenze, rimandando al medico per le informazioni cliniche."
     },
     {
@@ -2500,12 +2500,12 @@
       "difficolta": "facile",
       "domanda": "Quale dei seguenti è un esempio di barriera alla comunicazione efficace?",
       "opzioni": [
-        "Usare domande aperte",
         "Mantenere il contatto visivo",
-        "Formulare giudizi e interpretazioni affrettate su ciò che dice il paziente",
-        "Riformulare ciò che ha detto il paziente"
+        "Usare domande aperte",
+        "Riformulare ciò che ha detto il paziente",
+        "Formulare giudizi e interpretazioni affrettate su ciò che dice il paziente"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 3,
       "spiegazione": "Le barriere alla comunicazione ostacolano la trasmissione o la ricezione corretta del messaggio. Giudizi, pregiudizi, interpretazioni affrettate (ascoltare per rispondere invece di capire), rumore ambientale, differenze linguistiche e culturali, mancanza di tempo e stress sono barriere comuni. Domande aperte, contatto visivo e riformulazione sono invece strumenti che facilitano la comunicazione."
     },
     {
@@ -2514,9 +2514,9 @@
       "difficolta": "facile",
       "domanda": "Cosa si intende per 'lavoro d'équipe' in ambito socio-sanitario?",
       "opzioni": [
-        "Ogni professionista lavora in modo indipendente nella propria area",
-        "La collaborazione coordinata tra professionisti con competenze diverse, orientata al benessere globale del paziente",
         "Il fatto che tutti i professionisti svolgono gli stessi compiti in modo intercambiabile",
+        "La collaborazione coordinata tra professionisti con competenze diverse, orientata al benessere globale del paziente",
+        "Ogni professionista lavora in modo indipendente nella propria area",
         "Una riunione settimanale obbligatoria di tutto il personale sanitario"
       ],
       "risposta_corretta": 1,
@@ -2528,12 +2528,12 @@
       "difficolta": "media",
       "domanda": "Un paziente anziano con lieve deterioramento cognitivo non ricorda ciò che gli è stato detto pochi minuti fa. Come deve adattarsi la comunicazione dell'OSS?",
       "opzioni": [
+        "Usare frasi brevi e semplici, ripetere con pazienza, supportare con gesti e aiuti visivi, mantenere la routine",
         "Parlare ad alta voce e ripetere le stesse identiche parole più volte",
         "Evitare di comunicare informazioni importanti, rimandando tutto ai familiari",
-        "Usare frasi brevi e semplici, ripetere con pazienza, supportare con gesti e aiuti visivi, mantenere la routine",
         "Chiedere sempre al medico prima di rispondere a qualsiasi domanda"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 0,
       "spiegazione": "Con il paziente cognitivamente compromesso le strategie includono: frasi brevi e concrete (un concetto alla volta), tono calmo e rassicurante, contatto visivo, gesti congruenti con le parole, supporti visivi, rispetto della routine (riduce l'ansia), pazienza nel ripetere senza esprimere frustrazione. Alzare la voce non migliora la comprensione cognitiva ed è controproducente."
     },
     {
@@ -2542,12 +2542,12 @@
       "difficolta": "difficile",
       "domanda": "Cosa si intende per 'burnout' dell'operatore socio-sanitario e quali sono le sue tre dimensioni secondo Maslach?",
       "opzioni": [
-        "Stanchezza fisica dopo turni lunghi; le tre dimensioni sono dolori muscolari, insonnia e mal di testa",
         "Una sindrome da stress lavorativo cronico con tre dimensioni: esaurimento emotivo, depersonalizzazione e ridotta realizzazione personale",
+        "Stanchezza fisica dopo turni lunghi; le tre dimensioni sono dolori muscolari, insonnia e mal di testa",
         "Un conflitto con i superiori; le tre dimensioni sono rabbia, ribellione e abbandono",
         "Una malattia infettiva occupazionale"
       ],
-      "risposta_corretta": 1,
+      "risposta_corretta": 0,
       "spiegazione": "Il burnout (Maslach) è una sindrome da stress cronico lavorativo con tre componenti: 1) Esaurimento emotivo: senso di svuotamento e incapacità di dare; 2) Depersonalizzazione: atteggiamento cinico e distaccato verso i pazienti; 3) Ridotta realizzazione personale: sensazione di incompetenza. È frequente nelle professioni d'aiuto. Prevenzione: supervisione, supporto tra colleghi, formazione e cura di sé."
     },
     {
@@ -2556,12 +2556,12 @@
       "difficolta": "media",
       "domanda": "Quale strumento organizzativo garantisce la continuità informativa tra i turni di lavoro dell'équipe OSS?",
       "opzioni": [
-        "Il registro delle presenze",
         "La cartella clinica compilata solo dal medico",
-        "La consegna (handover) verbale e/o scritta tra operatori a fine turno",
-        "Il telefono del reparto"
+        "Il registro delle presenze",
+        "Il telefono del reparto",
+        "La consegna (handover) verbale e/o scritta tra operatori a fine turno"
       ],
-      "risposta_corretta": 2,
+      "risposta_corretta": 3,
       "spiegazione": "La consegna (handover) è il momento strutturato in cui gli operatori che terminano il turno trasmettono ai colleghi le informazioni rilevanti su ogni paziente: condizioni generali, variazioni osservate, interventi effettuati, bisogni da monitorare. Può essere verbale e/o scritta (diario OSS, schede di osservazione). È fondamentale per la continuità assistenziale e prevenire omissioni pericolose."
     },
     {
@@ -2570,12 +2570,12 @@
       "difficolta": "difficile",
       "domanda": "Un paziente esprime disagio per le cure ricevute. Qual è il comportamento corretto dell'OSS?",
       "opzioni": [
-        "Dare al paziente informazioni dettagliate sulla propria prognosi per rassicurarlo",
         "Ignorare il disagio per non creare allarme inutile",
+        "Accogliere empaticamente il vissuto del paziente, documentarlo e riferirlo all'équipe senza agire da solo oltre le proprie competenze",
         "Mantenere la confidenza solo tra sé e il paziente, senza riferirla all'équipe",
-        "Accogliere empaticamente il vissuto del paziente, documentarlo e riferirlo all'équipe senza agire da solo oltre le proprie competenze"
+        "Dare al paziente informazioni dettagliate sulla propria prognosi per rassicurarlo"
       ],
-      "risposta_corretta": 3,
+      "risposta_corretta": 1,
       "spiegazione": "Quando un paziente esprime disagio, l'OSS deve: ascoltare empaticamente senza minimizzare, raccogliere e riferire l'informazione all'équipe affinché i professionisti competenti (medico, infermiere, psicologo) possano intervenire, documentare l'osservazione. Non spetta all'OSS prendere decisioni cliniche né trattenere informazioni rilevanti fuori dall'équipe: il segreto professionale non impedisce la comunicazione interna d'équipe."
     }
   ]
