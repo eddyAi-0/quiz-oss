@@ -4,6 +4,7 @@ import Quiz from './components/Quiz'
 import SimulationMode from './components/SimulationMode'
 import Dashboard from './components/Dashboard'
 import TutorAI from './components/TutorAI'
+import ErrorBoundary from './components/ErrorBoundary'
 
 const NAV = [
   { to: '/', label: 'Quiz', icon: '📚' },
@@ -45,13 +46,15 @@ export default function App() {
         {dark ? '☀️' : '🌙'}
       </button>
 
-      <Routes>
-        <Route path="/" element={<Quiz />} />
-        <Route path="/simulazione" element={<SimulationMode />} />
-        <Route path="/progressi" element={<Dashboard />} />
-        <Route path="/tutor" element={<TutorAI />} />
-        <Route path="/tutor/:sezione" element={<TutorAI />} />
-      </Routes>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<Quiz />} />
+          <Route path="/simulazione" element={<SimulationMode />} />
+          <Route path="/progressi" element={<Dashboard />} />
+          <Route path="/tutor" element={<TutorAI />} />
+          <Route path="/tutor/:sezione" element={<TutorAI />} />
+        </Routes>
+      </ErrorBoundary>
 
       <nav className="bottom-nav">
         {NAV.map(({ to, label, icon }) => (

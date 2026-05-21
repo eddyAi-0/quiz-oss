@@ -23,7 +23,8 @@ function formatDate(iso) {
   return d.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit' })
 }
 
-function pctColor(pct) {
+function pctColor(pct, total = 1) {
+  if (total === 0) return 'var(--text-muted)'
   if (pct >= 80) return 'var(--success)'
   if (pct >= 60) return 'var(--warning)'
   return 'var(--error)'
@@ -64,7 +65,9 @@ export default function Dashboard() {
       return (
         <div style={{ background: 'var(--card)', color: 'var(--text)', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', fontSize: '0.85rem' }}>
           <p style={{ fontWeight: 600 }}>{d.fullName}</p>
-          <p style={{ color: pctColor(d.pct) }}>{d.pct}% ({d.correct}/{d.total})</p>
+          <p style={{ color: pctColor(d.pct, d.total) }}>
+            {d.total === 0 ? 'N/D' : `${d.pct}% (${d.correct}/${d.total})`}
+          </p>
         </div>
       )
     }
@@ -128,7 +131,7 @@ export default function Dashboard() {
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="pct" radius={[4, 4, 0, 0]}>
                 {sectionData.map((entry, i) => (
-                  <Cell key={i} fill={pctColor(entry.pct)} />
+                  <Cell key={i} fill={pctColor(entry.pct, entry.total)} />
                 ))}
               </Bar>
             </BarChart>

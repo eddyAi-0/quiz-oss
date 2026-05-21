@@ -6,6 +6,7 @@ import { shuffle } from '../utils/shuffle'
 
 const SEZIONI = domandeData.metadata.sezioni
 const TUTTE = 'Tutte le sezioni'
+const LIMITI = [10, 20, 30, 'Tutte']
 
 function QuestionCard({ q, index, total, onAnswer, answered, selected }) {
   const navigate = useNavigate()
@@ -79,19 +80,30 @@ function QuestionCard({ q, index, total, onAnswer, answered, selected }) {
 
 export default function Quiz() {
   const [sezione, setSezione] = useState(TUTTE)
-  const [activeQuestions, setActiveQuestions] = useState(() => shuffle(domandeData.domande))
+  const [limit, setLimit] = useState(20)
+  const [activeQuestions, setActiveQuestions] = useState(() => shuffle(domandeData.domande).slice(0, 20))
   const [index, setIndex] = useState(0)
   const [selected, setSelected] = useState(null)
   const [answered, setAnswered] = useState(false)
   const [sessionAnswers, setSessionAnswers] = useState([])
   const [sessionDone, setSessionDone] = useState(false)
 
+  function applyFilter(s, lim) {
+    const pool = s === TUTTE ? domandeData.domande : domandeData.domande.filter(d => d.sezione === s)
+    const shuffled = shuffle(pool)
+    return lim === 'Tutte' ? shuffled : shuffled.slice(0, lim)
+  }
+
   function changeSezione(s) {
     setSezione(s)
-    const pool = s === TUTTE
-      ? domandeData.domande
-      : domandeData.domande.filter(d => d.sezione === s)
-    setActiveQuestions(shuffle(pool))
+    setActiveQuestions(applyFilter(s, limit))
+    resetSession()
+  }
+
+  function changeLimit(val) {
+    const lim = val === 'Tutte' ? 'Tutte' : Number(val)
+    setLimit(lim)
+    setActiveQuestions(applyFilter(sezione, lim))
     resetSession()
   }
 
@@ -192,6 +204,15 @@ export default function Quiz() {
         <select value={sezione} onChange={e => changeSezione(e.target.value)}>
           <option>{TUTTE}</option>
           {SEZIONI.map(s => <option key={s}>{s}</option>)}
+        </select>
+        <span className="select-arrow">▼</span>
+      </div>
+
+      <div className="select-wrap">
+        <select value={limit} onChange={e => changeLimit(e.target.value)}>
+          {LIMITI.map(l => (
+            <option key={l} value={l}>{l === 'Tutte' ? 'Tutte le domande' : `${l} domande`}</option>
+          ))}
         </select>
         <span className="select-arrow">▼</span>
       </div>

@@ -1,32 +1,15 @@
 const MODEL = 'llama-3.3-70b-versatile'
-const BASE = 'https://api.groq.com/openai/v1/chat/completions'
-
-function getKey() {
-  return import.meta.env.VITE_GROQ_API_KEY
-}
 
 async function callGroq(messages, maxTokens = 1024) {
-  const key = getKey()
-  if (!key || key === 'YOUR_GROQ_KEY_HERE') {
-    throw new Error('VITE_GROQ_API_KEY non configurata. Ottieni la key gratis su console.groq.com e aggiungila nel file .env.local')
-  }
-
-  const res = await fetch(BASE, {
+  const res = await fetch('/api/groq', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${key}`
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: maxTokens,
-      messages
-    })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: MODEL, max_tokens: maxTokens, messages })
   })
 
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))
-    throw new Error(err.error?.message || `Errore API Groq: ${res.status}`)
+    throw new Error(err.error?.message || `Errore API: ${res.status}`)
   }
 
   const data = await res.json()

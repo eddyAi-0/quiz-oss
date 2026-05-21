@@ -2,7 +2,7 @@
   "metadata": {
     "titolo": "Banca Domande Concorso OSS",
     "versione": "1.0",
-    "totale_domande": 165,
+    "totale_domande": 183,
     "sezioni": [
       "Anatomia e Fisiologia",
       "Igiene e Prevenzione",
@@ -2325,6 +2325,258 @@
       ],
       "risposta_corretta": 1,
       "spiegazione": "A domicilio l'OSS opera in un ambiente di vita non strutturato, con meno risorse immediate ma maggiore relazione con la persona e la famiglia. Deve adattare gli interventi al contesto, coinvolgere i caregiver familiari, rispettare abitudini e valori culturali della persona, e ha un ruolo cruciale nell'osservazione e segnalazione di variazioni cliniche all'équipe."
+    },
+    {
+      "id": 166,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "facile",
+      "domanda": "Oltre alle parole, quali altri canali veicola la comunicazione interpersonale?",
+      "opzioni": [
+        "Nessuno: contano solo le parole",
+        "Tono della voce (paraverbale) e linguaggio del corpo (non verbale: postura, gesti, espressioni)",
+        "Solo le espressioni facciali",
+        "Solo il tono della voce"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "La comunicazione è multicanale: verbale (le parole), paraverbale (tono, ritmo, volume) e non verbale (postura, gesti, espressioni facciali, contatto visivo, prossemia). Studi classici stimano che la componente non verbale e paraverbale trasmetta la maggior parte del messaggio emotivo. L'OSS deve essere consapevole di tutti e tre i livelli nella relazione con il paziente."
+    },
+    {
+      "id": 167,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "facile",
+      "domanda": "Cosa si intende per 'ascolto attivo' nella relazione d'aiuto?",
+      "opzioni": [
+        "Ascoltare il paziente solo quando fa richieste urgenti",
+        "Prestare piena attenzione, mantenere il contatto visivo, riformulare ciò che si è capito e sospendere i giudizi",
+        "Prendere appunti su tutto ciò che dice il paziente senza mai intervenire",
+        "Ascoltare e dare immediatamente consigli pratici"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "L'ascolto attivo richiede presenza piena: contatto visivo, annuire, riformulare ('Se ho capito bene, lei dice che…'), porre domande aperte, non interrompere e sospendere ogni giudizio. Permette al paziente di sentirsi compreso e favorisce la fiducia nella relazione terapeutica. È una delle competenze fondamentali dell'OSS."
+    },
+    {
+      "id": 168,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "facile",
+      "domanda": "Cosa si intende per 'empatia' nella comunicazione assistenziale?",
+      "opzioni": [
+        "Condividere le stesse esperienze di vita del paziente",
+        "La capacità di comprendere il vissuto emotivo dell'altro senza perdere la propria identità professionale",
+        "Provare pietà per la sofferenza del paziente",
+        "Evitare di mostrare qualsiasi emozione per restare neutri"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "L'empatia è la capacità di comprendere il mondo interiore dell'altro — sentimenti, pensieri, prospettive — come se fossimo nei suoi panni, mantenendo però la consapevolezza di essere noi stessi (distanza empatica). È diversa dalla simpatia (fusione emotiva) e dalla pietà. Carl Rogers la considera una delle tre qualità fondamentali della relazione d'aiuto."
+    },
+    {
+      "id": 169,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "Cosa studia la 'prossemia' nella comunicazione?",
+      "opzioni": [
+        "L'uso delle parole tecniche in ambito sanitario",
+        "Come il ritmo del parlato influenza la comprensione",
+        "L'uso e la gestione dello spazio interpersonale nella comunicazione",
+        "Le tecniche di scrittura della documentazione clinica"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "La prossemia (Edward Hall) studia come gli individui usano e percepiscono lo spazio fisico nella comunicazione. Hall identificò quattro zone: intima (0-45 cm), personale (45-120 cm), sociale (120-360 cm) e pubblica (>360 cm). L'OSS entra spesso nella zona intima per le cure igieniche: deve farlo con rispetto, spiegando ciò che fa e chiedendo il permesso al paziente."
+    },
+    {
+      "id": 170,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "Quale delle seguenti è la corretta definizione di 'comunicazione assertiva'?",
+      "opzioni": [
+        "Comunicare in modo aggressivo per far valere le proprie ragioni",
+        "Esprimere pensieri, sentimenti e bisogni in modo chiaro, diretto e rispettoso senza prevaricare gli altri",
+        "Cedere sempre alle richieste altrui per evitare conflitti",
+        "Comunicare solo attraverso azioni, senza usare le parole"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "La comunicazione assertiva è lo stile comunicativo di mezzo tra il passivo (rinuncia ai propri bisogni) e l'aggressivo (prevaricazione). Permette di esprimere opinioni, emozioni e bisogni in modo onesto e rispettoso, riconoscendo i diritti degli altri. Per l'OSS è fondamentale nelle relazioni col paziente, con i familiari e nel lavoro d'équipe."
+    },
+    {
+      "id": 171,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "L'OSS ripete con parole proprie ciò che il paziente ha appena detto per verificare di aver capito correttamente. Questa tecnica si chiama:",
+      "opzioni": [
+        "Interpretazione",
+        "Suggestione",
+        "Riformulazione (o parafrasi)",
+        "Confrontazione"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "La riformulazione (parafrasi) è una tecnica di ascolto attivo: l'operatore restituisce al paziente il contenuto del messaggio con parole proprie ('Quindi se ho capito, lei mi sta dicendo che…'). Ha la duplice funzione di verificare la comprensione e di far sentire il paziente ascoltato. È diversa dall'interpretazione, che aggiunge un'analisi del significato non dichiarata dal paziente."
+    },
+    {
+      "id": 172,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "difficile",
+      "domanda": "Secondo Carl Rogers, quali sono i tre atteggiamenti fondamentali per una relazione d'aiuto efficace?",
+      "opzioni": [
+        "Autorità, distanza professionale e neutralità",
+        "Empatia, congruenza (autenticità) e considerazione positiva incondizionata",
+        "Competenza tecnica, puntualità e rispetto delle regole",
+        "Simpatia, ottimismo e proattività"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "Carl Rogers, fondatore dell'approccio centrato sulla persona, identificò tre condizioni necessarie e sufficienti per il cambiamento terapeutico: 1) Empatia: comprendere il mondo soggettivo del paziente; 2) Congruenza: l'operatore è autentico e trasparente; 3) Considerazione positiva incondizionata: accogliere la persona senza giudicarla. Questi principi sono alla base della relazione d'aiuto in ambito OSS."
+    },
+    {
+      "id": 173,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "facile",
+      "domanda": "Il silenzio nella comunicazione terapeutica con il paziente:",
+      "opzioni": [
+        "Va evitato perché crea imbarazzo e va sempre riempito con parole",
+        "Può essere uno strumento potente che dà spazio al paziente di elaborare i propri pensieri",
+        "Indica disinteresse da parte dell'operatore",
+        "È appropriato solo con i pazienti incoscienti"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "Il silenzio 'attivo' o terapeutico è uno strumento comunicativo prezioso. Usato consapevolmente, comunica presenza, accettazione e rispetto, dando al paziente tempo per elaborare emozioni e pensieri. L'OSS deve saper tollerare il silenzio senza ansia, usando contatto visivo e postura aperta per comunicare vicinanza senza riempire ogni pausa con parole."
+    },
+    {
+      "id": 174,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "L'OSS assiste un paziente con afasia motoria (di Broca) post-ictus che capisce ma fatica a parlare. Quale strategia è più appropriata?",
+      "opzioni": [
+        "Parlare al posto suo per accelerare i tempi",
+        "Evitare di comunicare direttamente e rivolgersi solo ai familiari",
+        "Usare domande chiuse (sì/no), supporti visivi, parlare lentamente con frasi brevi e dare tempo",
+        "Alzare la voce perché potrebbe avere anche problemi uditivi"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Il paziente con afasia di Broca comprende il linguaggio ma ha difficoltà nell'espressione verbale. Le strategie efficaci sono: domande chiuse (sì/no), supporti visivi (immagini, schede comunicative), frasi brevi e linguaggio semplice, dare tempo senza completare le sue frasi, mantenere il contatto visivo. Non si alza mai la voce (l'afasia non è sordità) e non si ignora la persona rivolvendosi solo ai familiari."
+    },
+    {
+      "id": 175,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "difficile",
+      "domanda": "Cosa si intende per 'comunicazione non violenta' (CNV) secondo Marshall Rosenberg?",
+      "opzioni": [
+        "Una comunicazione che evita le discussioni fisiche",
+        "Un modello basato su: osservazione oggettiva, espressione dei sentimenti, identificazione dei bisogni e formulazione di richieste concrete",
+        "L'uso di un tono di voce sempre basso e pacato",
+        "Evitare qualsiasi forma di critica verso i colleghi"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "La CNV di Rosenberg si articola in 4 componenti: 1) Osservazione: descrivere i fatti senza valutarli ('Ho notato che…'); 2) Sentimenti: esprimere le proprie emozioni ('Mi sento…'); 3) Bisogni: identificare il bisogno sottostante; 4) Richiesta: formulare una richiesta concreta e realizzabile ('Potresti…?'). Riduce i conflitti relazionali e migliora la collaborazione in équipe."
+    },
+    {
+      "id": 176,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "In caso di conflitto con un collega dell'équipe, quale approccio è più corretto per un OSS?",
+      "opzioni": [
+        "Ignorare il problema sperando che si risolva da solo",
+        "Lamentarsi con altri colleghi per ottenere supporto contro la persona",
+        "Affrontare il problema direttamente con il collega in modo assertivo, in un momento e luogo appropriati",
+        "Rivolgersi immediatamente al dirigente senza prima tentare un confronto diretto"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Il conflitto in équipe va gestito in modo costruttivo. L'approccio più appropriato è il confronto diretto e assertivo: scegliere il momento giusto (non davanti ai pazienti), descrivere il comportamento che ha creato il problema (non la persona), esprimere come ci si è sentiti, ascoltare l'altro e cercare insieme una soluzione. Il superiore va coinvolto solo se il confronto diretto non risolve il problema."
+    },
+    {
+      "id": 177,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "Come deve comunicare l'OSS con un familiare quando deve riferire notizie difficili sul paziente?",
+      "opzioni": [
+        "Velocemente nel corridoio per limitare il disagio",
+        "Lasciare sempre questo compito esclusivamente al medico",
+        "In un luogo privato, con calma, usando linguaggio comprensibile e lasciando spazio alle emozioni e alle domande",
+        "Per iscritto, per dare al familiare tempo di elaborare"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "La comunicazione di notizie difficili richiede: luogo privato e tranquillo, tempo sufficiente, linguaggio accessibile (non tecnico), tono empatico, spazio per le emozioni del familiare, disponibilità a rispondere alle domande nei limiti del proprio ruolo. Non si comunica mai di fretta o in luoghi pubblici. L'OSS può riferire ciò che rientra nelle proprie competenze, rimandando al medico per le informazioni cliniche."
+    },
+    {
+      "id": 178,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "facile",
+      "domanda": "Quale dei seguenti è un esempio di barriera alla comunicazione efficace?",
+      "opzioni": [
+        "Usare domande aperte",
+        "Mantenere il contatto visivo",
+        "Formulare giudizi e interpretazioni affrettate su ciò che dice il paziente",
+        "Riformulare ciò che ha detto il paziente"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Le barriere alla comunicazione ostacolano la trasmissione o la ricezione corretta del messaggio. Giudizi, pregiudizi, interpretazioni affrettate (ascoltare per rispondere invece di capire), rumore ambientale, differenze linguistiche e culturali, mancanza di tempo e stress sono barriere comuni. Domande aperte, contatto visivo e riformulazione sono invece strumenti che facilitano la comunicazione."
+    },
+    {
+      "id": 179,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "facile",
+      "domanda": "Cosa si intende per 'lavoro d'équipe' in ambito socio-sanitario?",
+      "opzioni": [
+        "Ogni professionista lavora in modo indipendente nella propria area",
+        "La collaborazione coordinata tra professionisti con competenze diverse, orientata al benessere globale del paziente",
+        "Il fatto che tutti i professionisti svolgono gli stessi compiti in modo intercambiabile",
+        "Una riunione settimanale obbligatoria di tutto il personale sanitario"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "Il lavoro d'équipe è la collaborazione strutturata tra professionisti con ruoli e competenze specifici e complementari (medico, infermiere, OSS, fisioterapista…), coordinati verso il benessere della persona assistita. Richiede comunicazione chiara, rispetto dei ruoli, trasmissione delle informazioni (handover) e risoluzione costruttiva dei conflitti. L'OSS è parte integrante dell'équipe."
+    },
+    {
+      "id": 180,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "Un paziente anziano con lieve deterioramento cognitivo non ricorda ciò che gli è stato detto pochi minuti fa. Come deve adattarsi la comunicazione dell'OSS?",
+      "opzioni": [
+        "Parlare ad alta voce e ripetere le stesse identiche parole più volte",
+        "Evitare di comunicare informazioni importanti, rimandando tutto ai familiari",
+        "Usare frasi brevi e semplici, ripetere con pazienza, supportare con gesti e aiuti visivi, mantenere la routine",
+        "Chiedere sempre al medico prima di rispondere a qualsiasi domanda"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Con il paziente cognitivamente compromesso le strategie includono: frasi brevi e concrete (un concetto alla volta), tono calmo e rassicurante, contatto visivo, gesti congruenti con le parole, supporti visivi, rispetto della routine (riduce l'ansia), pazienza nel ripetere senza esprimere frustrazione. Alzare la voce non migliora la comprensione cognitiva ed è controproducente."
+    },
+    {
+      "id": 181,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "difficile",
+      "domanda": "Cosa si intende per 'burnout' dell'operatore socio-sanitario e quali sono le sue tre dimensioni secondo Maslach?",
+      "opzioni": [
+        "Stanchezza fisica dopo turni lunghi; le tre dimensioni sono dolori muscolari, insonnia e mal di testa",
+        "Una sindrome da stress lavorativo cronico con tre dimensioni: esaurimento emotivo, depersonalizzazione e ridotta realizzazione personale",
+        "Un conflitto con i superiori; le tre dimensioni sono rabbia, ribellione e abbandono",
+        "Una malattia infettiva occupazionale"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "Il burnout (Maslach) è una sindrome da stress cronico lavorativo con tre componenti: 1) Esaurimento emotivo: senso di svuotamento e incapacità di dare; 2) Depersonalizzazione: atteggiamento cinico e distaccato verso i pazienti; 3) Ridotta realizzazione personale: sensazione di incompetenza. È frequente nelle professioni d'aiuto. Prevenzione: supervisione, supporto tra colleghi, formazione e cura di sé."
+    },
+    {
+      "id": 182,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "media",
+      "domanda": "Quale strumento organizzativo garantisce la continuità informativa tra i turni di lavoro dell'équipe OSS?",
+      "opzioni": [
+        "Il registro delle presenze",
+        "La cartella clinica compilata solo dal medico",
+        "La consegna (handover) verbale e/o scritta tra operatori a fine turno",
+        "Il telefono del reparto"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "La consegna (handover) è il momento strutturato in cui gli operatori che terminano il turno trasmettono ai colleghi le informazioni rilevanti su ogni paziente: condizioni generali, variazioni osservate, interventi effettuati, bisogni da monitorare. Può essere verbale e/o scritta (diario OSS, schede di osservazione). È fondamentale per la continuità assistenziale e prevenire omissioni pericolose."
+    },
+    {
+      "id": 183,
+      "sezione": "Rapporto e Comunicazione Assistenziale",
+      "difficolta": "difficile",
+      "domanda": "Un paziente esprime disagio per le cure ricevute. Qual è il comportamento corretto dell'OSS?",
+      "opzioni": [
+        "Dare al paziente informazioni dettagliate sulla propria prognosi per rassicurarlo",
+        "Ignorare il disagio per non creare allarme inutile",
+        "Mantenere la confidenza solo tra sé e il paziente, senza riferirla all'équipe",
+        "Accogliere empaticamente il vissuto del paziente, documentarlo e riferirlo all'équipe senza agire da solo oltre le proprie competenze"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "Quando un paziente esprime disagio, l'OSS deve: ascoltare empaticamente senza minimizzare, raccogliere e riferire l'informazione all'équipe affinché i professionisti competenti (medico, infermiere, psicologo) possano intervenire, documentare l'osservazione. Non spetta all'OSS prendere decisioni cliniche né trattenere informazioni rilevanti fuori dall'équipe: il segreto professionale non impedisce la comunicazione interna d'équipe."
     }
   ]
 }

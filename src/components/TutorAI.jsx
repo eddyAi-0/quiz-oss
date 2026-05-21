@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { spiegaMeglio, chatTutor, generaDomandeExtra } from '../utils/groq'
 import { getWorstSections } from '../utils/storage'
 import domandeData from '../data/domande.json'
@@ -73,11 +75,16 @@ export default function TutorAI() {
   const [extraQuestions, setExtraQuestions] = useState([])
   const [loadingExtra, setLoadingExtra] = useState(false)
   const [initialized, setInitialized] = useState(false)
+  const [extraCooldown, setExtraCooldown] = useState(0)
 
   const chatEndRef = useRef(null)
   const inputRef = useRef(null)
+  const cooldownTimerRef = useRef(null)
+  const lastSendRef = useRef(0)
 
   const worstSections = useMemo(() => getWorstSections(3), [])
+
+  useEffect(() => () => clearInterval(cooldownTimerRef.current), [])
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -91,26 +98,22 @@ export default function TutorAI() {
       handleSpiegaMeglio(domandaCtx)
     } else if (sezioneParam) {
       const decoded = decodeURIComponent(sezioneParam)
-      const welcome = {
+      setMessages([{
         role: 'assistant',
         content: `Ciao! Sono il tuo tutor OSS. Vediamo insieme la sezione **${decoded}**.\n\nCosa vuoi approfondire? Puoi chiedermi qualsiasi cosa su questo argomento, oppure clicca il pulsante per generare 3 domande di pratica.`
-      }
-      setMessages([welcome])
+      }])
     } else {
-      const welcome = {
+      setMessages([{
         role: 'assistant',
         content: `Ciao! Sono il tuo tutor per il concorso OSS. 👋\n\nPosso aiutarti a:\n• Chiarire argomenti che non hai capito bene\n• Spiegare le risposte sbagliate\n• Generare domande di pratica extra\n• Rispondere a qualsiasi domanda sulle materie OSS\n\nSu cosa vuoi lavorare oggi?`
-      }
-      setMessages([welcome])
+      }])
     }
   }, [])
 
   async function handleSpiegaMeglio(domanda) {
     setLoading(true)
     setError(null)
-
-    const userMsg = `Spiegami la domanda: "${domanda.domanda}"`
-    setMessages(prev => [...prev, { role: 'user', content: userMsg }])
+    setMessages(prev => [...prev, { role: 'user', content: `Spiegami la domanda: "${domanda.domanda}"` }])
 
     try {
       const risposta = await spiegaMeglio({
@@ -131,10 +134,11 @@ export default function TutorAI() {
   async function handleSend() {
     const text = input.trim()
     if (!text || loading) return
+    if (Date.now() - lastSendRef.current < 2000) return
+    lastSendRef.current = Date.now()
 
     const sezioneHint = selectedSezione ? `[Sezione: ${selectedSezione}] ` : ''
     const userMsg = { role: 'user', content: sezioneHint + text }
-
     const newMessages = [...messages, userMsg]
     setMessages(newMessages)
     setInput('')
@@ -142,8 +146,7 @@ export default function TutorAI() {
     setError(null)
 
     try {
-      const apiMessages = newMessages.map(m => ({ role: m.role, content: m.content }))
-      const risposta = await chatTutor(apiMessages)
+      const risposta = await chatTutor(newMessages.map(m => ({ role: m.role, content: m.content })))
       setMessages(prev => [...prev, { role: 'assistant', content: risposta }])
     } catch (e) {
       setError(e.message)
@@ -160,18 +163,26 @@ export default function TutorAI() {
     setExtraQuestions([])
     setError(null)
 
-    const domandeSezSecz = domandeData.domande
+    const domandeSez = domandeData.domande
       .filter(d => d.sezione === target)
       .slice(0, 5)
       .map(d => d.spiegazione)
 
     try {
-      const qs = await generaDomandeExtra(target, domandeSezSecz)
+      const qs = await generaDomandeExtra(target, domandeSez)
       setExtraQuestions(qs)
     } catch (e) {
       setError(e.message)
     } finally {
       setLoadingExtra(false)
+      setExtraCooldown(10)
+      clearInterval(cooldownTimerRef.current)
+      cooldownTimerRef.current = setInterval(() => {
+        setExtraCooldown(c => {
+          if (c <= 1) { clearInterval(cooldownTimerRef.current); return 0 }
+          return c - 1
+        })
+      }, 1000)
     }
   }
 
@@ -206,10 +217,10 @@ export default function TutorAI() {
           <button
             className="btn btn-ghost btn-sm"
             onClick={handleGeneraExtra}
-            disabled={loadingExtra || loading}
+            disabled={loadingExtra || loading || extraCooldown > 0}
             style={{ flex: 1 }}
           >
-            {loadingExtra ? '⏳ Generando...' : '✨ Genera 3 domande extra'}
+            {loadingExtra ? '⏳ Generando...' : extraCooldown > 0 ? `⏳ Attendi ${extraCooldown}s` : '✨ Genera 3 domande extra'}
           </button>
         </div>
 
@@ -226,7 +237,6 @@ export default function TutorAI() {
         </div>
       )}
 
-      {/* Extra questions */}
       {extraQuestions.length > 0 && (
         <div style={{ padding: '0 1rem', overflowY: 'auto', maxHeight: '40vh', flexShrink: 0 }}>
           <h3 style={{ marginBottom: '0.75rem', fontSize: '1rem' }}>
@@ -238,11 +248,13 @@ export default function TutorAI() {
         </div>
       )}
 
-      {/* Chat */}
       <div className="chat-messages" ref={null}>
         {messages.map((m, i) => (
           <div key={i} className={`chat-bubble ${m.role} fade-in`}>
-            {m.content}
+            {m.role === 'assistant'
+              ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
+              : m.content
+            }
           </div>
         ))}
         {loading && <TypingDots />}

@@ -144,7 +144,10 @@ export default function SimulationMode() {
   const [selected, setSelected] = useState(null)
   const [timeLeft, setTimeLeft] = useState(TOTAL_SEC)
   const [elapsed, setElapsed] = useState(0)
+  const [timerAlert, setTimerAlert] = useState(false)
   const timerRef = useRef(null)
+  const quizStartRef = useRef(null)
+  const timeLeftRef = useRef(TOTAL_SEC)
 
   const submit = useCallback((finalAnswers, elapsedSec) => {
     clearInterval(timerRef.current)
@@ -152,29 +155,44 @@ export default function SimulationMode() {
     setPhase('result')
   }, [])
 
+  useEffect(() => { timeLeftRef.current = timeLeft }, [timeLeft])
+
+  useEffect(() => {
+    if (timeLeft === 0 && phase === 'quiz') submit(answers, TOTAL_SEC)
+  }, [timeLeft])
+
   useEffect(() => {
     if (phase !== 'quiz') return
-
     const start = Date.now() - (TOTAL_SEC - timeLeft) * 1000
-
     timerRef.current = setInterval(() => {
-      const elapsed = Math.floor((Date.now() - start) / 1000)
-      const remaining = TOTAL_SEC - elapsed
-      if (remaining <= 0) {
-        setTimeLeft(0)
-        setAnswers(prev => {
-          submit(prev, TOTAL_SEC)
-          return prev
-        })
-      } else {
-        setTimeLeft(remaining)
-      }
+      const el = Math.floor((Date.now() - start) / 1000)
+      const remaining = TOTAL_SEC - el
+      setTimeLeft(remaining <= 0 ? 0 : remaining)
     }, 1000)
-
     return () => clearInterval(timerRef.current)
   }, [phase])
 
+  useEffect(() => {
+    if (phase !== 'quiz') return
+    function handleVisibility() {
+      if (document.visibilityState !== 'visible' || !quizStartRef.current) return
+      const trueElapsed = Math.floor((Date.now() - quizStartRef.current) / 1000)
+      const remaining = Math.max(0, TOTAL_SEC - trueElapsed)
+      if (timeLeftRef.current - remaining > 5) setTimerAlert(true)
+      setTimeLeft(remaining)
+    }
+    document.addEventListener('visibilitychange', handleVisibility)
+    return () => document.removeEventListener('visibilitychange', handleVisibility)
+  }, [phase])
+
+  useEffect(() => {
+    if (!timerAlert) return
+    const t = setTimeout(() => setTimerAlert(false), 3000)
+    return () => clearTimeout(t)
+  }, [timerAlert])
+
   function startQuiz() {
+    quizStartRef.current = Date.now()
     setPhase('quiz')
     setCurrentIdx(0)
     setAnswers(Array(TOTAL_Q).fill(null))
@@ -193,7 +211,6 @@ export default function SimulationMode() {
     const newAnswers = [...answers]
     newAnswers[currentIdx] = selected
     setAnswers(newAnswers)
-
     if (currentIdx + 1 >= TOTAL_Q) {
       submit(newAnswers, TOTAL_SEC - timeLeft)
     } else {
@@ -204,6 +221,7 @@ export default function SimulationMode() {
 
   function restart() {
     clearInterval(timerRef.current)
+    quizStartRef.current = null
     setPhase('start')
     setQuestions(shuffle(domandeData.domande).slice(0, TOTAL_Q))
     setCurrentIdx(0)
@@ -227,6 +245,12 @@ export default function SimulationMode() {
           {currentIdx + 1}/{TOTAL_Q}
         </span>
       </div>
+
+      {timerAlert && (
+        <p style={{ textAlign: 'center', fontSize: '0.82rem', color: 'var(--warning)', marginBottom: '0.5rem' }}>
+          ⏱️ Timer aggiornato
+        </p>
+      )}
 
       <div className="progress-bar-wrap">
         <div className="progress-bar-fill" style={{ width: `${progress}%` }} />
@@ -257,10 +281,7 @@ export default function SimulationMode() {
         ))}
       </div>
 
-      <button
-        className="btn btn-primary"
-        onClick={handleNext}
-      >
+      <button className="btn btn-primary" onClick={handleNext}>
         {currentIdx + 1 >= TOTAL_Q ? '📊 Termina e vedi risultati' : 'Prossima →'}
       </button>
 
