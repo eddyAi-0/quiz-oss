@@ -2,7 +2,7 @@
   "metadata": {
     "titolo": "Banca Domande Concorso OSS",
     "versione": "1.0",
-    "totale_domande": 679,
+    "totale_domande": 708,
     "sezioni": [
       "Anatomia e Fisiologia",
       "Igiene e Prevenzione",
@@ -9524,17 +9524,409 @@
     },
     {
       "id": 680,
+      "sezione": "Legislazione Sanitaria",
+      "difficolta": "media",
       "domanda": "La Carta dei servizi di una struttura sanitaria o socio-sanitaria:",
       "opzioni": [
-        "sancisce il patto di accreditamento tra un ente pubblico e uno privato attraverso il quale l'ente pubblico permette a quello privato di svolgere un servizio al suo posto e sotto il suo controllo",
-        "garantisce al cittadino l'iscrizione al Servizio Sanitario Nazionale",
-        "è un patto tra struttura e cittadino attraverso il quale la struttura s'impegna a garantire determinate prestazioni e che allo stesso tempo permette al cittadino di verificare la qualità e quantità di prestazioni erogate dalla struttura",
-        "fornisce ai medici la visione globale dello stato di salute dei propri pazienti"
+        "È un patto tra struttura e cittadino attraverso il quale la struttura s'impegna a garantire determinate prestazioni e che allo stesso tempo permette al cittadino di verificare la qualità e quantità di prestazioni erogate",
+        "Sancisce il patto di accreditamento tra un ente pubblico e uno privato attraverso il quale l'ente pubblico permette a quello privato di svolgere un servizio al suo posto",
+        "Garantisce al cittadino l'iscrizione al Servizio Sanitario Nazionale",
+        "Fornisce ai medici la visione globale dello stato di salute dei propri pazienti"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "La Carta dei servizi è uno strumento di tutela del cittadino introdotto dalla Direttiva del Presidente del Consiglio dei Ministri del 27 gennaio 1994. Rappresenta un patto tra la struttura e l'utente, garantendo trasparenza sulle prestazioni offerte e permettendo al cittadino di verificarne qualità e quantità."
+    },
+    {
+      "id": 681,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "In quale anno si parla per la prima volta di diagnosi infermieristica?",
+      "opzioni": [
+        "1990",
+        "1978",
+        "1953",
+        "2001"
       ],
       "risposta_corretta": 2,
-      "spiegazione": "La Carta dei servizi è lo strumento con cui la struttura sanitaria/socio-sanitaria si impegna formalmente verso il cittadino su qualità e quantità delle prestazioni erogate, permettendogli di verificarne il rispetto.",
+      "spiegazione": "Il termine 'diagnosi infermieristica' fu utilizzato per la prima volta da Vera Fry nel 1953. Successivamente, nel 1973, la prima conferenza nazionale sulla classificazione delle diagnosi infermieristiche ne formalizzò l'uso nella pratica clinica."
+    },
+    {
+      "id": 682,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Per eseguire correttamente l'accertamento dei dati nel processo di nursing, esso deve comprendere i seguenti punti:",
+      "opzioni": [
+        "Diagnosi medica e prescrizione terapeutica",
+        "Valutazione finale e dimissione del paziente",
+        "Raccolta dei dati, validazione, organizzazione e registrazione",
+        "Solo la raccolta dei dati e la registrazione"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "L'accertamento nel processo di nursing è la prima fase e comprende: raccolta dei dati (attraverso osservazione, intervista, esame fisico), validazione (verifica dell'accuratezza), organizzazione (secondo un modello concettuale) e registrazione (documentazione scritta)."
+    },
+    {
+      "id": 683,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "facile",
+      "domanda": "Quale, tra le seguenti, è considerata la fonte primaria del processo di nursing?",
+      "opzioni": [
+        "La cartella clinica",
+        "Il paziente stesso",
+        "I familiari del paziente",
+        "Il medico curante"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "La fonte primaria di dati nel processo di nursing è sempre il paziente stesso. Le fonti secondarie comprendono familiari, cartella clinica, altri operatori sanitari, letteratura scientifica e risultati di esami diagnostici."
+    },
+    {
+      "id": 684,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "facile",
+      "domanda": "I dati soggettivi sono:",
+      "opzioni": [
+        "Dati misurabili e osservabili dall'operatore sanitario",
+        "Dati forniti solo dai familiari del paziente",
+        "Dati ricavati esclusivamente dagli esami di laboratorio",
+        "Dati percepiti e riferiti dal paziente, come dolore, nausea o ansia"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "I dati soggettivi (o sintomi) sono le informazioni percepite e riferite direttamente dal paziente, come dolore, nausea, ansia, paura o fatica. Non sono misurabili oggettivamente dall'operatore e si raccolgono tramite l'intervista."
+    },
+    {
+      "id": 685,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "facile",
+      "domanda": "I dati oggettivi sono:",
+      "opzioni": [
+        "Opinioni dell'infermiere sul paziente",
+        "Dati raccolti esclusivamente attraverso il colloquio con i familiari",
+        "Dati riferiti verbalmente dal paziente",
+        "Dati osservabili e misurabili, come parametri vitali, esami di laboratorio e segni clinici"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "I dati oggettivi (o segni) sono informazioni osservabili e misurabili dall'operatore sanitario: parametri vitali (PA, FC, TC, FR, SpO2), risultati di esami di laboratorio, segni clinici visibili come edema, cianosi, ferite."
+    },
+    {
+      "id": 686,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Mariory Gordon ha elaborato il modello funzionale di salute. Esso si compone di quanti modelli?",
+      "opzioni": [
+        "11 modelli",
+        "6 modelli",
+        "8 modelli",
+        "14 modelli"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "Il modello funzionale di salute di Marjory Gordon si compone di 11 modelli funzionali: percezione/gestione della salute, nutrizionale/metabolico, eliminazione, attività/esercizio fisico, sonno/riposo, cognitivo/percettivo, percezione di sé, ruolo/relazioni, sessualità/riproduzione, coping/tolleranza allo stress, valori/convinzioni."
+    },
+    {
+      "id": 687,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "La teoria del \"self-care\" è stata sviluppata da:",
+      "opzioni": [
+        "Dorothea Orem",
+        "Marjory Gordon",
+        "Virginia Henderson",
+        "Florence Nightingale"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "La teoria del self-care (autocura) è stata sviluppata da Dorothea Orem. Secondo questa teoria, l'assistenza infermieristica è necessaria quando la persona non è in grado di soddisfare autonomamente i propri bisogni di autocura. Orem identifica tre sistemi di assistenza: totalmente compensatorio, parzialmente compensatorio e di supporto-educazione."
+    },
+    {
+      "id": 688,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "facile",
+      "domanda": "La diagnosi medica è formulata:",
+      "opzioni": [
+        "Dal fisioterapista, in base alla valutazione funzionale",
+        "Dal medico, in base a segni, sintomi ed esami diagnostici, e identifica la patologia",
+        "Dall'OSS, in base all'osservazione quotidiana del paziente",
+        "Dall'infermiere, in base ai modelli funzionali alterati"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "La diagnosi medica è di competenza esclusiva del medico e identifica una specifica patologia o malattia basandosi su segni, sintomi, esami di laboratorio e strumentali. Si differenzia dalla diagnosi infermieristica che invece identifica le risposte umane a problemi di salute."
+    },
+    {
+      "id": 689,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "In quante categorie si suddividono le diagnosi infermieristiche?",
+      "opzioni": [
+        "2: reali e potenziali",
+        "5: reali, potenziali, di rischio, sindromiche e di benessere",
+        "3: reali, di rischio e di benessere",
+        "4: reali, potenziali, collaborative e di benessere"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Le diagnosi infermieristiche si suddividono in 3 categorie principali: reali (problema presente con segni e sintomi identificabili), di rischio (il problema non è ancora presente ma esistono fattori di rischio) e di benessere (o di promozione della salute, quando la persona desidera migliorare il proprio livello di salute)."
+    },
+    {
+      "id": 690,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "La diagnosi infermieristica \"rischio di compromissione dell'integrità cutanea correlata ad immobilità\" è:",
+      "opzioni": [
+        "Un problema collaborativo",
+        "Una diagnosi di rischio",
+        "Una diagnosi di benessere",
+        "Una diagnosi reale"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "Si tratta di una diagnosi di rischio perché il problema (compromissione dell'integrità cutanea) non è ancora presente, ma esiste un fattore di rischio identificato (l'immobilità). Le diagnosi di rischio si riconoscono dalla formula 'rischio di...' e richiedono interventi preventivi."
+    },
+    {
+      "id": 691,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Nel processo di nursing gli obiettivi sono:",
+      "opzioni": [
+        "Le procedure tecniche che l'infermiere deve eseguire",
+        "Le prescrizioni mediche da eseguire",
+        "I farmaci da somministrare al paziente",
+        "I risultati attesi che il paziente dovrebbe raggiungere entro un tempo stabilito grazie agli interventi assistenziali"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "Gli obiettivi (o risultati attesi) nel processo di nursing sono dichiarazioni che descrivono i risultati che il paziente dovrebbe raggiungere entro un tempo definito, a seguito degli interventi infermieristici pianificati. Devono essere specifici, misurabili, raggiungibili, realistici e temporalmente definiti (SMART)."
+    },
+    {
+      "id": 692,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Gli obiettivi possono essere:",
+      "opzioni": [
+        "Esclusivamente immediati",
+        "A breve termine e a lungo termine",
+        "Solo a lungo termine",
+        "Solo a breve termine"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "Gli obiettivi nel processo di nursing possono essere a breve termine (raggiungibili in ore o pochi giorni, es. 'il paziente camminerà 10 metri entro domani') e a lungo termine (raggiungibili in settimane o mesi, es. 'il paziente sarà autonomo nella deambulazione alla dimissione'). Entrambi guidano la pianificazione degli interventi."
+    },
+    {
+      "id": 693,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "difficile",
+      "domanda": "Gli indicatori di risultato sono:",
+      "opzioni": [
+        "Le procedure tecniche da eseguire",
+        "I farmaci utilizzati nel trattamento",
+        "I criteri specifici e misurabili che permettono di valutare se l'obiettivo è stato raggiunto",
+        "Le diagnosi mediche formulate dal medico"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Gli indicatori di risultato sono criteri specifici, osservabili e misurabili che permettono di valutare il raggiungimento degli obiettivi assistenziali. Ad esempio, se l'obiettivo è 'il paziente manterrà l'integrità cutanea', un indicatore potrebbe essere 'assenza di arrossamenti nelle zone a rischio'."
+    },
+    {
+      "id": 694,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Gli interventi assistenziali:",
+      "opzioni": [
+        "Sono esclusivamente di competenza medica",
+        "Non necessitano di documentazione scritta",
+        "Sono le azioni pianificate e attuate per raggiungere gli obiettivi assistenziali stabiliti",
+        "Sono stabiliti esclusivamente dal paziente"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Gli interventi assistenziali (o nursing interventions) sono le azioni pianificate e attuate dall'infermiere per raggiungere gli obiettivi prefissati. Possono essere indipendenti (autonomi dell'infermiere), dipendenti (su prescrizione medica) o interdipendenti (in collaborazione con altri professionisti)."
+    },
+    {
+      "id": 695,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Se durante la valutazione finale non si è ottenuto l'obiettivo prefissato si deve:",
+      "opzioni": [
+        "Ripetere esattamente gli stessi interventi senza modifiche",
+        "Ignorare il problema e procedere con la dimissione",
+        "Trasferire immediatamente il paziente in un'altra struttura",
+        "Rivalutare il piano assistenziale rivedendo accertamento, diagnosi, obiettivi e interventi"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "Quando l'obiettivo non è stato raggiunto, è necessario rivalutare l'intero piano assistenziale: verificare se l'accertamento era completo, se la diagnosi era corretta, se gli obiettivi erano realistici e se gli interventi erano appropriati. Si modifica il piano sulla base di questa rivalutazione."
+    },
+    {
+      "id": 696,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Il processo infermieristico si basa su una metodologia fondamentale. Quale tra le seguenti opzioni è quella esatta?",
+      "opzioni": [
+        "Problem solving scientifico (metodo scientifico)",
+        "Metodo basato esclusivamente sull'esperienza personale",
+        "Metodo per tentativi ed errori",
+        "Metodo basato sulle sole indicazioni mediche"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "Il processo infermieristico si basa sul problem solving scientifico, ovvero il metodo scientifico applicato alla pratica clinica. Prevede fasi logiche e sequenziali: accertamento, diagnosi infermieristica, pianificazione, attuazione e valutazione (le 5 fasi del processo di nursing)."
+    },
+    {
+      "id": 697,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "facile",
+      "domanda": "Cosa si intende con il termine \"visione olistica\"?",
+      "opzioni": [
+        "L'attenzione rivolta solo agli aspetti biologici della malattia",
+        "La considerazione della persona nella sua totalità: dimensione fisica, psicologica, sociale e spirituale",
+        "L'approccio che considera solo la dimensione psicologica del paziente",
+        "La cura di una singola patologia specifica"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "La visione olistica (dal greco 'holos' = tutto, intero) considera la persona nella sua globalità, integrando le dimensioni fisica, psicologica, sociale e spirituale. È un principio fondamentale dell'assistenza infermieristica che supera la visione riduzionistica focalizzata solo sulla malattia."
+    },
+    {
+      "id": 698,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "difficile",
+      "domanda": "Indica l'accoppiamento corretto:",
+      "opzioni": [
+        "Virginia Henderson - 14 bisogni fondamentali",
+        "Marjory Gordon - Teoria dell'ambiente",
+        "Florence Nightingale - Teoria del self-care",
+        "Dorothea Orem - Modelli funzionali di salute"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "Virginia Henderson ha identificato 14 bisogni fondamentali dell'individuo che l'infermiere deve aiutare a soddisfare. Florence Nightingale è nota per la teoria dell'ambiente, Dorothea Orem per la teoria del self-care e Marjory Gordon per gli 11 modelli funzionali di salute."
+    },
+    {
+      "id": 699,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "facile",
+      "domanda": "La consegna (in ambito sanitario):",
+      "opzioni": [
+        "È il documento di dimissione del paziente",
+        "È la richiesta di consulenza specialistica",
+        "È il passaggio strutturato di informazioni sul paziente tra operatori sanitari al cambio turno",
+        "È la prescrizione di farmaci da parte del medico"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "La consegna (o handover/handoff) è il passaggio strutturato e sistematico di informazioni cliniche sul paziente tra operatori sanitari, tipicamente al cambio turno. Ha lo scopo di garantire la continuità assistenziale e la sicurezza del paziente. Può essere scritta, orale o mista."
+    },
+    {
+      "id": 700,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "La frase \"la persona presenterà una riduzione degli episodi di incontinenza urinaria\" è:",
+      "opzioni": [
+        "Una diagnosi infermieristica",
+        "Una diagnosi medica",
+        "Un intervento infermieristico",
+        "Un obiettivo assistenziale"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "La frase descrive un obiettivo assistenziale (risultato atteso): indica il risultato che ci si aspetta di raggiungere nel paziente. Gli obiettivi sono centrati sul paziente e descrivono il comportamento o la condizione attesa, in questo caso la riduzione degli episodi di incontinenza."
+    },
+    {
+      "id": 701,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Il modello funzionale secondo M. Gordon riguardo l'incontinenza urinaria è:",
+      "opzioni": [
+        "Modello di eliminazione",
+        "Modello di percezione/gestione della salute",
+        "Modello di attività/esercizio fisico",
+        "Modello nutrizionale/metabolico"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "L'incontinenza urinaria rientra nel modello di eliminazione di Marjory Gordon (modello n. 3). Questo modello comprende le funzioni escretorie dell'organismo: intestinale, urinaria e cutanea (sudorazione). Include abitudini, regolarità e uso di dispositivi o ausili per l'eliminazione."
+    },
+    {
+      "id": 702,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Un paziente con problemi di alimentazione avrà alterato, secondo M. Gordon, il modello di:",
+      "opzioni": [
+        "Percezione di sé",
+        "Attività/esercizio fisico",
+        "Eliminazione",
+        "Nutrizionale/metabolico"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "I problemi di alimentazione rientrano nel modello nutrizionale/metabolico di Gordon (modello n. 2). Questo modello comprende le abitudini alimentari, l'apporto di liquidi e nutrienti, lo stato nutrizionale, condizioni di cute e mucose, altezza, peso e temperatura corporea."
+    },
+    {
+      "id": 703,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "difficile",
+      "domanda": "I problemi collaborativi:",
+      "opzioni": [
+        "Sono diagnosi formulate esclusivamente dall'OSS",
+        "Sono complicanze potenziali che l'infermiere monitora e gestisce in collaborazione con il medico",
+        "Sono gestiti in completa autonomia dall'infermiere",
+        "Sono problemi che riguardano solo il personale amministrativo"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "I problemi collaborativi (o complicanze potenziali), come definiti da Lynda Juall Carpenito, sono problemi di salute reali o potenziali che l'infermiere identifica, monitora e gestisce attraverso interventi sia autonomi che in collaborazione con il medico e altri professionisti. Si differenziano dalle diagnosi infermieristiche pure."
+    },
+    {
+      "id": 704,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "difficile",
+      "domanda": "Un paziente si reca in PS riferendo dolore alla gamba SX. L'infermiere al triage rileva i seguenti parametri vitali: PA 140/80, FC 72 bpm, TC 36.6°C. Quali sono i dati oggettivi e quelli soggettivi?",
+      "opzioni": [
+        "Oggettivi: dolore alla gamba SX; Soggettivi: PA, FC, TC",
+        "Oggettivi: PA 140/80, FC 72 bpm, TC 36.6°C; Soggettivi: dolore alla gamba SX",
+        "Sono tutti dati oggettivi",
+        "Sono tutti dati soggettivi"
+      ],
+      "risposta_corretta": 1,
+      "spiegazione": "I dati oggettivi sono quelli misurabili e osservabili: PA 140/80 mmHg, FC 72 bpm e TC 36.6°C. Il dolore alla gamba sinistra è un dato soggettivo perché è un sintomo percepito e riferito dal paziente, non direttamente misurabile dall'operatore."
+    },
+    {
+      "id": 705,
       "sezione": "Legislazione Sanitaria",
-      "difficolta": "media"
+      "difficolta": "media",
+      "domanda": "La delega tra l'infermiere e l'OSS è possibile?",
+      "opzioni": [
+        "Sì, l'infermiere può delegare qualsiasi attività all'OSS",
+        "No, non è mai possibile in nessun caso",
+        "Sì, ma solo se autorizzata dal direttore sanitario",
+        "Sì, ma solo per attività che rientrano nel profilo dell'OSS e sotto la responsabilità dell'infermiere"
+      ],
+      "risposta_corretta": 3,
+      "spiegazione": "L'attribuzione (impropriamente detta 'delega') di attività dall'infermiere all'OSS è possibile per le attività che rientrano nel profilo professionale dell'OSS, sotto la responsabilità di indirizzo e verifica dell'infermiere. L'infermiere deve valutare la complessità dell'attività, la competenza dell'OSS e il contesto organizzativo."
+    },
+    {
+      "id": 706,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Cosa si intende per \"accertamento mirato\"?",
+      "opzioni": [
+        "Una raccolta dati focalizzata su un problema specifico o un'area particolare già identificata",
+        "Un accertamento che viene fatto solo al momento del ricovero",
+        "Una raccolta dati completa su tutti gli aspetti della persona",
+        "Un accertamento eseguito esclusivamente dal medico"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "L'accertamento mirato (o focalizzato) è una raccolta dati centrata su un problema specifico o un'area già identificata, a differenza dell'accertamento iniziale che è globale. Si effettua per approfondire un problema emerso, monitorare l'evoluzione di una condizione o valutare l'efficacia degli interventi."
+    },
+    {
+      "id": 707,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "Nell'ambito dell'accertamento dati quali sono le fonti secondarie?",
+      "opzioni": [
+        "Familiari, cartella clinica, altri operatori sanitari, letteratura scientifica, esami diagnostici",
+        "Esclusivamente gli esami di laboratorio",
+        "Solo il paziente",
+        "Solo il medico curante"
+      ],
+      "risposta_corretta": 0,
+      "spiegazione": "Le fonti secondarie di dati nell'accertamento infermieristico comprendono: familiari e persone significative, cartella clinica, altri professionisti sanitari, letteratura scientifica, risultati di esami diagnostici e di laboratorio. La fonte primaria è invece il paziente stesso."
+    },
+    {
+      "id": 708,
+      "sezione": "Assistenza alla Persona",
+      "difficolta": "media",
+      "domanda": "La sequenza logica delle fasi del processo di nursing è:",
+      "opzioni": [
+        "Attuazione, valutazione, diagnosi, accertamento, pianificazione",
+        "Diagnosi, accertamento, valutazione, attuazione, pianificazione",
+        "Accertamento, diagnosi infermieristica, pianificazione, attuazione, valutazione",
+        "Pianificazione, accertamento, diagnosi, attuazione, valutazione"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "Le 5 fasi del processo di nursing, nella sequenza corretta, sono: 1) Accertamento (raccolta dati), 2) Diagnosi infermieristica (identificazione dei problemi), 3) Pianificazione (definizione di obiettivi e interventi), 4) Attuazione (messa in atto degli interventi), 5) Valutazione (verifica dei risultati). È un processo ciclico e dinamico."
     }
   ]
 }
