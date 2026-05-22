@@ -110,7 +110,8 @@ export async function saveSession({ mode, sezione, questions }) {
   if (user) {
     supabase.from('quiz_sessions')
       .upsert({ ...session, user_id: user.id })
-      .then()
+      .then(() => {})
+      .catch(err => console.error('Sync Supabase fallita:', err))
 
     supabase.from('profiles')
       .upsert({
@@ -119,7 +120,8 @@ export async function saveSession({ mode, sezione, questions }) {
         streak_last_study_date: data.streak.lastStudyDate,
         wrong_answers: data.wrongAnswers
       })
-      .then()
+      .then(() => {})
+      .catch(err => console.error('Sync Supabase fallita:', err))
   }
 
   return session
@@ -138,7 +140,8 @@ export async function updateStreakToday() {
         streak_current: data.streak.current,
         streak_last_study_date: data.streak.lastStudyDate
       })
-      .then()
+      .then(() => {})
+      .catch(err => console.error('Sync Supabase fallita:', err))
   }
 }
 

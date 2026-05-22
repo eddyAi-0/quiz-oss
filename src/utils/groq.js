@@ -1,9 +1,13 @@
 const MODEL = 'llama-3.3-70b-versatile'
+const APP_TOKEN = import.meta.env.VITE_APP_TOKEN ?? 'quiz-oss-2026-v1'
 
 async function callGroq(messages, maxTokens = 1024) {
   const res = await fetch('/api/groq', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'X-App-Token': APP_TOKEN
+    },
     body: JSON.stringify({ model: MODEL, max_tokens: maxTokens, messages })
   })
 

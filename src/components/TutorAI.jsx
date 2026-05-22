@@ -4,9 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { spiegaMeglio, chatTutor, generaDomandeExtra } from '../utils/groq'
 import { getWorstSections } from '../utils/storage'
-import domandeData from '../data/domande.json'
-
-const SEZIONI = domandeData.metadata.sezioni
+import { useDomande } from '../utils/domande'
 
 function TypingDots() {
   return (
@@ -66,6 +64,9 @@ export default function TutorAI() {
   const { sezione: sezioneParam } = useParams()
   const location = useLocation()
   const domandaCtx = location.state?.domanda
+
+  const domandeData = useDomande()
+  const SEZIONI = domandeData?.metadata.sezioni ?? []
 
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
@@ -158,6 +159,7 @@ export default function TutorAI() {
   }
 
   async function handleGeneraExtra() {
+    if (!domandeData) return
     const target = selectedSezione || (worstSections[0]?.name ?? SEZIONI[0])
     setLoadingExtra(true)
     setExtraQuestions([])
@@ -248,7 +250,7 @@ export default function TutorAI() {
         </div>
       )}
 
-      <div className="chat-messages" ref={null}>
+      <div className="chat-messages">
         {messages.map((m, i) => (
           <div key={i} className={`chat-bubble ${m.role} fade-in`}>
             {m.role === 'assistant'

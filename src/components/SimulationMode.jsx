@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import domandeData from '../data/domande.json'
 import { saveSession } from '../utils/storage'
 import { shuffle } from '../utils/shuffle'
+import { useDomande } from '../utils/domande'
+import QuestionCard from './QuestionCard'
 
 const TOTAL_Q = 15
 const TOTAL_SEC = 25 * 60
@@ -137,6 +138,21 @@ function ResultScreen({ questions, answers, elapsed, onRestart }) {
 }
 
 export default function SimulationMode() {
+  const domandeData = useDomande()
+  if (!domandeData) {
+    return (
+      <div className="page">
+        <div className="empty-state">
+          <div className="empty-state-icon">⏱️</div>
+          <p>Caricamento domande...</p>
+        </div>
+      </div>
+    )
+  }
+  return <SimulationInner domandeData={domandeData} />
+}
+
+function SimulationInner({ domandeData }) {
   const [phase, setPhase] = useState('start')
   const [questions, setQuestions] = useState(() => shuffle(domandeData.domande).slice(0, TOTAL_Q))
   const [currentIdx, setCurrentIdx] = useState(0)
@@ -235,7 +251,7 @@ export default function SimulationMode() {
   if (phase === 'result') return <ResultScreen questions={questions} answers={answers} elapsed={elapsed} onRestart={restart} />
 
   const q = questions[currentIdx]
-  const progress = ((currentIdx) / TOTAL_Q) * 100
+  const progress = (currentIdx / TOTAL_Q) * 100
 
   return (
     <div className="page">
@@ -256,30 +272,14 @@ export default function SimulationMode() {
         <div className="progress-bar-fill" style={{ width: `${progress}%` }} />
       </div>
 
-      <div className="card fade-in" style={{ marginTop: '1rem' }}>
-        <div className="row mb-1">
-          <span className="badge badge-primary">{q.sezione}</span>
-          <span className={`diff-${q.difficolta}`}>{q.difficolta?.toUpperCase()}</span>
-        </div>
-
-        <p style={{ fontSize: '1.1rem', fontWeight: 600, lineHeight: 1.5, marginBottom: '1.25rem' }}>
-          {q.domanda}
-        </p>
-
-        {q.opzioni.map((opzione, i) => (
-          <button
-            key={i}
-            className={`option-btn${selected === i ? ' correct' : ''}`}
-            onClick={() => handleSelect(i)}
-            style={selected === i ? { borderColor: 'var(--primary)', background: 'var(--primary-light)', color: 'var(--primary-dark)' } : {}}
-          >
-            <span style={{ fontWeight: 600, marginRight: '0.5rem', color: 'var(--text-muted)' }}>
-              {String.fromCharCode(65 + i)})
-            </span>
-            {opzione}
-          </button>
-        ))}
-      </div>
+      <QuestionCard
+        q={q}
+        index={currentIdx}
+        onAnswer={handleSelect}
+        answered={false}
+        selected={selected}
+        showFeedback={false}
+      />
 
       <button className="btn btn-primary" onClick={handleNext}>
         {currentIdx + 1 >= TOTAL_Q ? '📊 Termina e vedi risultati' : 'Prossima →'}

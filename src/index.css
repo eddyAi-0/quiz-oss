@@ -240,6 +240,13 @@ button {
   font-weight: 600;
 }
 
+.option-btn.selected {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
 /* ─── Feedback Box ─── */
 .feedback-box {
   border-radius: var(--radius-sm);

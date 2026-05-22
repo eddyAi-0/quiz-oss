@@ -1,85 +1,31 @@
 import { useState, useMemo } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import domandeData from '../data/domande.json'
+import { useLocation } from 'react-router-dom'
 import { saveSession, getWrongAnswers, getUrgencyScore } from '../utils/storage'
 import { shuffle } from '../utils/shuffle'
+import { useDomande } from '../utils/domande'
+import QuestionCard from './QuestionCard'
 
-const SEZIONI = domandeData.metadata.sezioni
 const TUTTE = 'Tutte le sezioni'
 const LIMITI = [10, 20, 30, 'Tutte']
 
-function QuestionCard({ q, index, total, onAnswer, answered, selected }) {
-  const navigate = useNavigate()
-  const isCorrect = answered && selected === q.risposta_corretta
-  const diffClass = `diff-${q.difficolta}`
-
-  return (
-    <div className="card fade-in">
-      <div className="row-between mb-1">
-        <span className={diffClass}>{q.difficolta?.toUpperCase()}</span>
-        <span className="text-muted" style={{ fontSize: '0.9rem' }}>
-          {index + 1} / {total}
-        </span>
-      </div>
-
-      <span className="badge badge-primary" style={{ marginBottom: '0.75rem', display: 'inline-block' }}>
-        {q.sezione}
-      </span>
-
-      <p style={{ fontSize: '1.1rem', fontWeight: 600, lineHeight: 1.5, marginBottom: '1.25rem' }}>
-        {q.domanda}
-      </p>
-
-      <div>
-        {q.opzioni.map((opzione, i) => {
-          let cls = 'option-btn'
-          if (answered) {
-            if (i === q.risposta_corretta) cls += ' correct'
-            else if (i === selected) cls += ' selected-wrong'
-          }
-          return (
-            <button
-              key={i}
-              className={cls}
-              disabled={answered}
-              onClick={() => !answered && onAnswer(i)}
-            >
-              <span style={{ fontWeight: 600, marginRight: '0.5rem', color: 'var(--text-muted)' }}>
-                {String.fromCharCode(65 + i)})
-              </span>
-              {opzione}
-            </button>
-          )
-        })}
-      </div>
-
-      {answered && (
-        <div className={`feedback-box ${isCorrect ? 'correct' : 'wrong'} fade-in`}>
-          <div className="feedback-label">
-            {isCorrect ? '✅ Risposta corretta!' : '❌ Risposta sbagliata'}
-          </div>
-          <div className="feedback-explanation">{q.spiegazione}</div>
-
-          {!isCorrect && (
-            <button
-              className="btn btn-ghost btn-sm mt-2"
-              onClick={() =>
-                navigate(`/tutor/${encodeURIComponent(q.sezione)}`, {
-                  state: { domanda: { ...q, rispostaData: selected } }
-                })
-              }
-            >
-              🤖 Spiegami meglio
-            </button>
-          )}
+export default function Quiz() {
+  const domandeData = useDomande()
+  if (!domandeData) {
+    return (
+      <div className="page">
+        <div className="empty-state">
+          <div className="empty-state-icon">📚</div>
+          <p>Caricamento domande...</p>
         </div>
-      )}
-    </div>
-  )
+      </div>
+    )
+  }
+  return <QuizInner domandeData={domandeData} />
 }
 
-export default function Quiz() {
+function QuizInner({ domandeData }) {
   const location = useLocation()
+  const SEZIONI = domandeData.metadata.sezioni
 
   const [wrongAnswers, setWrongAnswers] = useState(() => getWrongAnswers())
   const [wrongOnly, setWrongOnly] = useState(location.state?.filterErrors ?? false)
@@ -153,16 +99,10 @@ export default function Quiz() {
   function handleAnswer(i) {
     setSelected(i)
     setAnswered(true)
-
     const isCorrect = i === currentQ.risposta_corretta
     setSessionAnswers(prev => [
       ...prev,
-      {
-        id: currentQ.id,
-        sezione: currentQ.sezione,
-        isCorrect,
-        selected: i
-      }
+      { id: currentQ.id, sezione: currentQ.sezione, isCorrect, selected: i }
     ])
   }
 
@@ -223,7 +163,7 @@ export default function Quiz() {
     )
   }
 
-  const progress = ((index) / activeQuestions.length) * 100
+  const progress = (index / activeQuestions.length) * 100
 
   return (
     <div className="page">
@@ -287,6 +227,7 @@ export default function Quiz() {
         onAnswer={handleAnswer}
         answered={answered}
         selected={selected}
+        showFeedback
       />
 
       {answered && (
