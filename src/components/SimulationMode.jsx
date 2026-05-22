@@ -54,7 +54,7 @@ function StartScreen({ onStart }) {
   )
 }
 
-function ResultScreen({ questions, answers, elapsed, onRestart }) {
+function ResultScreen({ questions, answers, elapsed, responseTimes = [], onRestart }) {
   const correct = answers.filter((a, i) => a === questions[i].risposta_corretta).length
   const total = questions.length
   const pct = Math.round((correct / total) * 100)
@@ -71,7 +71,8 @@ function ResultScreen({ questions, answers, elapsed, onRestart }) {
         id: q.id,
         sezione: q.sezione,
         isCorrect: answers[i] === q.risposta_corretta,
-        selected: answers[i]
+        selected: answers[i],
+        responseTime: responseTimes[i] ?? null
       }))
     }).catch(err => console.error('Errore salvataggio sessione:', err))
   }, [])
@@ -161,9 +162,12 @@ function SimulationInner({ domandeData }) {
   const [timeLeft, setTimeLeft] = useState(TOTAL_SEC)
   const [elapsed, setElapsed] = useState(0)
   const [timerAlert, setTimerAlert] = useState(false)
+  const [responseTimes, setResponseTimes] = useState(Array(TOTAL_Q).fill(null))
   const timerRef = useRef(null)
   const quizStartRef = useRef(null)
   const timeLeftRef = useRef(TOTAL_SEC)
+  const questionStartRef = useRef(null)
+  const firstClickRef = useRef(null)
 
   const submit = useCallback((finalAnswers, elapsedSec) => {
     clearInterval(timerRef.current)
@@ -209,14 +213,20 @@ function SimulationInner({ domandeData }) {
 
   function startQuiz() {
     quizStartRef.current = Date.now()
+    questionStartRef.current = Date.now()
+    firstClickRef.current = null
     setPhase('quiz')
     setCurrentIdx(0)
     setAnswers(Array(TOTAL_Q).fill(null))
     setSelected(null)
     setTimeLeft(TOTAL_SEC)
+    setResponseTimes(Array(TOTAL_Q).fill(null))
   }
 
   function handleSelect(i) {
+    if (firstClickRef.current === null) {
+      firstClickRef.current = Math.round((Date.now() - questionStartRef.current) / 1000)
+    }
     setSelected(i)
     const newAnswers = [...answers]
     newAnswers[currentIdx] = i
@@ -224,9 +234,18 @@ function SimulationInner({ domandeData }) {
   }
 
   function handleNext() {
+    const rt = firstClickRef.current
+    firstClickRef.current = null
+    questionStartRef.current = Date.now()
+
     const newAnswers = [...answers]
     newAnswers[currentIdx] = selected
     setAnswers(newAnswers)
+
+    const newResponseTimes = [...responseTimes]
+    newResponseTimes[currentIdx] = rt
+    setResponseTimes(newResponseTimes)
+
     if (currentIdx + 1 >= TOTAL_Q) {
       submit(newAnswers, TOTAL_SEC - timeLeft)
     } else {
@@ -238,6 +257,8 @@ function SimulationInner({ domandeData }) {
   function restart() {
     clearInterval(timerRef.current)
     quizStartRef.current = null
+    questionStartRef.current = null
+    firstClickRef.current = null
     setPhase('start')
     setQuestions(shuffle(domandeData.domande).slice(0, TOTAL_Q))
     setCurrentIdx(0)
@@ -245,10 +266,11 @@ function SimulationInner({ domandeData }) {
     setSelected(null)
     setTimeLeft(TOTAL_SEC)
     setElapsed(0)
+    setResponseTimes(Array(TOTAL_Q).fill(null))
   }
 
   if (phase === 'start') return <StartScreen onStart={startQuiz} />
-  if (phase === 'result') return <ResultScreen questions={questions} answers={answers} elapsed={elapsed} onRestart={restart} />
+  if (phase === 'result') return <ResultScreen questions={questions} answers={answers} elapsed={elapsed} responseTimes={responseTimes} onRestart={restart} />
 
   const q = questions[currentIdx]
   const progress = (currentIdx / TOTAL_Q) * 100

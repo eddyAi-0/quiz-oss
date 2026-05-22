@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { saveSession, getWrongAnswers, getUrgencyScore } from '../utils/storage'
 import { shuffle } from '../utils/shuffle'
@@ -35,6 +35,12 @@ function QuizInner({ domandeData }) {
     [wrongAnswers]
   )
   const wrongCount = activeWrongIds.size
+
+  const questionStartRef = useRef(null)
+
+  useEffect(() => {
+    questionStartRef.current = Date.now()
+  }, [index])
 
   const [sezione, setSezione] = useState(TUTTE)
   const [limit, setLimit] = useState(20)
@@ -97,12 +103,13 @@ function QuizInner({ domandeData }) {
   const currentQ = activeQuestions[index]
 
   function handleAnswer(i) {
+    const responseTime = Math.round((Date.now() - questionStartRef.current) / 1000)
     setSelected(i)
     setAnswered(true)
     const isCorrect = i === currentQ.risposta_corretta
     setSessionAnswers(prev => [
       ...prev,
-      { id: currentQ.id, sezione: currentQ.sezione, isCorrect, selected: i }
+      { id: currentQ.id, sezione: currentQ.sezione, isCorrect, selected: i, responseTime }
     ])
   }
 

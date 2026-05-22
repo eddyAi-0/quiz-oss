@@ -156,6 +156,18 @@ describe('getUrgencyScore', () => {
     const entry = { count: 1, recovered: false, lastWrong: null, answers: [] }
     expect(getUrgencyScore(entry)).toBe(40)
   })
+
+  it('avgResponseTime aggiunge bonus proporzionale (non cappato)', () => {
+    const entry = { count: 1, recovered: false, lastWrong: TODAY, answers: [], avgResponseTime: 30 }
+    // 10 + 0 + 30 + min(30,60)*0.5 = 40 + 15 = 55
+    expect(getUrgencyScore(entry)).toBe(55)
+  })
+
+  it('avgResponseTime cappato a 60s per evitare outlier', () => {
+    const entry = { count: 1, recovered: false, lastWrong: TODAY, answers: [], avgResponseTime: 120 }
+    // 10 + 0 + 30 + min(120,60)*0.5 = 40 + 30 = 70
+    expect(getUrgencyScore(entry)).toBe(70)
+  })
 })
 
 describe('exportProgress', () => {

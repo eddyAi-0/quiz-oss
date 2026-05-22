@@ -96,14 +96,24 @@ export async function saveSession({ mode, sezione, questions }) {
   questions.forEach(q => {
     if (!q.isCorrect) {
       const prev = data.wrongAnswers[q.id] ?? {
-        id: q.id, sezione: q.sezione, count: 0, lastWrong: null, answers: [], recovered: false
+        id: q.id, sezione: q.sezione, count: 0, lastWrong: null, answers: [],
+        recovered: false, responseTimes: [], avgResponseTime: null
       }
+      const prevTimes = prev.responseTimes ?? []
+      const newResponseTimes = q.responseTime != null
+        ? [...prevTimes, q.responseTime].slice(-10)
+        : prevTimes
+      const avgResponseTime = newResponseTimes.length > 0
+        ? Math.round(newResponseTimes.reduce((a, b) => a + b, 0) / newResponseTimes.length)
+        : null
       data.wrongAnswers[q.id] = {
         ...prev,
         count: prev.count + 1,
         lastWrong: todayStr(),
         answers: [...prev.answers, q.selected].slice(-10),
-        recovered: false
+        recovered: false,
+        responseTimes: newResponseTimes,
+        avgResponseTime
       }
     } else if (data.wrongAnswers[q.id]) {
       data.wrongAnswers[q.id] = { ...data.wrongAnswers[q.id], recovered: true }
@@ -167,7 +177,8 @@ export function getUrgencyScore(entry) {
   const daysSince = entry.lastWrong
     ? Math.max(0, Math.round((new Date(todayStr()) - new Date(entry.lastWrong)) / 86400000))
     : 0
-  return (entry.count * 10) + (entry.recovered ? -5 : 0) + (30 / (daysSince + 1))
+  const avgTime = entry.avgResponseTime ?? 0
+  return (entry.count * 10) + (entry.recovered ? -5 : 0) + (30 / (daysSince + 1)) + (Math.min(avgTime, 60) * 0.5)
 }
 
 export async function clearProgress() {
