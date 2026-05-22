@@ -323,4 +323,6 @@ export async function syncFromSupabase(userId) {
     streak,
     wrongAnswers: mergedWrong
   })
+
+  window.dispatchEvent(new CustomEvent('quiz-data-updated'))
 }

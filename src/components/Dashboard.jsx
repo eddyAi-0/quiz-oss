@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -35,6 +35,12 @@ export default function Dashboard() {
   const domandeData = useDomande()
   const [refreshKey, setRefreshKey] = useState(0)
   const data = useMemo(() => getProgress(), [refreshKey])
+
+  useEffect(() => {
+    function onSync() { setRefreshKey(k => k + 1) }
+    window.addEventListener('quiz-data-updated', onSync)
+    return () => window.removeEventListener('quiz-data-updated', onSync)
+  }, [])
 
   const { sessions, sectionStats, streak, wrongAnswers = {} } = data
 

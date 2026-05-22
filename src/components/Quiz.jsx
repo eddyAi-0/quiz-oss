@@ -30,6 +30,12 @@ function QuizInner({ domandeData }) {
   const [wrongAnswers, setWrongAnswers] = useState(() => getWrongAnswers())
   const [wrongOnly, setWrongOnly] = useState(location.state?.filterErrors ?? false)
 
+  useEffect(() => {
+    function onSync() { setWrongAnswers(getWrongAnswers()) }
+    window.addEventListener('quiz-data-updated', onSync)
+    return () => window.removeEventListener('quiz-data-updated', onSync)
+  }, [])
+
   const activeWrongIds = useMemo(
     () => new Set(Object.values(wrongAnswers).filter(w => !w.recovered).map(w => w.id)),
     [wrongAnswers]
