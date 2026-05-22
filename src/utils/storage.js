@@ -3,6 +3,7 @@ import { supabase } from '../lib/supabase'
 const KEY = 'quiz-oss-data'
 
 let _syncPending = 0
+let _abortSync = false
 
 function emitSync(delta, error = false) {
   _syncPending = Math.max(0, _syncPending + delta)
@@ -12,6 +13,7 @@ function emitSync(delta, error = false) {
 async function retryUpsert(fn, maxAttempts = 3) {
   let lastErr
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    if (_abortSync) return
     try {
       const result = await fn()
       if (!result.error) return
@@ -196,6 +198,9 @@ export function getUrgencyScore(entry) {
 }
 
 export async function clearProgress() {
+  // Blocca tutti i retryUpsert pendenti così non riscrivono dati vecchi su Supabase
+  _abortSync = true
+
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
     const { error: delErr } = await supabase.from('quiz_sessions').delete().eq('user_id', user.id)
@@ -210,6 +215,9 @@ export async function clearProgress() {
     if (profErr) console.error('[clear] profiles upsert fallita:', profErr.message)
   }
   localStorage.removeItem(KEY)
+
+  // Riabilita la sync dopo che tutti i possibili retry (max 1500ms) sono terminati
+  setTimeout(() => { _abortSync = false }, 2000)
 }
 
 export function exportProgress() {
