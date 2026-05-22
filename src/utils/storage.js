@@ -9,6 +9,23 @@ function emitSync(delta, error = false) {
   window.dispatchEvent(new CustomEvent('quiz-sync', { detail: { pending: _syncPending, error } }))
 }
 
+async function retryUpsert(fn, maxAttempts = 3) {
+  let lastErr
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    try {
+      const result = await fn()
+      if (!result.error) return
+      lastErr = result.error
+    } catch (e) {
+      lastErr = e
+    }
+    if (attempt < maxAttempts - 1) {
+      await new Promise(r => setTimeout(r, 500 * (2 ** attempt)))
+    }
+  }
+  throw lastErr
+}
+
 function load() {
   try {
     const raw = localStorage.getItem(KEY)
@@ -126,21 +143,19 @@ export async function saveSession({ mode, sezione, questions }) {
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
     emitSync(+1)
-    supabase.from('quiz_sessions')
-      .upsert({ ...session, user_id: user.id })
+    retryUpsert(() => supabase.from('quiz_sessions').upsert({ ...session, user_id: user.id }))
       .then(() => emitSync(-1))
-      .catch(err => { console.error('Sync Supabase fallita:', err); emitSync(-1, true) })
+      .catch(err => { console.error('Sync Supabase fallita dopo 3 tentativi:', err); emitSync(-1, true) })
 
     emitSync(+1)
-    supabase.from('profiles')
-      .upsert({
-        id: user.id,
-        streak_current: data.streak.current,
-        streak_last_study_date: data.streak.lastStudyDate,
-        wrong_answers: data.wrongAnswers
-      })
+    retryUpsert(() => supabase.from('profiles').upsert({
+      id: user.id,
+      streak_current: data.streak.current,
+      streak_last_study_date: data.streak.lastStudyDate,
+      wrong_answers: data.wrongAnswers
+    }))
       .then(() => emitSync(-1))
-      .catch(err => { console.error('Sync Supabase fallita:', err); emitSync(-1, true) })
+      .catch(err => { console.error('Sync Supabase fallita dopo 3 tentativi:', err); emitSync(-1, true) })
   }
 
   return session
@@ -154,14 +169,13 @@ export async function updateStreakToday() {
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
     emitSync(+1)
-    supabase.from('profiles')
-      .upsert({
-        id: user.id,
-        streak_current: data.streak.current,
-        streak_last_study_date: data.streak.lastStudyDate
-      })
+    retryUpsert(() => supabase.from('profiles').upsert({
+      id: user.id,
+      streak_current: data.streak.current,
+      streak_last_study_date: data.streak.lastStudyDate
+    }))
       .then(() => emitSync(-1))
-      .catch(err => { console.error('Sync Supabase fallita:', err); emitSync(-1, true) })
+      .catch(err => { console.error('Sync Supabase fallita dopo 3 tentativi:', err); emitSync(-1, true) })
   }
 }
 
