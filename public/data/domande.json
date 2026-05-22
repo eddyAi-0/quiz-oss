@@ -2659,8 +2659,8 @@
         "Operazioni concrete",
         "Sensomotorio"
       ],
-      "risposta_corretta": 0,
-      "spiegazione": "Il principio di conservazione (la comprensione che massa, peso e volume restano invariati nonostante i cambiamenti di forma) inizia a svilupparsi nello stadio preoperazionale (2-7 anni), anche se viene padroneggiato pienamente nello stadio delle operazioni concrete."
+      "risposta_corretta": 2,
+      "spiegazione": "Il principio di conservazione (la comprensione che massa, peso e volume restano invariati nonostante i cambiamenti di forma) viene acquisito nello stadio delle operazioni concrete (7-11 anni). Nello stadio preoperazionale il bambino non è ancora in grado di conservare."
     },
     {
       "id": 190,
@@ -4115,8 +4115,8 @@
         "L'intestino tenue",
         "La milza"
       ],
-      "risposta_corretta": 3,
-      "spiegazione": "La milza è un organo linfoide che filtra il sangue, rimuove globuli rossi vecchi (funzione emocateretica) e partecipa alla risposta immunitaria (produzione di linfociti e anticorpi). È anche riserva di piastrine e contribuisce all'ematopoiesi fetale."
+      "risposta_corretta": 2,
+      "spiegazione": "L'intestino tenue appartiene all'apparato digerente (assorbimento dei nutrienti) e al sistema immunitario grazie al tessuto linfoide associato alle mucose (MALT) e alle placche di Peyer, che svolgono un ruolo fondamentale nella difesa contro i patogeni ingeriti."
     },
     {
       "id": 294,
@@ -6509,8 +6509,8 @@
         "Lavarsi le mani",
         "Non è prevista una sequenza nella procedura di vestizione"
       ],
-      "risposta_corretta": 2,
-      "spiegazione": "Nella sequenza di vestizione (donning) dei DPI, il camice/tuta monouso si indossa PRIMA di lavarsi le mani (che è il primo step), poi guanti, mascherina, visiera. In realtà la sequenza corretta è: igiene mani → camice → mascherina → occhiali/visiera → guanti."
+      "risposta_corretta": 0,
+      "spiegazione": "Nella sequenza di vestizione (donning) dei DPI, la procedura corretta è: igiene delle mani → camice/tuta → mascherina → occhiali/visiera → guanti. Il camice si indossa quindi prima degli occhiali o della visiera."
     },
     {
       "id": 465,
@@ -8927,11 +8927,11 @@
       "opzioni": [
         "Il medico può procedere anche senza consenso in caso di emergenza lieve",
         "Il consenso informato è sempre un'autorizzazione scritta del paziente",
-        "Il trattamento sanitario richiede il paziente sui trattamenti sanitari",
+        "Il trattamento sanitario richiede il consenso informato del paziente",
         "Il consenso può essere dato solo verbalmente"
       ],
       "risposta_corretta": 2,
-      "spiegazione": "La Legge 219/2017 stabilisce che il paziente deve essere adeguatamente informato sui trattamenti sanitari.",
+      "spiegazione": "La Legge 219/2017 stabilisce che nessun trattamento sanitario può essere iniziato o proseguito senza il consenso libero e informato della persona interessata, adeguatamente informata su diagnosi, prognosi, benefici e rischi.",
       "id": 637
     },
     {
