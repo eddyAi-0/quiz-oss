@@ -41,6 +41,7 @@ function SyncStatus() {
     </span>
   )
 }
+import { Navigate } from 'react-router-dom'
 import Quiz from './components/Quiz'
 import SimulationMode from './components/SimulationMode'
 import Dashboard from './components/Dashboard'
@@ -49,6 +50,14 @@ import ErrorBoundary from './components/ErrorBoundary'
 import AuthPage from './components/AuthPage'
 import UserMenu from './components/UserMenu'
 import { AuthProvider } from './context/AuthContext'
+import { useAuth } from './context/useAuth'
+
+function RequireAuth({ children }) {
+  const { user, loading } = useAuth()
+  if (loading) return null
+  if (!user) return <Navigate to="/login" replace />
+  return children
+}
 
 const NAV = [
   { to: '/', label: 'Quiz', icon: '📚' },
@@ -98,9 +107,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Quiz />} />
             <Route path="/simulazione" element={<SimulationMode />} />
-            <Route path="/progressi" element={<Dashboard />} />
-            <Route path="/tutor" element={<TutorAI />} />
-            <Route path="/tutor/:sezione" element={<TutorAI />} />
+            <Route path="/progressi" element={<RequireAuth><Dashboard /></RequireAuth>} />
+            <Route path="/tutor" element={<RequireAuth><TutorAI /></RequireAuth>} />
+            <Route path="/tutor/:sezione" element={<RequireAuth><TutorAI /></RequireAuth>} />
             <Route path="/login" element={<AuthPage />} />
           </Routes>
         </ErrorBoundary>
