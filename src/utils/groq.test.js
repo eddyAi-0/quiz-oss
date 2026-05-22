@@ -66,14 +66,25 @@ describe('generaDomandeExtra', () => {
     expect(result).toEqual(DOMANDE_VALIDE)
   })
 
-  it('riprova una volta se il primo parsing fallisce, poi ha successo', async () => {
+  it('riprova con contesto correttivo se il primo parsing fallisce', async () => {
+    const badRaw = 'testo non JSON'
     mockFetch
-      .mockResolvedValueOnce(groqResponse('testo non JSON'))
+      .mockResolvedValueOnce(groqResponse(badRaw))
       .mockResolvedValueOnce(groqResponse(JSON.stringify(DOMANDE_VALIDE)))
 
     const result = await generaDomandeExtra('Igiene', ['pulizia'])
     expect(result).toEqual(DOMANDE_VALIDE)
     expect(mockFetch).toHaveBeenCalledTimes(2)
+
+    // La seconda chiamata deve includere la risposta fallita come assistant
+    // e il messaggio correttivo come user
+    const secondCallBody = JSON.parse(mockFetch.mock.calls[1][1].body)
+    const roles = secondCallBody.messages.map(m => m.role)
+    expect(roles).toEqual(['system', 'user', 'assistant', 'user'])
+    const lastMsg = secondCallBody.messages.at(-1)
+    expect(lastMsg.content).toContain('JSON valido')
+    const assistantMsg = secondCallBody.messages.at(-2)
+    expect(assistantMsg.content).toBe(badRaw)
   })
 
   it('lancia errore esplicito dopo due tentativi falliti', async () => {

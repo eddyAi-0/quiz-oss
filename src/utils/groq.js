@@ -87,8 +87,12 @@ Restituisci solo un array JSON valido con le 3 domande, senza altro testo.`
   try {
     return parseJsonArray(raw)
   } catch {
-    // retry una volta: l'LLM a volte aggiunge testo attorno al JSON
-    raw = await callGroq(messages, 1500)
+    const correctionMessages = [
+      ...messages,
+      { role: 'assistant', content: raw },
+      { role: 'user', content: 'La risposta non è un JSON valido. Rispondi SOLO con l\'array JSON, senza testo, senza backtick markdown.' }
+    ]
+    raw = await callGroq(correctionMessages, 1500)
     try {
       return parseJsonArray(raw)
     } catch {
