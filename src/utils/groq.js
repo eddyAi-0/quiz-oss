@@ -50,6 +50,12 @@ export async function chatTutor(messages) {
   ], 1024)
 }
 
+function parseJsonArray(raw) {
+  const match = raw.match(/\[[\s\S]*\]/)
+  if (!match) throw new Error('Nessun array JSON trovato nella risposta')
+  return JSON.parse(match[0])
+}
+
 export async function generaDomandeExtra(sezione, spiegazioni) {
   const userText = `Genera esattamente 3 domande a scelta multipla (4 opzioni ciascuna) sulla sezione "${sezione}" dell'esame OSS.
 Ispirati a questi argomenti dove l'utente ha difficoltà: ${spiegazioni.join('; ')}
@@ -64,15 +70,21 @@ Per ogni domanda usa questo formato JSON:
 
 Restituisci solo un array JSON valido con le 3 domande, senza altro testo.`
 
-  const raw = await callGroq([
+  const messages = [
     { role: 'system', content: SYSTEM_OSS },
     { role: 'user', content: userText }
-  ], 1500)
+  ]
 
+  let raw = await callGroq(messages, 1500)
   try {
-    const match = raw.match(/\[[\s\S]*\]/)
-    return match ? JSON.parse(match[0]) : []
+    return parseJsonArray(raw)
   } catch {
-    return []
+    // retry una volta: l'LLM a volte aggiunge testo attorno al JSON
+    raw = await callGroq(messages, 1500)
+    try {
+      return parseJsonArray(raw)
+    } catch {
+      throw new Error('Non sono riuscito a generare le domande, riprova.')
+    }
   }
 }

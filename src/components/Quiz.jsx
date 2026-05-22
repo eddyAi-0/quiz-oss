@@ -139,7 +139,7 @@ export default function Quiz() {
         mode: 'pratica',
         sezione: sezione === TUTTE ? null : sezione,
         questions: sessionAnswers
-      })
+      }).catch(err => console.error('Errore salvataggio sessione:', err))
       setSessionDone(true)
     } else {
       setIndex(prev => prev + 1)

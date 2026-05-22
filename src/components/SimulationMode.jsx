@@ -72,7 +72,7 @@ function ResultScreen({ questions, answers, elapsed, onRestart }) {
         isCorrect: answers[i] === q.risposta_corretta,
         selected: answers[i]
       }))
-    })
+    }).catch(err => console.error('Errore salvataggio sessione:', err))
   }, [])
 
   return (

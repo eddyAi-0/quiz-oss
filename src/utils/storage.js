@@ -28,7 +28,7 @@ function todayStr() {
   return new Date().toISOString().slice(0, 10)
 }
 
-function calcStreak(streak) {
+export function calcStreak(streak) {
   const today = todayStr()
   const last = streak.lastStudyDate
 
@@ -44,7 +44,7 @@ function calcStreak(streak) {
   return { current: 1, lastStudyDate: today }
 }
 
-function rebuildSectionStats(sessions) {
+export function rebuildSectionStats(sessions) {
   const stats = {}
   for (const session of sessions) {
     if (!Array.isArray(session.questions)) continue

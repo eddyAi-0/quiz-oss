@@ -1,24 +1,13 @@
 export const config = { runtime: 'edge' }
 
-const RATE_LIMIT = 30
-const rateMap = new Map()
+// Rate limiting rimosso: le Edge Function di Vercel sono stateless — ogni invocazione
+// può girare su un'istanza diversa, quindi una Map in-memory non mantiene lo stato
+// tra richieste. Per un rate limiter reale servono Upstash Redis + @upstash/ratelimit.
 
 export default async function handler(req) {
   if (req.method !== 'POST') {
     return new Response('Method not allowed', { status: 405 })
   }
-
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
-  const now = Date.now()
-  const window = now - 60_000
-  const timestamps = (rateMap.get(ip) ?? []).filter(t => t > window)
-  if (timestamps.length >= RATE_LIMIT) {
-    return new Response(
-      JSON.stringify({ error: { message: 'Troppe richieste. Riprova tra un minuto.' } }),
-      { status: 429, headers: { 'Content-Type': 'application/json' } }
-    )
-  }
-  rateMap.set(ip, [...timestamps, now])
 
   let body
   try {
