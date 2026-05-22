@@ -36,12 +36,6 @@ function QuizInner({ domandeData }) {
   )
   const wrongCount = activeWrongIds.size
 
-  const questionStartRef = useRef(null)
-
-  useEffect(() => {
-    questionStartRef.current = Date.now()
-  }, [index])
-
   const [sezione, setSezione] = useState(TUTTE)
   const [limit, setLimit] = useState(20)
   const [activeQuestions, setActiveQuestions] = useState(() => {
@@ -54,6 +48,12 @@ function QuizInner({ domandeData }) {
     return shuffle(domandeData.domande).slice(0, 20)
   })
   const [index, setIndex] = useState(0)
+
+  const questionStartRef = useRef(null)
+
+  useEffect(() => {
+    questionStartRef.current = Date.now()
+  }, [index])
   const [selected, setSelected] = useState(null)
   const [answered, setAnswered] = useState(false)
   const [sessionAnswers, setSessionAnswers] = useState([])
