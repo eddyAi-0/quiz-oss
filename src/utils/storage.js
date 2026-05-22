@@ -324,12 +324,11 @@ export async function syncFromSupabase(userId) {
   const remoteSessions = sessResult.data ?? []
   const profile = profResult.data
 
-  // Se Supabase ha risposto senza errori e i dati sono vuoti, è un reset autoritativo
-  // (clearProgress su un altro dispositivo). Sovrascrive il localStorage invece di fare merge.
-  const supabaseRespondedCleanly = !sessResult.error && !profResult.error && profile !== null
-  const remoteIsEmpty = remoteSessions.length === 0 &&
-    Object.keys(profile?.wrong_answers ?? {}).length === 0
-  if (supabaseRespondedCleanly && remoteIsEmpty) {
+  // Se quiz_sessions è vuota su Supabase (query ok) ma il locale ha dati,
+  // significa che clearProgress è stato chiamato su un altro dispositivo.
+  // Non dipende da profiles.wrong_answers per non bloccarsi su schema mancante.
+  const localHasData = local.sessions.length > 0 || Object.keys(local.wrongAnswers).length > 0
+  if (!sessResult.error && remoteSessions.length === 0 && localHasData) {
     save(defaultState())
     window.dispatchEvent(new CustomEvent('quiz-data-updated'))
     return
