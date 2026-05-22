@@ -9521,6 +9521,20 @@
       "risposta_corretta": 3,
       "spiegazione": "Il tono muscolare è il livello di contrazione involontaria dei muscoli a riposo.",
       "id": 679
+    },
+    {
+      "id": 680,
+      "domanda": "La Carta dei servizi di una struttura sanitaria o socio-sanitaria:",
+      "opzioni": [
+        "sancisce il patto di accreditamento tra un ente pubblico e uno privato attraverso il quale l'ente pubblico permette a quello privato di svolgere un servizio al suo posto e sotto il suo controllo",
+        "garantisce al cittadino l'iscrizione al Servizio Sanitario Nazionale",
+        "è un patto tra struttura e cittadino attraverso il quale la struttura s'impegna a garantire determinate prestazioni e che allo stesso tempo permette al cittadino di verificare la qualità e quantità di prestazioni erogate dalla struttura",
+        "fornisce ai medici la visione globale dello stato di salute dei propri pazienti"
+      ],
+      "risposta_corretta": 2,
+      "spiegazione": "La Carta dei servizi è lo strumento con cui la struttura sanitaria/socio-sanitaria si impegna formalmente verso il cittadino su qualità e quantità delle prestazioni erogate, permettendogli di verificarne il rispetto.",
+      "sezione": "Legislazione Sanitaria",
+      "difficolta": "media"
     }
   ]
 }
