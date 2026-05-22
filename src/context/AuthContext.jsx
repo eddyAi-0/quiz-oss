@@ -19,14 +19,14 @@ export function AuthProvider({ children }) {
       }
     })
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       const newUser = session?.user ?? null
       setUser(newUser)
 
       if (event === 'SIGNED_IN' && newUser) {
-        // Migra progressi locali su Supabase, poi scarica tutto
-        await syncToSupabase(newUser.id)
-        await syncFromSupabase(newUser.id)
+        syncToSupabase(newUser.id)
+          .then(() => syncFromSupabase(newUser.id))
+          .catch(err => console.error('Sync post-login:', err))
       }
     })
 
