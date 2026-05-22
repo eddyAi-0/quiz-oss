@@ -264,9 +264,11 @@ export async function syncToSupabase(userId) {
   })
 }
 
-// Scarica tutte le sessioni Supabase e ricostruisce localStorage (chiamato al login)
+// Scarica le sessioni Supabase e fa merge con localStorage (chiamato al login)
 export async function syncFromSupabase(userId) {
-  const [{ data: sessions }, { data: profile }] = await Promise.all([
+  const local = load()
+
+  const [{ data: remoteSessions }, { data: profile }] = await Promise.all([
     supabase
       .from('quiz_sessions')
       .select('*')
@@ -279,21 +281,46 @@ export async function syncFromSupabase(userId) {
       .single()
   ])
 
-  if (!sessions) return
+  if (!remoteSessions) return
 
-  const sectionStats = rebuildSectionStats(sessions)
+  // Sessioni: deduplica per id, priorità al remoto
+  const localById = Object.fromEntries(local.sessions.map(s => [s.id, s]))
+  const remoteById = Object.fromEntries(remoteSessions.map(s => [s.id, s]))
+  const mergedSessions = Object.values({ ...localById, ...remoteById })
+    .sort((a, b) => b.id - a.id)
+    .slice(0, 50)
 
-  const streak = profile
+  // wrongAnswers: count più alto + lastWrong più recente
+  const remoteWrong = profile?.wrong_answers ?? {}
+  const mergedWrong = { ...local.wrongAnswers }
+  for (const [id, remote] of Object.entries(remoteWrong)) {
+    const loc = mergedWrong[id]
+    if (!loc) {
+      mergedWrong[id] = remote
+    } else {
+      const useRemote = remote.count > loc.count
+      mergedWrong[id] = {
+        ...loc,
+        count: Math.max(loc.count, remote.count),
+        lastWrong: (!loc.lastWrong || (remote.lastWrong && remote.lastWrong > loc.lastWrong))
+          ? remote.lastWrong : loc.lastWrong,
+        recovered: loc.recovered && remote.recovered,
+        responseTimes: useRemote ? (remote.responseTimes ?? []) : (loc.responseTimes ?? []),
+        avgResponseTime: useRemote ? (remote.avgResponseTime ?? null) : (loc.avgResponseTime ?? null)
+      }
+    }
+  }
+
+  // Streak: prendi il valore più alto
+  const remoteStreak = profile
     ? { current: profile.streak_current ?? 0, lastStudyDate: profile.streak_last_study_date ?? null }
     : { current: 0, lastStudyDate: null }
+  const streak = local.streak.current >= remoteStreak.current ? local.streak : remoteStreak
 
-  const wrongAnswers = profile?.wrong_answers ?? {}
-
-  // Mantieni cap a 50 in localStorage per performance UI
   save({
-    sessions: sessions.slice(0, 50),
-    sectionStats,
+    sessions: mergedSessions,
+    sectionStats: rebuildSectionStats(mergedSessions),
     streak,
-    wrongAnswers
+    wrongAnswers: mergedWrong
   })
 }
