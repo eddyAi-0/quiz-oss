@@ -8,6 +8,30 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const userRef = useRef(null)
+  const realtimeChannelRef = useRef(null)
+
+  function subscribeRealtime(userId) {
+    if (realtimeChannelRef.current) {
+      supabase.removeChannel(realtimeChannelRef.current)
+    }
+    const handler = () => {
+      syncFromSupabase(userId).catch(err =>
+        console.error('[realtime] sync fallita:', err)
+      )
+    }
+    realtimeChannelRef.current = supabase
+      .channel(`profiles-${userId}`)
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'profiles', filter: `id=eq.${userId}` }, handler)
+      .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'profiles', filter: `id=eq.${userId}` }, handler)
+      .subscribe()
+  }
+
+  function unsubscribeRealtime() {
+    if (realtimeChannelRef.current) {
+      supabase.removeChannel(realtimeChannelRef.current)
+      realtimeChannelRef.current = null
+    }
+  }
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -19,6 +43,7 @@ export function AuthProvider({ children }) {
         syncFromSupabase(u.id).catch(err =>
           console.error('Sync iniziale da Supabase fallita:', err)
         )
+        subscribeRealtime(u.id)
       }
     })
 
@@ -31,6 +56,11 @@ export function AuthProvider({ children }) {
         syncToSupabase(newUser.id)
           .then(() => syncFromSupabase(newUser.id))
           .catch(err => console.error('Sync post-login:', err))
+        subscribeRealtime(newUser.id)
+      }
+
+      if (event === 'SIGNED_OUT') {
+        unsubscribeRealtime()
       }
     })
 
@@ -46,6 +76,7 @@ export function AuthProvider({ children }) {
     return () => {
       subscription.unsubscribe()
       document.removeEventListener('visibilitychange', handleVisibility)
+      unsubscribeRealtime()
     }
   }, [])
 
