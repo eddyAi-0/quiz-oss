@@ -4,6 +4,12 @@ const KEY = 'quiz-oss-data'
 
 let _syncPending = 0
 let _abortSync = false
+let _clearChannel = null
+
+// Chiamato da AuthContext quando il canale Realtime è pronto
+export function setClearChannel(channel) {
+  _clearChannel = channel
+}
 
 function emitSync(delta, error = false) {
   _syncPending = Math.max(0, _syncPending + delta)
@@ -215,6 +221,12 @@ export async function clearProgress() {
     if (profErr) console.error('[clear] profiles upsert fallita:', profErr.message)
   }
   localStorage.removeItem(KEY)
+
+  // Notifica tutti i dispositivi connessi via broadcast (non richiede Realtime sul DB)
+  if (_clearChannel) {
+    _clearChannel.send({ type: 'broadcast', event: 'progress-cleared', payload: {} })
+      .catch(() => {})
+  }
 
   // Riabilita la sync dopo che tutti i possibili retry (max 1500ms) sono terminati
   setTimeout(() => { _abortSync = false }, 2000)
