@@ -35,7 +35,14 @@ export default function Dashboard() {
   const [refreshKey, setRefreshKey] = useState(0)
   const data = useMemo(() => getProgress(), [refreshKey])
 
-  const { sessions, sectionStats, streak } = data
+  const { sessions, sectionStats, streak, wrongAnswers = {} } = data
+
+  const unresolvedErrors = Object.values(wrongAnswers).filter(w => !w.recovered)
+  const totalErrors = unresolvedErrors.length
+  const errorsBySection = unresolvedErrors.reduce((acc, w) => {
+    acc[w.sezione] = (acc[w.sezione] || 0) + 1
+    return acc
+  }, {})
 
   const totalDomande = Object.values(sectionStats).reduce((s, v) => s + v.total, 0)
   const totalCorrette = Object.values(sectionStats).reduce((s, v) => s + v.correct, 0)
@@ -166,6 +173,47 @@ export default function Dashboard() {
               </button>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Errori da ripassare */}
+      {totalErrors > 0 && (
+        <div className="card">
+          <div className="row-between" style={{ marginBottom: '0.75rem' }}>
+            <h3>❌ Errori da ripassare</h3>
+            <span style={{ fontWeight: 700, fontSize: '1.5rem', color: 'var(--error)' }}>
+              {totalErrors}
+            </span>
+          </div>
+
+          {Object.entries(errorsBySection)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5)
+            .map(([sec, count]) => (
+              <div key={sec} className="row-between" style={{ marginBottom: '0.4rem' }}>
+                <span style={{ fontSize: '0.88rem', color: 'var(--text)' }}>
+                  {SEZIONI_BREVI[sec] || sec}
+                </span>
+                <span style={{
+                  background: 'var(--error)',
+                  color: '#fff',
+                  borderRadius: '999px',
+                  padding: '1px 9px',
+                  fontSize: '0.78rem',
+                  fontWeight: 700
+                }}>
+                  {count}
+                </span>
+              </div>
+            ))}
+
+          <button
+            className="btn btn-primary"
+            style={{ marginTop: '1rem', width: '100%' }}
+            onClick={() => navigate('/', { state: { filterErrors: true } })}
+          >
+            📖 Ripassa errori
+          </button>
         </div>
       )}
 

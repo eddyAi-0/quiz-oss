@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useMemo } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import domandeData from '../data/domande.json'
-import { saveSession } from '../utils/storage'
+import { saveSession, getWrongAnswers } from '../utils/storage'
 import { shuffle } from '../utils/shuffle'
 
 const SEZIONI = domandeData.metadata.sezioni
@@ -79,31 +79,61 @@ function QuestionCard({ q, index, total, onAnswer, answered, selected }) {
 }
 
 export default function Quiz() {
+  const location = useLocation()
+
+  const [wrongAnswers, setWrongAnswers] = useState(() => getWrongAnswers())
+  const [wrongOnly, setWrongOnly] = useState(location.state?.filterErrors ?? false)
+
+  const activeWrongIds = useMemo(
+    () => new Set(Object.values(wrongAnswers).filter(w => !w.recovered).map(w => w.id)),
+    [wrongAnswers]
+  )
+  const wrongCount = activeWrongIds.size
+
   const [sezione, setSezione] = useState(TUTTE)
   const [limit, setLimit] = useState(20)
-  const [activeQuestions, setActiveQuestions] = useState(() => shuffle(domandeData.domande).slice(0, 20))
+  const [activeQuestions, setActiveQuestions] = useState(() => {
+    if (location.state?.filterErrors) {
+      const wa = getWrongAnswers()
+      const ids = new Set(Object.values(wa).filter(w => !w.recovered).map(w => w.id))
+      return shuffle(domandeData.domande.filter(d => ids.has(d.id)))
+    }
+    return shuffle(domandeData.domande).slice(0, 20)
+  })
   const [index, setIndex] = useState(0)
   const [selected, setSelected] = useState(null)
   const [answered, setAnswered] = useState(false)
   const [sessionAnswers, setSessionAnswers] = useState([])
   const [sessionDone, setSessionDone] = useState(false)
 
-  function applyFilter(s, lim) {
-    const pool = s === TUTTE ? domandeData.domande : domandeData.domande.filter(d => d.sezione === s)
+  function applyFilter(s, lim, onlyWrong, wrongIds) {
+    let pool = s === TUTTE ? domandeData.domande : domandeData.domande.filter(d => d.sezione === s)
+    if (onlyWrong) pool = pool.filter(d => wrongIds.has(d.id))
     const shuffled = shuffle(pool)
+    if (onlyWrong) return shuffled
     return lim === 'Tutte' ? shuffled : shuffled.slice(0, lim)
   }
 
   function changeSezione(s) {
     setSezione(s)
-    setActiveQuestions(applyFilter(s, limit))
+    setActiveQuestions(applyFilter(s, limit, wrongOnly, activeWrongIds))
     resetSession()
   }
 
   function changeLimit(val) {
     const lim = val === 'Tutte' ? 'Tutte' : Number(val)
     setLimit(lim)
-    setActiveQuestions(applyFilter(sezione, lim))
+    setActiveQuestions(applyFilter(sezione, lim, wrongOnly, activeWrongIds))
+    resetSession()
+  }
+
+  function toggleWrongOnly() {
+    const newVal = !wrongOnly
+    const fresh = getWrongAnswers()
+    const freshIds = new Set(Object.values(fresh).filter(w => !w.recovered).map(w => w.id))
+    setWrongOnly(newVal)
+    setWrongAnswers(fresh)
+    setActiveQuestions(applyFilter(sezione, limit, newVal, freshIds))
     resetSession()
   }
 
@@ -140,6 +170,7 @@ export default function Quiz() {
         sezione: sezione === TUTTE ? null : sezione,
         questions: sessionAnswers
       }).catch(err => console.error('Errore salvataggio sessione:', err))
+      setWrongAnswers(getWrongAnswers())
       setSessionDone(true)
     } else {
       setIndex(prev => prev + 1)
@@ -208,14 +239,36 @@ export default function Quiz() {
         <span className="select-arrow">▼</span>
       </div>
 
-      <div className="select-wrap">
-        <select value={limit} onChange={e => changeLimit(e.target.value)}>
-          {LIMITI.map(l => (
-            <option key={l} value={l}>{l === 'Tutte' ? 'Tutte le domande' : `${l} domande`}</option>
-          ))}
-        </select>
-        <span className="select-arrow">▼</span>
-      </div>
+      {!wrongOnly && (
+        <div className="select-wrap">
+          <select value={limit} onChange={e => changeLimit(e.target.value)}>
+            {LIMITI.map(l => (
+              <option key={l} value={l}>{l === 'Tutte' ? 'Tutte le domande' : `${l} domande`}</option>
+            ))}
+          </select>
+          <span className="select-arrow">▼</span>
+        </div>
+      )}
+
+      {(wrongCount > 0 || wrongOnly) && (
+        <button
+          className={`btn ${wrongOnly ? 'btn-primary' : 'btn-outline'} btn-sm`}
+          style={{ marginBottom: '1rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+          onClick={toggleWrongOnly}
+        >
+          ❌ Solo errori
+          <span style={{
+            background: wrongOnly ? 'rgba(255,255,255,0.25)' : 'var(--error)',
+            color: '#fff',
+            borderRadius: '999px',
+            padding: '1px 8px',
+            fontSize: '0.78rem',
+            fontWeight: 700
+          }}>
+            {wrongCount}
+          </span>
+        </button>
+      )}
 
       <div className="progress-bar-wrap">
         <div className="progress-bar-fill" style={{ width: `${progress}%` }} />

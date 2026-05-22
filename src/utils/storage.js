@@ -20,7 +20,8 @@ function defaultState() {
   return {
     sessions: [],
     sectionStats: {},
-    streak: { current: 0, lastStudyDate: null }
+    streak: { current: 0, lastStudyDate: null },
+    wrongAnswers: {}
   }
 }
 
@@ -85,6 +86,23 @@ export async function saveSession({ mode, sezione, questions }) {
 
   data.streak = calcStreak(data.streak)
 
+  questions.forEach(q => {
+    if (!q.isCorrect) {
+      const prev = data.wrongAnswers[q.id] ?? {
+        id: q.id, sezione: q.sezione, count: 0, lastWrong: null, answers: [], recovered: false
+      }
+      data.wrongAnswers[q.id] = {
+        ...prev,
+        count: prev.count + 1,
+        lastWrong: todayStr(),
+        answers: [...prev.answers, q.selected].slice(-10),
+        recovered: false
+      }
+    } else if (data.wrongAnswers[q.id]) {
+      data.wrongAnswers[q.id] = { ...data.wrongAnswers[q.id], recovered: true }
+    }
+  })
+
   save(data)
 
   // Sync asincrono su Supabase se autenticato
@@ -98,7 +116,8 @@ export async function saveSession({ mode, sezione, questions }) {
       .upsert({
         id: user.id,
         streak_current: data.streak.current,
-        streak_last_study_date: data.streak.lastStudyDate
+        streak_last_study_date: data.streak.lastStudyDate,
+        wrong_answers: data.wrongAnswers
       })
       .then()
   }
@@ -127,6 +146,10 @@ export function getProgress() {
   return load()
 }
 
+export function getWrongAnswers() {
+  return load().wrongAnswers
+}
+
 export async function clearProgress() {
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
@@ -134,7 +157,8 @@ export async function clearProgress() {
     await supabase.from('profiles').upsert({
       id: user.id,
       streak_current: 0,
-      streak_last_study_date: null
+      streak_last_study_date: null,
+      wrong_answers: {}
     })
   }
   localStorage.removeItem(KEY)
@@ -178,7 +202,7 @@ export function getWorstSections(n = 3) {
 
 // Carica le sessioni localStorage su Supabase (chiamato al login)
 export async function syncToSupabase(userId) {
-  const { sessions, streak } = load()
+  const { sessions, streak, wrongAnswers } = load()
 
   if (sessions.length > 0) {
     await supabase.from('quiz_sessions').upsert(
@@ -190,7 +214,8 @@ export async function syncToSupabase(userId) {
   await supabase.from('profiles').upsert({
     id: userId,
     streak_current: streak.current,
-    streak_last_study_date: streak.lastStudyDate
+    streak_last_study_date: streak.lastStudyDate,
+    wrong_answers: wrongAnswers
   })
 }
 
@@ -204,7 +229,7 @@ export async function syncFromSupabase(userId) {
       .order('id', { ascending: false }),
     supabase
       .from('profiles')
-      .select('streak_current, streak_last_study_date')
+      .select('streak_current, streak_last_study_date, wrong_answers')
       .eq('id', userId)
       .single()
   ])
@@ -217,10 +242,13 @@ export async function syncFromSupabase(userId) {
     ? { current: profile.streak_current ?? 0, lastStudyDate: profile.streak_last_study_date ?? null }
     : { current: 0, lastStudyDate: null }
 
+  const wrongAnswers = profile?.wrong_answers ?? {}
+
   // Mantieni cap a 50 in localStorage per performance UI
   save({
     sessions: sessions.slice(0, 50),
     sectionStats,
-    streak
+    streak,
+    wrongAnswers
   })
 }
