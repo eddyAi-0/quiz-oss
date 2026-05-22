@@ -198,13 +198,16 @@ export function getUrgencyScore(entry) {
 export async function clearProgress() {
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
-    await supabase.from('quiz_sessions').delete().eq('user_id', user.id)
-    await supabase.from('profiles').upsert({
+    const { error: delErr } = await supabase.from('quiz_sessions').delete().eq('user_id', user.id)
+    if (delErr) console.error('[clear] quiz_sessions delete fallita:', delErr.message)
+
+    const { error: profErr } = await supabase.from('profiles').upsert({
       id: user.id,
       streak_current: 0,
       streak_last_study_date: null,
       wrong_answers: {}
     })
+    if (profErr) console.error('[clear] profiles upsert fallita:', profErr.message)
   }
   localStorage.removeItem(KEY)
 }
@@ -324,11 +327,22 @@ export async function syncFromSupabase(userId) {
   const remoteSessions = sessResult.data ?? []
   const profile = profResult.data
 
-  // Se quiz_sessions è vuota su Supabase (query ok) ma il locale ha dati,
-  // significa che clearProgress è stato chiamato su un altro dispositivo.
-  // Non dipende da profiles.wrong_answers per non bloccarsi su schema mancante.
-  const localHasData = local.sessions.length > 0 || Object.keys(local.wrongAnswers).length > 0
-  if (!sessResult.error && remoteSessions.length === 0 && localHasData) {
+  // Rileva clearProgress chiamato su un altro dispositivo.
+  // Segnale 1: quiz_sessions vuota su Supabase ma locale ha sessioni
+  //   (il DELETE in clearProgress è andato a buon fine)
+  // Segnale 2: profiles.wrong_answers esplicitamente {} ma locale ha errori
+  //   (fallback per quando il DELETE fallisce per RLS mancante)
+  // Basta uno dei due segnali per azzerare il localStorage.
+  const sessionsCleared = !sessResult.error &&
+    remoteSessions.length === 0 &&
+    local.sessions.length > 0
+  const profileExplicitlyEmpty = !profResult.error &&
+    profile !== null &&
+    profile.wrong_answers !== null &&
+    typeof profile.wrong_answers === 'object' &&
+    Object.keys(profile.wrong_answers).length === 0 &&
+    Object.keys(local.wrongAnswers).length > 0
+  if (sessionsCleared || profileExplicitlyEmpty) {
     save(defaultState())
     window.dispatchEvent(new CustomEvent('quiz-data-updated'))
     return
