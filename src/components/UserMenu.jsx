@@ -6,6 +6,7 @@ export default function UserMenu() {
   const { user, signOut } = useAuth()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
+  const [signOutError, setSignOutError] = useState(false)
   const menuRef = useRef(null)
 
   useEffect(() => {
@@ -83,8 +84,22 @@ export default function UserMenu() {
           }}>
             {shortEmail}
           </div>
+          {signOutError && (
+            <p style={{ padding: '0.4rem 1rem', fontSize: '0.8rem', color: 'var(--error)' }}>
+              Logout fallito, riprova.
+            </p>
+          )}
           <button
-            onClick={async () => { setOpen(false); await signOut() }}
+            onClick={async () => {
+              setSignOutError(false)
+              setOpen(false)
+              try {
+                await signOut()
+              } catch {
+                setSignOutError(true)
+                setOpen(true)
+              }
+            }}
             style={{
               display: 'block',
               width: '100%',
