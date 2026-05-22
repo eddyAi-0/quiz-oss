@@ -6,6 +6,19 @@ import { spiegaMeglio, chatTutor, generaDomandeExtra } from '../utils/groq'
 import { getWorstSections } from '../utils/storage'
 import { useDomande } from '../utils/domande'
 
+const INJECTION_PATTERNS = [
+  /ignore\s+(previous|all|prior)\s+instructions?/gi,
+  /system\s*:/gi,
+  /you\s+are\s+now\b/gi,
+  /```[\s\S]*?```/g,
+]
+
+function sanitizeInput(raw) {
+  let s = raw.slice(0, 500)
+  for (const p of INJECTION_PATTERNS) s = s.replace(p, '')
+  return s.trim()
+}
+
 function TypingDots() {
   return (
     <div className="chat-bubble assistant loading pulse" style={{ width: 60 }}>
@@ -133,7 +146,7 @@ export default function TutorAI() {
   }
 
   async function handleSend() {
-    const text = input.trim()
+    const text = sanitizeInput(input.trim())
     if (!text || loading) return
     if (Date.now() - lastSendRef.current < 2000) return
     lastSendRef.current = Date.now()
