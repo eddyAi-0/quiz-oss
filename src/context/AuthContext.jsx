@@ -23,11 +23,9 @@ export function AuthProvider({ children }) {
       .channel(`user-data-${userId}`)
       .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'profiles', filter: `id=eq.${userId}` }, handler)
       .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'profiles', filter: `id=eq.${userId}` }, handler)
-      .on('broadcast', { event: 'data-updated' }, () => {
-        syncFromSupabase(userId).catch(err =>
-          console.error('[broadcast] sync fallita:', err)
-        )
-      })
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'quiz_sessions', filter: `user_id=eq.${userId}` }, handler)
+      .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'quiz_sessions', filter: `user_id=eq.${userId}` }, handler)
+      .on('broadcast', { event: 'data-updated' }, handler)
       .subscribe()
     realtimeChannelRef.current = channel
     setSyncChannel(channel)
@@ -74,14 +72,19 @@ export function AuthProvider({ children }) {
 
     function handleVisibility() {
       if (document.visibilityState === 'visible' && userRef.current) {
-        syncFromSupabase(userRef.current.id).catch(err =>
-          console.error('Sync al ritorno in primo piano fallita:', err)
-        )
+        syncFromSupabase(userRef.current.id).catch(() => {})
       }
     }
     document.addEventListener('visibilitychange', handleVisibility)
 
+    const pollInterval = setInterval(() => {
+      if (userRef.current && document.visibilityState === 'visible') {
+        syncFromSupabase(userRef.current.id).catch(() => {})
+      }
+    }, 30000)
+
     return () => {
+      clearInterval(pollInterval)
       subscription.unsubscribe()
       document.removeEventListener('visibilitychange', handleVisibility)
       unsubscribeRealtime()
