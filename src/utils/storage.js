@@ -1,3 +1,5 @@
+import { supabase } from '../lib/supabase'
+
 const KEY = 'quiz-oss-data'
 
 function load() {
@@ -42,7 +44,21 @@ function calcStreak(streak) {
   return { current: 1, lastStudyDate: today }
 }
 
-export function saveSession({ mode, sezione, questions }) {
+function rebuildSectionStats(sessions) {
+  const stats = {}
+  for (const session of sessions) {
+    if (!Array.isArray(session.questions)) continue
+    for (const q of session.questions) {
+      const sec = q.sezione
+      if (!stats[sec]) stats[sec] = { total: 0, correct: 0 }
+      stats[sec].total += 1
+      if (q.isCorrect) stats[sec].correct += 1
+    }
+  }
+  return stats
+}
+
+export async function saveSession({ mode, sezione, questions }) {
   const data = load()
 
   const correct = questions.filter(q => q.isCorrect).length
@@ -70,20 +86,57 @@ export function saveSession({ mode, sezione, questions }) {
   data.streak = calcStreak(data.streak)
 
   save(data)
+
+  // Sync asincrono su Supabase se autenticato
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user) {
+    supabase.from('quiz_sessions')
+      .upsert({ ...session, user_id: user.id })
+      .then()
+
+    supabase.from('profiles')
+      .upsert({
+        id: user.id,
+        streak_current: data.streak.current,
+        streak_last_study_date: data.streak.lastStudyDate
+      })
+      .then()
+  }
+
   return session
 }
 
-export function updateStreakToday() {
+export async function updateStreakToday() {
   const data = load()
   data.streak = calcStreak(data.streak)
   save(data)
+
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user) {
+    supabase.from('profiles')
+      .upsert({
+        id: user.id,
+        streak_current: data.streak.current,
+        streak_last_study_date: data.streak.lastStudyDate
+      })
+      .then()
+  }
 }
 
 export function getProgress() {
   return load()
 }
 
-export function clearProgress() {
+export async function clearProgress() {
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user) {
+    await supabase.from('quiz_sessions').delete().eq('user_id', user.id)
+    await supabase.from('profiles').upsert({
+      id: user.id,
+      streak_current: 0,
+      streak_last_study_date: null
+    })
+  }
   localStorage.removeItem(KEY)
 }
 
@@ -121,4 +174,53 @@ export function getWorstSections(n = 3) {
     }))
     .sort((a, b) => a.pct - b.pct)
     .slice(0, n)
+}
+
+// Carica le sessioni localStorage su Supabase (chiamato al login)
+export async function syncToSupabase(userId) {
+  const { sessions, streak } = load()
+
+  if (sessions.length > 0) {
+    await supabase.from('quiz_sessions').upsert(
+      sessions.map(s => ({ ...s, user_id: userId })),
+      { onConflict: 'id' }
+    )
+  }
+
+  await supabase.from('profiles').upsert({
+    id: userId,
+    streak_current: streak.current,
+    streak_last_study_date: streak.lastStudyDate
+  })
+}
+
+// Scarica tutte le sessioni Supabase e ricostruisce localStorage (chiamato al login)
+export async function syncFromSupabase(userId) {
+  const [{ data: sessions }, { data: profile }] = await Promise.all([
+    supabase
+      .from('quiz_sessions')
+      .select('*')
+      .eq('user_id', userId)
+      .order('id', { ascending: false }),
+    supabase
+      .from('profiles')
+      .select('streak_current, streak_last_study_date')
+      .eq('id', userId)
+      .single()
+  ])
+
+  if (!sessions) return
+
+  const sectionStats = rebuildSectionStats(sessions)
+
+  const streak = profile
+    ? { current: profile.streak_current ?? 0, lastStudyDate: profile.streak_last_study_date ?? null }
+    : { current: 0, lastStudyDate: null }
+
+  // Mantieni cap a 50 in localStorage per performance UI
+  save({
+    sessions: sessions.slice(0, 50),
+    sectionStats,
+    streak
+  })
 }

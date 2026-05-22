@@ -5,6 +5,9 @@ import SimulationMode from './components/SimulationMode'
 import Dashboard from './components/Dashboard'
 import TutorAI from './components/TutorAI'
 import ErrorBoundary from './components/ErrorBoundary'
+import AuthPage from './components/AuthPage'
+import UserMenu from './components/UserMenu'
+import { AuthProvider } from './context/AuthContext'
 
 const NAV = [
   { to: '/', label: 'Quiz', icon: '📚' },
@@ -22,53 +25,58 @@ export default function App() {
   }, [dark])
 
   return (
-    <div className="app-container">
-      <button
-        onClick={() => setDark(d => !d)}
-        title={dark ? 'Modalità chiara' : 'Modalità notturna'}
-        style={{
-          position: 'fixed',
-          top: '0.85rem',
-          right: '1rem',
-          zIndex: 200,
-          background: 'var(--card)',
-          border: '1.5px solid var(--border)',
-          borderRadius: '50%',
-          width: 40,
-          height: 40,
-          fontSize: '1.2rem',
-          boxShadow: 'var(--shadow)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {dark ? '☀️' : '🌙'}
-      </button>
+    <AuthProvider>
+      <div className="app-container">
+        <UserMenu />
 
-      <ErrorBoundary>
-        <Routes>
-          <Route path="/" element={<Quiz />} />
-          <Route path="/simulazione" element={<SimulationMode />} />
-          <Route path="/progressi" element={<Dashboard />} />
-          <Route path="/tutor" element={<TutorAI />} />
-          <Route path="/tutor/:sezione" element={<TutorAI />} />
-        </Routes>
-      </ErrorBoundary>
+        <button
+          onClick={() => setDark(d => !d)}
+          title={dark ? 'Modalità chiara' : 'Modalità notturna'}
+          style={{
+            position: 'fixed',
+            top: '0.85rem',
+            right: '1rem',
+            zIndex: 200,
+            background: 'var(--card)',
+            border: '1.5px solid var(--border)',
+            borderRadius: '50%',
+            width: 40,
+            height: 40,
+            fontSize: '1.2rem',
+            boxShadow: 'var(--shadow)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {dark ? '☀️' : '🌙'}
+        </button>
 
-      <nav className="bottom-nav">
-        {NAV.map(({ to, label, icon }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
-            className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
-          >
-            <span className="nav-icon">{icon}</span>
-            <span>{label}</span>
-          </NavLink>
-        ))}
-      </nav>
-    </div>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<Quiz />} />
+            <Route path="/simulazione" element={<SimulationMode />} />
+            <Route path="/progressi" element={<Dashboard />} />
+            <Route path="/tutor" element={<TutorAI />} />
+            <Route path="/tutor/:sezione" element={<TutorAI />} />
+            <Route path="/login" element={<AuthPage />} />
+          </Routes>
+        </ErrorBoundary>
+
+        <nav className="bottom-nav">
+          {NAV.map(({ to, label, icon }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
+            >
+              <span className="nav-icon">{icon}</span>
+              <span>{label}</span>
+            </NavLink>
+          ))}
+        </nav>
+      </div>
+    </AuthProvider>
   )
 }
