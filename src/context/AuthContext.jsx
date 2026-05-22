@@ -1,6 +1,6 @@
 import { createContext, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
-import { syncToSupabase, syncFromSupabase, setClearChannel } from '../utils/storage'
+import { syncToSupabase, syncFromSupabase, setSyncChannel } from '../utils/storage'
 
 export const AuthContext = createContext(null)
 
@@ -23,14 +23,14 @@ export function AuthProvider({ children }) {
       .channel(`user-data-${userId}`)
       .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'profiles', filter: `id=eq.${userId}` }, handler)
       .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'profiles', filter: `id=eq.${userId}` }, handler)
-      .on('broadcast', { event: 'progress-cleared' }, () => {
+      .on('broadcast', { event: 'data-updated' }, () => {
         syncFromSupabase(userId).catch(err =>
-          console.error('[broadcast] sync dopo clear fallita:', err)
+          console.error('[broadcast] sync fallita:', err)
         )
       })
       .subscribe()
     realtimeChannelRef.current = channel
-    setClearChannel(channel)
+    setSyncChannel(channel)
   }
 
   function unsubscribeRealtime() {
@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
       supabase.removeChannel(realtimeChannelRef.current)
       realtimeChannelRef.current = null
     }
-    setClearChannel(null)
+    setSyncChannel(null)
   }
 
   useEffect(() => {

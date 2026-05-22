@@ -4,11 +4,17 @@ const KEY = 'quiz-oss-data'
 
 let _syncPending = 0
 let _abortSync = false
-let _clearChannel = null
+let _syncChannel = null
 
 // Chiamato da AuthContext quando il canale Realtime è pronto
-export function setClearChannel(channel) {
-  _clearChannel = channel
+export function setSyncChannel(channel) {
+  _syncChannel = channel
+}
+
+function broadcastDataUpdate() {
+  if (_syncChannel) {
+    _syncChannel.send({ type: 'broadcast', event: 'data-updated', payload: {} }).catch(() => {})
+  }
 }
 
 function emitSync(delta, error = false) {
@@ -162,7 +168,7 @@ export async function saveSession({ mode, sezione, questions }) {
       streak_last_study_date: data.streak.lastStudyDate,
       wrong_answers: data.wrongAnswers
     }))
-      .then(() => emitSync(-1))
+      .then(() => { emitSync(-1); broadcastDataUpdate() })
       .catch(err => { console.error('Sync Supabase fallita dopo 3 tentativi:', err); emitSync(-1, true) })
   }
 
@@ -223,10 +229,7 @@ export async function clearProgress() {
   localStorage.removeItem(KEY)
 
   // Notifica tutti i dispositivi connessi via broadcast (non richiede Realtime sul DB)
-  if (_clearChannel) {
-    _clearChannel.send({ type: 'broadcast', event: 'progress-cleared', payload: {} })
-      .catch(() => {})
-  }
+  broadcastDataUpdate()
 
   // Riabilita la sync dopo che tutti i possibili retry (max 1500ms) sono terminati
   setTimeout(() => { _abortSync = false }, 2000)
