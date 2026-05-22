@@ -324,6 +324,17 @@ export async function syncFromSupabase(userId) {
   const remoteSessions = sessResult.data ?? []
   const profile = profResult.data
 
+  // Se Supabase ha risposto senza errori e i dati sono vuoti, è un reset autoritativo
+  // (clearProgress su un altro dispositivo). Sovrascrive il localStorage invece di fare merge.
+  const supabaseRespondedCleanly = !sessResult.error && !profResult.error && profile !== null
+  const remoteIsEmpty = remoteSessions.length === 0 &&
+    Object.keys(profile?.wrong_answers ?? {}).length === 0
+  if (supabaseRespondedCleanly && remoteIsEmpty) {
+    save(defaultState())
+    window.dispatchEvent(new CustomEvent('quiz-data-updated'))
+    return
+  }
+
   // Sessioni: deduplica per id, priorità al remoto
   const localById = Object.fromEntries(local.sessions.map(s => [s.id, s]))
   const remoteById = Object.fromEntries(remoteSessions.map(s => [s.id, s]))
