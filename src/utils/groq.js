@@ -58,7 +58,7 @@ export async function chatTutor(messages) {
   ], 1024)
 }
 
-function parseJsonArray(raw) {
+export function parseJsonArray(raw) {
   const match = raw.match(/\[[\s\S]*\]/)
   if (!match) throw new Error('Nessun array JSON trovato nella risposta')
   return JSON.parse(match[0])

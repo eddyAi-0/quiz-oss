@@ -10,7 +10,7 @@ vi.mock('../lib/supabase', () => ({
   }
 }))
 
-import { generaDomandeExtra } from './groq'
+import { generaDomandeExtra, parseJsonArray } from './groq'
 
 const mockFetch = vi.fn()
 global.fetch = mockFetch
@@ -27,6 +27,27 @@ const DOMANDE_VALIDE = [
   { domanda: 'Cos\'è l\'anatomia?', opzioni: ['E', 'F', 'G', 'H'], risposta_corretta: 1, spiegazione: 'Perché...' },
   { domanda: 'Cos\'è la cura?', opzioni: ['I', 'L', 'M', 'N'], risposta_corretta: 2, spiegazione: 'Perché...' }
 ]
+
+describe('parseJsonArray', () => {
+  it('parsa un array JSON puro', () => {
+    const arr = [{ a: 1 }, { b: 2 }]
+    expect(parseJsonArray(JSON.stringify(arr))).toEqual(arr)
+  })
+
+  it('estrae array JSON embedded in testo', () => {
+    const arr = [{ domanda: 'X', risposta_corretta: 0 }]
+    const raw = `Ecco le domande:\n${JSON.stringify(arr)}\nSpero aiutino!`
+    expect(parseJsonArray(raw)).toEqual(arr)
+  })
+
+  it('lancia errore se non trova nessun array', () => {
+    expect(() => parseJsonArray('nessun array qui')).toThrow('Nessun array JSON trovato')
+  })
+
+  it('lancia errore se il JSON è malformato', () => {
+    expect(() => parseJsonArray('[{"chiave": "valore"')).toThrow()
+  })
+})
 
 describe('generaDomandeExtra', () => {
   beforeEach(() => mockFetch.mockReset())
