@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { calcStreak, rebuildSectionStats, importProgress, exportProgress } from './storage'
+import { calcStreak, rebuildSectionStats, importProgress, exportProgress, getUrgencyScore } from './storage'
 
 vi.mock('../lib/supabase', () => ({
   supabase: {
@@ -29,6 +29,7 @@ Object.defineProperty(global, 'localStorage', { value: localStorageMock, writabl
 const TODAY = new Date().toISOString().slice(0, 10)
 const YESTERDAY = new Date(Date.now() - 86400000).toISOString().slice(0, 10)
 const TWO_DAYS_AGO = new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10)
+const THIRTY_DAYS_AGO = new Date(Date.now() - 30 * 86400000).toISOString().slice(0, 10)
 
 describe('calcStreak', () => {
   it('inizia streak a 1 senza studio precedente', () => {
@@ -112,6 +113,48 @@ describe('importProgress', () => {
     const payload = { sessions: [{ id: 1 }], sectionStats: { A: { total: 1, correct: 1 } } }
     importProgress(JSON.stringify(payload))
     expect(localStorageMock.setItem).toHaveBeenCalled()
+  })
+})
+
+describe('getUrgencyScore', () => {
+  it('errore recente singolo: count=1, oggi → score=40', () => {
+    const entry = { count: 1, recovered: false, lastWrong: TODAY, answers: [] }
+    // 10*1 + 0 + 30/(0+1) = 40
+    expect(getUrgencyScore(entry)).toBe(40)
+  })
+
+  it('errore vecchio (30 giorni): bonus quasi nullo → score < 11', () => {
+    const entry = { count: 1, recovered: false, lastWrong: THIRTY_DAYS_AGO, answers: [] }
+    // 10 + 0 + 30/31 ≈ 10.968
+    const score = getUrgencyScore(entry)
+    expect(score).toBeGreaterThan(10)
+    expect(score).toBeLessThan(11)
+  })
+
+  it('errore vecchio ha score minore di errore recente a parità di count', () => {
+    const recent = { count: 1, recovered: false, lastWrong: TODAY, answers: [] }
+    const old = { count: 1, recovered: false, lastWrong: THIRTY_DAYS_AGO, answers: [] }
+    expect(getUrgencyScore(recent)).toBeGreaterThan(getUrgencyScore(old))
+  })
+
+  it('errori multipli: count=3, oggi → score=60', () => {
+    const entry = { count: 3, recovered: false, lastWrong: TODAY, answers: [] }
+    // 10*3 + 0 + 30/1 = 60
+    expect(getUrgencyScore(entry)).toBe(60)
+  })
+
+  it('domanda recuperata: sottrae 5 dal punteggio', () => {
+    const notRecovered = { count: 2, recovered: false, lastWrong: TODAY, answers: [] }
+    const recovered = { count: 2, recovered: true, lastWrong: TODAY, answers: [] }
+    // not recovered: 20 + 0 + 30 = 50  |  recovered: 20 - 5 + 30 = 45
+    expect(getUrgencyScore(notRecovered)).toBe(50)
+    expect(getUrgencyScore(recovered)).toBe(45)
+    expect(getUrgencyScore(notRecovered) - getUrgencyScore(recovered)).toBe(5)
+  })
+
+  it('lastWrong null trattato come giorno 0 (bonus massimo)', () => {
+    const entry = { count: 1, recovered: false, lastWrong: null, answers: [] }
+    expect(getUrgencyScore(entry)).toBe(40)
   })
 })
 

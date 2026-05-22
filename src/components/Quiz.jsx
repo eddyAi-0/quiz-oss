@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import domandeData from '../data/domande.json'
-import { saveSession, getWrongAnswers } from '../utils/storage'
+import { saveSession, getWrongAnswers, getUrgencyScore } from '../utils/storage'
 import { shuffle } from '../utils/shuffle'
 
 const SEZIONI = domandeData.metadata.sezioni
@@ -95,8 +95,9 @@ export default function Quiz() {
   const [activeQuestions, setActiveQuestions] = useState(() => {
     if (location.state?.filterErrors) {
       const wa = getWrongAnswers()
-      const ids = new Set(Object.values(wa).filter(w => !w.recovered).map(w => w.id))
-      return shuffle(domandeData.domande.filter(d => ids.has(d.id)))
+      return domandeData.domande
+        .filter(d => wa[d.id] && !wa[d.id].recovered)
+        .sort((a, b) => getUrgencyScore(wa[b.id]) - getUrgencyScore(wa[a.id]))
     }
     return shuffle(domandeData.domande).slice(0, 20)
   })
@@ -106,34 +107,36 @@ export default function Quiz() {
   const [sessionAnswers, setSessionAnswers] = useState([])
   const [sessionDone, setSessionDone] = useState(false)
 
-  function applyFilter(s, lim, onlyWrong, wrongIds) {
+  function applyFilter(s, lim, onlyWrong, wrongMap) {
     let pool = s === TUTTE ? domandeData.domande : domandeData.domande.filter(d => d.sezione === s)
-    if (onlyWrong) pool = pool.filter(d => wrongIds.has(d.id))
+    if (onlyWrong) {
+      return pool
+        .filter(d => wrongMap[d.id] && !wrongMap[d.id].recovered)
+        .sort((a, b) => getUrgencyScore(wrongMap[b.id]) - getUrgencyScore(wrongMap[a.id]))
+    }
     const shuffled = shuffle(pool)
-    if (onlyWrong) return shuffled
     return lim === 'Tutte' ? shuffled : shuffled.slice(0, lim)
   }
 
   function changeSezione(s) {
     setSezione(s)
-    setActiveQuestions(applyFilter(s, limit, wrongOnly, activeWrongIds))
+    setActiveQuestions(applyFilter(s, limit, wrongOnly, wrongAnswers))
     resetSession()
   }
 
   function changeLimit(val) {
     const lim = val === 'Tutte' ? 'Tutte' : Number(val)
     setLimit(lim)
-    setActiveQuestions(applyFilter(sezione, lim, wrongOnly, activeWrongIds))
+    setActiveQuestions(applyFilter(sezione, lim, wrongOnly, wrongAnswers))
     resetSession()
   }
 
   function toggleWrongOnly() {
     const newVal = !wrongOnly
     const fresh = getWrongAnswers()
-    const freshIds = new Set(Object.values(fresh).filter(w => !w.recovered).map(w => w.id))
     setWrongOnly(newVal)
     setWrongAnswers(fresh)
-    setActiveQuestions(applyFilter(sezione, limit, newVal, freshIds))
+    setActiveQuestions(applyFilter(sezione, limit, newVal, fresh))
     resetSession()
   }
 

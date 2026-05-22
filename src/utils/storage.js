@@ -150,6 +150,13 @@ export function getWrongAnswers() {
   return load().wrongAnswers
 }
 
+export function getUrgencyScore(entry) {
+  const daysSince = entry.lastWrong
+    ? Math.max(0, Math.round((new Date(todayStr()) - new Date(entry.lastWrong)) / 86400000))
+    : 0
+  return (entry.count * 10) + (entry.recovered ? -5 : 0) + (30 / (daysSince + 1))
+}
+
 export async function clearProgress() {
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
