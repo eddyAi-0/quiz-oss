@@ -245,30 +245,67 @@ export function getWorstSections(n = 3) {
     .slice(0, n)
 }
 
+// Ricava wrongAnswers dalle sessioni (fallback se profiles.wrong_answers non esiste)
+function buildWrongAnswersFromSessions(sessions) {
+  const result = {}
+  const sorted = [...sessions].sort((a, b) => a.id - b.id)
+  for (const session of sorted) {
+    if (!Array.isArray(session.questions)) continue
+    for (const q of session.questions) {
+      if (!q.isCorrect) {
+        const prev = result[q.id] ?? {
+          id: q.id, sezione: q.sezione, count: 0,
+          lastWrong: null, answers: [], recovered: false,
+          responseTimes: [], avgResponseTime: null
+        }
+        const newTimes = q.responseTime != null
+          ? [...(prev.responseTimes ?? []), q.responseTime].slice(-10)
+          : (prev.responseTimes ?? [])
+        result[q.id] = {
+          ...prev,
+          count: prev.count + 1,
+          lastWrong: session.date ?? prev.lastWrong,
+          answers: [...prev.answers, q.selected].slice(-10),
+          recovered: false,
+          responseTimes: newTimes,
+          avgResponseTime: newTimes.length > 0
+            ? Math.round(newTimes.reduce((a, b) => a + b, 0) / newTimes.length)
+            : null
+        }
+      } else if (result[q.id]) {
+        result[q.id] = { ...result[q.id], recovered: true }
+      }
+    }
+  }
+  return result
+}
+
 // Carica le sessioni localStorage su Supabase (chiamato al login)
 export async function syncToSupabase(userId) {
   const { sessions, streak, wrongAnswers } = load()
 
   if (sessions.length > 0) {
-    await supabase.from('quiz_sessions').upsert(
+    const { error: sessErr } = await supabase.from('quiz_sessions').upsert(
       sessions.map(s => ({ ...s, user_id: userId })),
       { onConflict: 'id' }
     )
+    if (sessErr) console.error('[sync] quiz_sessions upsert fallita:', sessErr.message)
   }
 
-  await supabase.from('profiles').upsert({
+  const { error: profErr } = await supabase.from('profiles').upsert({
     id: userId,
     streak_current: streak.current,
     streak_last_study_date: streak.lastStudyDate,
     wrong_answers: wrongAnswers
   })
+  if (profErr) console.error('[sync] profiles upsert fallita:', profErr.message)
 }
 
 // Scarica le sessioni Supabase e fa merge con localStorage (chiamato al login)
 export async function syncFromSupabase(userId) {
   const local = load()
 
-  const [{ data: remoteSessions }, { data: profile }] = await Promise.all([
+  const [sessResult, profResult] = await Promise.all([
     supabase
       .from('quiz_sessions')
       .select('*')
@@ -281,7 +318,11 @@ export async function syncFromSupabase(userId) {
       .single()
   ])
 
-  if (!remoteSessions) return
+  if (sessResult.error) console.error('[sync] lettura quiz_sessions fallita:', sessResult.error.message)
+  if (profResult.error && profResult.error.code !== 'PGRST116') console.error('[sync] lettura profiles fallita:', profResult.error.message)
+
+  const remoteSessions = sessResult.data ?? []
+  const profile = profResult.data
 
   // Sessioni: deduplica per id, priorità al remoto
   const localById = Object.fromEntries(local.sessions.map(s => [s.id, s]))
@@ -290,8 +331,12 @@ export async function syncFromSupabase(userId) {
     .sort((a, b) => b.id - a.id)
     .slice(0, 50)
 
-  // wrongAnswers: count più alto + lastWrong più recente
-  const remoteWrong = profile?.wrong_answers ?? {}
+  // wrongAnswers: usa profiles se disponibile, altrimenti ricostruisce dalle sessioni
+  const profileWrong = profile?.wrong_answers
+  const remoteWrong = (profileWrong && Object.keys(profileWrong).length > 0)
+    ? profileWrong
+    : buildWrongAnswersFromSessions(remoteSessions)
+
   const mergedWrong = { ...local.wrongAnswers }
   for (const [id, remote] of Object.entries(remoteWrong)) {
     const loc = mergedWrong[id]
