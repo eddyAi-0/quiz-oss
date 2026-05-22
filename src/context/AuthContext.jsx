@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { syncToSupabase, syncFromSupabase } from '../utils/storage'
 
@@ -7,13 +7,16 @@ export const AuthContext = createContext(null)
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const userRef = useRef(null)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null)
+      const u = session?.user ?? null
+      setUser(u)
+      userRef.current = u
       setLoading(false)
-      if (session?.user) {
-        syncFromSupabase(session.user.id).catch(err =>
+      if (u) {
+        syncFromSupabase(u.id).catch(err =>
           console.error('Sync iniziale da Supabase fallita:', err)
         )
       }
@@ -22,6 +25,7 @@ export function AuthProvider({ children }) {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       const newUser = session?.user ?? null
       setUser(newUser)
+      userRef.current = newUser
 
       if (event === 'SIGNED_IN' && newUser) {
         syncToSupabase(newUser.id)
@@ -30,7 +34,19 @@ export function AuthProvider({ children }) {
       }
     })
 
-    return () => subscription.unsubscribe()
+    function handleVisibility() {
+      if (document.visibilityState === 'visible' && userRef.current) {
+        syncFromSupabase(userRef.current.id).catch(err =>
+          console.error('Sync al ritorno in primo piano fallita:', err)
+        )
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibility)
+
+    return () => {
+      subscription.unsubscribe()
+      document.removeEventListener('visibilitychange', handleVisibility)
+    }
   }, [])
 
   async function signUp(email, password) {
