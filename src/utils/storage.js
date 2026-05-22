@@ -2,6 +2,13 @@ import { supabase } from '../lib/supabase'
 
 const KEY = 'quiz-oss-data'
 
+let _syncPending = 0
+
+function emitSync(delta, error = false) {
+  _syncPending = Math.max(0, _syncPending + delta)
+  window.dispatchEvent(new CustomEvent('quiz-sync', { detail: { pending: _syncPending, error } }))
+}
+
 function load() {
   try {
     const raw = localStorage.getItem(KEY)
@@ -108,11 +115,13 @@ export async function saveSession({ mode, sezione, questions }) {
   // Sync asincrono su Supabase se autenticato
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
+    emitSync(+1)
     supabase.from('quiz_sessions')
       .upsert({ ...session, user_id: user.id })
-      .then(() => {})
-      .catch(err => console.error('Sync Supabase fallita:', err))
+      .then(() => emitSync(-1))
+      .catch(err => { console.error('Sync Supabase fallita:', err); emitSync(-1, true) })
 
+    emitSync(+1)
     supabase.from('profiles')
       .upsert({
         id: user.id,
@@ -120,8 +129,8 @@ export async function saveSession({ mode, sezione, questions }) {
         streak_last_study_date: data.streak.lastStudyDate,
         wrong_answers: data.wrongAnswers
       })
-      .then(() => {})
-      .catch(err => console.error('Sync Supabase fallita:', err))
+      .then(() => emitSync(-1))
+      .catch(err => { console.error('Sync Supabase fallita:', err); emitSync(-1, true) })
   }
 
   return session
@@ -134,14 +143,15 @@ export async function updateStreakToday() {
 
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
+    emitSync(+1)
     supabase.from('profiles')
       .upsert({
         id: user.id,
         streak_current: data.streak.current,
         streak_last_study_date: data.streak.lastStudyDate
       })
-      .then(() => {})
-      .catch(err => console.error('Sync Supabase fallita:', err))
+      .then(() => emitSync(-1))
+      .catch(err => { console.error('Sync Supabase fallita:', err); emitSync(-1, true) })
   }
 }
 

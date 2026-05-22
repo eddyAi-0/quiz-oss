@@ -5,7 +5,6 @@ export const config = { runtime: 'edge' }
 
 const MODEL = 'llama-3.3-70b-versatile'
 const MAX_TOKENS = 1500
-const APP_TOKEN = process.env.APP_TOKEN ?? 'quiz-oss-2026-v1'
 
 let _ratelimit = null
 
@@ -24,6 +23,34 @@ function getRatelimit() {
   return _ratelimit
 }
 
+async function verifyJWT(token) {
+  const secret = process.env.SUPABASE_JWT_SECRET
+  if (!secret) return true // skip in dev when secret not configured
+  try {
+    const parts = token.split('.')
+    if (parts.length !== 3) return false
+    const [headerB64, payloadB64, sigB64] = parts
+    const key = await crypto.subtle.importKey(
+      'raw',
+      new TextEncoder().encode(secret),
+      { name: 'HMAC', hash: 'SHA-256' },
+      false,
+      ['verify']
+    )
+    const b64 = sigB64.replace(/-/g, '+').replace(/_/g, '/')
+    const sig = Uint8Array.from(atob(b64), c => c.charCodeAt(0))
+    const valid = await crypto.subtle.verify(
+      'HMAC', key, sig,
+      new TextEncoder().encode(`${headerB64}.${payloadB64}`)
+    )
+    if (!valid) return false
+    const payload = JSON.parse(atob(payloadB64.replace(/-/g, '+').replace(/_/g, '/')))
+    return payload.exp > Math.floor(Date.now() / 1000)
+  } catch {
+    return false
+  }
+}
+
 function err(status, msg) {
   return new Response(JSON.stringify({ error: { message: msg } }), {
     status,
@@ -36,9 +63,11 @@ export default async function handler(req) {
     return new Response('Method not allowed', { status: 405 })
   }
 
-  // Verifica token applicazione
-  if (req.headers.get('x-app-token') !== APP_TOKEN) {
-    return err(401, 'Non autorizzato')
+  // Verifica JWT Supabase
+  const authHeader = req.headers.get('authorization') ?? ''
+  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null
+  if (!token || !(await verifyJWT(token))) {
+    return err(401, 'Non autorizzato: accedi per usare il Tutor AI')
   }
 
   // Rate limiting per IP (attivo solo se Upstash è configurato)
@@ -58,7 +87,6 @@ export default async function handler(req) {
     return err(400, 'Body non valido: JSON malformato')
   }
 
-  // Valida campo messages
   if (!Array.isArray(body.messages) || body.messages.length === 0) {
     return err(400, 'Il campo messages deve essere un array non vuoto')
   }
@@ -68,7 +96,6 @@ export default async function handler(req) {
     }
   }
 
-  // Forza model e max_tokens, scarta tutti gli altri campi
   const maxTokens = body.max_tokens
     ? Math.min(Math.max(1, Number(body.max_tokens)), MAX_TOKENS)
     : MAX_TOKENS

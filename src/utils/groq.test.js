@@ -1,4 +1,15 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
+
+vi.mock('../lib/supabase', () => ({
+  supabase: {
+    auth: {
+      getSession: vi.fn().mockResolvedValue({
+        data: { session: { access_token: 'test-token' } }
+      })
+    }
+  }
+}))
+
 import { generaDomandeExtra } from './groq'
 
 const mockFetch = vi.fn()

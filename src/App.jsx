@@ -1,5 +1,46 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
+
+function SyncStatus() {
+  const [status, setStatus] = useState('idle')
+
+  useEffect(() => {
+    let timer = null
+    function handler(e) {
+      if (e.detail.pending > 0) {
+        setStatus('syncing')
+      } else if (e.detail.error) {
+        setStatus('error')
+        clearTimeout(timer)
+        timer = setTimeout(() => setStatus('idle'), 5000)
+      } else {
+        setStatus('idle')
+      }
+    }
+    window.addEventListener('quiz-sync', handler)
+    return () => { window.removeEventListener('quiz-sync', handler); clearTimeout(timer) }
+  }, [])
+
+  if (status === 'idle') return null
+
+  return (
+    <span
+      title={status === 'error' ? 'Sincronizzazione fallita — dati salvati in locale' : 'Sincronizzazione in corso...'}
+      onClick={status === 'error' ? () => setStatus('idle') : undefined}
+      style={{
+        position: 'fixed',
+        top: '1.1rem',
+        left: '3.75rem',
+        zIndex: 200,
+        fontSize: '0.85rem',
+        cursor: status === 'error' ? 'pointer' : 'default',
+        color: status === 'error' ? 'var(--warning)' : 'var(--text-muted)'
+      }}
+    >
+      {status === 'error' ? '⚠️' : '⏳'}
+    </span>
+  )
+}
 import Quiz from './components/Quiz'
 import SimulationMode from './components/SimulationMode'
 import Dashboard from './components/Dashboard'
@@ -28,6 +69,7 @@ export default function App() {
     <AuthProvider>
       <div className="app-container">
         <UserMenu />
+        <SyncStatus />
 
         <button
           onClick={() => setDark(d => !d)}

@@ -1,12 +1,16 @@
+import { supabase } from '../lib/supabase'
+
 const MODEL = 'llama-3.3-70b-versatile'
-const APP_TOKEN = import.meta.env.VITE_APP_TOKEN ?? 'quiz-oss-2026-v1'
 
 async function callGroq(messages, maxTokens = 1024) {
+  const { data: { session } } = await supabase.auth.getSession()
+  if (!session) throw new Error('Devi essere autenticato per usare il Tutor AI')
+
   const res = await fetch('/api/groq', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-App-Token': APP_TOKEN
+      'Authorization': `Bearer ${session.access_token}`
     },
     body: JSON.stringify({ model: MODEL, max_tokens: maxTokens, messages })
   })

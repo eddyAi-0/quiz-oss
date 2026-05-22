@@ -4,7 +4,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts'
 import { getProgress, clearProgress } from '../utils/storage'
-import domandeData from '../data/domande.json'
+import { useDomande } from '../utils/domande'
 
 const SEZIONI_BREVI = {
   'Anatomia e Fisiologia': 'Anatomia',
@@ -32,6 +32,7 @@ function pctColor(pct, total = 1) {
 
 export default function Dashboard() {
   const navigate = useNavigate()
+  const domandeData = useDomande()
   const [refreshKey, setRefreshKey] = useState(0)
   const data = useMemo(() => getProgress(), [refreshKey])
 
@@ -48,7 +49,7 @@ export default function Dashboard() {
   const totalCorrette = Object.values(sectionStats).reduce((s, v) => s + v.correct, 0)
   const pctGlobale = totalDomande > 0 ? Math.round((totalCorrette / totalDomande) * 100) : 0
 
-  const sectionData = domandeData.metadata.sezioni.map(s => {
+  const sectionData = (domandeData?.metadata.sezioni ?? []).map(s => {
     const st = sectionStats[s] || { total: 0, correct: 0 }
     const pct = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0
     return { name: SEZIONI_BREVI[s] || s, fullName: s, pct, total: st.total, correct: st.correct }
