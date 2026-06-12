@@ -3,6 +3,7 @@ import { correggiOrale } from '../utils/groq'
 import { saveOraleAnswer } from '../utils/oraleStorage'
 import { useSpeech } from '../utils/useSpeech'
 import OraleEsito from './OraleEsito'
+import { IconVolume, IconOrale, IconStop, IconSend, IconLoader } from './icons'
 
 // Gestisce l'interazione su UNA domanda orale: legge la domanda, raccoglie la
 // risposta (voce + fallback scritto), la fa valutare a Groq, salva e mostra l'esito.
@@ -97,7 +98,7 @@ export default function OraleResponder({ domanda, autoSpeakQuestion = true, onSa
             onClick={() => speak(domanda.domanda)}
             title="Rileggi la domanda"
           >
-            🔊 Rileggi
+            <IconVolume size={16} />Rileggi
           </button>
         </div>
         <p style={{ fontWeight: 600, fontSize: '1.05rem', lineHeight: 1.5 }}>{domanda.domanda}</p>
@@ -116,7 +117,9 @@ export default function OraleResponder({ domanda, autoSpeakQuestion = true, onSa
             onClick={toggleMic}
             disabled={!recognitionSupported || evaluating}
           >
-            {listening ? '⏹️ Ferma registrazione' : '🎤 Rispondi a voce'}
+            {listening
+              ? <><IconStop size={18} />Ferma registrazione</>
+              : <><IconOrale size={18} />Rispondi a voce</>}
           </button>
 
           {listening && (
@@ -149,7 +152,9 @@ export default function OraleResponder({ domanda, autoSpeakQuestion = true, onSa
             onClick={handleInvia}
             disabled={evaluating || !answer.trim()}
           >
-            {evaluating ? '⏳ Valutazione in corso...' : 'Invia risposta'}
+            {evaluating
+              ? <><IconLoader size={18} className="spin" />Valutazione...</>
+              : <><IconSend size={18} />Invia risposta</>}
           </button>
         </>
       )}
@@ -165,7 +170,7 @@ export default function OraleResponder({ domanda, autoSpeakQuestion = true, onSa
             className="btn btn-outline btn-sm"
             onClick={() => speak(`Hai totalizzato ${result.voto} su 30. ${result.giudizio}.`)}
           >
-            🔊 Riascolta sintesi
+            <IconVolume size={16} />Riascolta sintesi
           </button>
         </>
       )}

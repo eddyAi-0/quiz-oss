@@ -10,10 +10,18 @@ const SpeechRecognition =
 const synthesisSupported = typeof window !== 'undefined' && 'speechSynthesis' in window
 const recognitionSupported = !!SpeechRecognition
 
-function pickItalianVoice() {
+// Voci italiane percepite come più dolci/femminili, in ordine di preferenza.
+const GENTLE_VOICES = ['alice', 'federica', 'eloisa', 'elsa', 'google ital', 'carla', 'bianca']
+
+function pickGentleItalianVoice() {
   if (!synthesisSupported) return null
   const voices = window.speechSynthesis.getVoices()
-  return voices.find(v => v.lang === 'it-IT') || voices.find(v => v.lang?.startsWith('it')) || null
+  const italian = voices.filter(v => v.lang?.toLowerCase().startsWith('it'))
+  for (const pref of GENTLE_VOICES) {
+    const match = italian.find(v => v.name.toLowerCase().includes(pref))
+    if (match) return match
+  }
+  return italian.find(v => v.lang === 'it-IT') || italian[0] || null
 }
 
 function describeError(code) {
@@ -45,7 +53,7 @@ export function useSpeech() {
   // Pre-carica le voci (su alcuni browser arrivano in modo asincrono)
   useEffect(() => {
     if (!synthesisSupported) return
-    const warm = () => pickItalianVoice()
+    const warm = () => pickGentleItalianVoice()
     warm()
     window.speechSynthesis.addEventListener?.('voiceschanged', warm)
     return () => window.speechSynthesis.removeEventListener?.('voiceschanged', warm)
@@ -119,9 +127,10 @@ export function useSpeech() {
     window.speechSynthesis.cancel()
     const utt = new SpeechSynthesisUtterance(text)
     utt.lang = 'it-IT'
-    const voice = pickItalianVoice()
+    const voice = pickGentleItalianVoice()
     if (voice) utt.voice = voice
-    utt.rate = 1
+    utt.rate = 0.95
+    utt.pitch = 1.2
     utt.onend = () => setSpeaking(false)
     utt.onerror = () => setSpeaking(false)
     setSpeaking(true)

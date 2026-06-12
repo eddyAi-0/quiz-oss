@@ -138,7 +138,12 @@
   overflow: hidden;
 }
 
+/* Spinner per l'icona di caricamento */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 0.9s linear infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .robot-bob { animation: none; }
   .mic-btn.mic-on { animation: none; }
+  .spin { animation: none; }
 }

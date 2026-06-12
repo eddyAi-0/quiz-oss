@@ -37,7 +37,7 @@ function SyncStatus() {
         color: status === 'error' ? 'var(--warning)' : 'var(--text-muted)'
       }}
     >
-      {status === 'error' ? '⚠️' : '⏳'}
+      {status === 'error' ? <IconAlert size={15} /> : <IconLoader size={15} className="spin" />}
     </span>
   )
 }
@@ -52,7 +52,7 @@ import TutorAI from './components/TutorAI'
 import ErrorBoundary from './components/ErrorBoundary'
 import AuthPage from './components/AuthPage'
 import UserMenu from './components/UserMenu'
-import { IconHome, IconPratica, IconOrale, IconProgressi, IconTutor } from './components/icons'
+import { IconHome, IconPratica, IconOrale, IconProgressi, IconTutor, IconSun, IconMoon, IconLoader, IconAlert } from './components/icons'
 import { AuthProvider } from './context/AuthContext'
 import { useAuth } from './context/useAuth'
 
@@ -99,7 +99,7 @@ function AppContent({ dark, setDark }) {
           justifyContent: 'center',
         }}
       >
-        {dark ? '☀️' : '🌙'}
+        {dark ? <IconSun size={20} /> : <IconMoon size={20} />}
       </button>
 
       <ErrorBoundary>

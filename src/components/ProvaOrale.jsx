@@ -4,6 +4,7 @@ import { useDomandeOrali } from '../utils/domande'
 import { getOraleAnswers } from '../utils/oraleStorage'
 import RobotIcon from './RobotIcon'
 import OraleResponder from './OraleResponder'
+import { IconList, IconTrophy, IconArrowRight, IconOrale } from './icons'
 
 export default function ProvaOrale() {
   const data = useDomandeOrali()
@@ -22,7 +23,7 @@ export default function ProvaOrale() {
     return (
       <div className="page">
         <div className="empty-state">
-          <div className="empty-state-icon">🎤</div>
+          <div className="empty-state-icon" style={{ lineHeight: 0 }}><IconOrale size={44} /></div>
           <p>Caricamento banca orale...</p>
         </div>
       </div>
@@ -57,14 +58,14 @@ export default function ProvaOrale() {
           <p className="page-subtitle">{svolteCount} / {domande.length} domande svolte</p>
         </div>
         <Link to="/orale/svolte" className="btn btn-ghost btn-sm" style={{ textDecoration: 'none' }}>
-          📋 Svolte
+          <IconList size={16} />Svolte
         </Link>
       </div>
 
       {!current && (
         tutteSvolte ? (
           <div className="card text-center">
-            <div className="empty-state-icon">🎉</div>
+            <div className="empty-state-icon" style={{ lineHeight: 0, color: 'var(--warning)' }}><IconTrophy size={48} /></div>
             <p style={{ fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>
               Hai svolto tutte le domande!
             </p>
@@ -72,7 +73,7 @@ export default function ProvaOrale() {
               Ripassa partendo dalle più deboli: sono già in cima alla lista delle svolte.
             </p>
             <Link to="/orale/svolte" className="btn btn-primary" style={{ textDecoration: 'none' }}>
-              📋 Vai al ripasso
+              <IconList size={18} />Vai al ripasso
             </Link>
           </div>
         ) : (
@@ -92,7 +93,9 @@ export default function ProvaOrale() {
           <OraleResponder key={current.id} domanda={current} autoSpeakQuestion onSaved={handleSaved} />
           {resultReady && (
             <button className="btn btn-primary" onClick={pescaProssima}>
-              {svolteCount >= domande.length ? '🎉 Hai finito! Vedi le svolte' : 'Prossima domanda →'}
+              {svolteCount >= domande.length
+                ? <><IconTrophy size={18} />Hai finito! Vedi le svolte</>
+                : <>Prossima domanda<IconArrowRight size={18} /></>}
             </button>
           )}
         </>

@@ -4,6 +4,7 @@ import { useDomandeOrali } from '../utils/domande'
 import { getOraleAnswers } from '../utils/oraleStorage'
 import OraleResponder from './OraleResponder'
 import OraleEsito from './OraleEsito'
+import { IconArrowLeft, IconList, IconOrale, IconCheck, IconRepeat } from './icons'
 
 export default function OraliSvolte() {
   const data = useDomandeOrali()
@@ -49,13 +50,13 @@ export default function OraliSvolte() {
       <div className="page">
         <div className="page-header">
           <button className="btn btn-ghost btn-sm" onClick={() => { setOpenId(null); setRepeating(false) }}>
-            ← Torna alla lista
+            <IconArrowLeft size={16} />Torna alla lista
           </button>
         </div>
 
         {!entry ? (
           <div className="empty-state">
-            <div className="empty-state-icon">📋</div>
+            <div className="empty-state-icon" style={{ lineHeight: 0 }}><IconList size={44} /></div>
             <p>Domanda non più disponibile.</p>
           </div>
         ) : repeating && full ? (
@@ -76,14 +77,16 @@ export default function OraliSvolte() {
 
             {full?.risposta_modello && (
               <div className="card">
-                <h3 style={{ marginBottom: '0.5rem', fontSize: '1rem' }}>✅ Risposta modello</h3>
+                <h3 style={{ marginBottom: '0.5rem', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--success)' }}>
+                  <IconCheck size={18} />Risposta modello
+                </h3>
                 <p style={{ fontSize: '0.92rem', lineHeight: 1.6 }}>{full.risposta_modello}</p>
               </div>
             )}
 
             {full && (
               <button className="btn btn-primary" onClick={() => setRepeating(true)}>
-                🔁 Ripeti la domanda
+                <IconRepeat size={18} />Ripeti la domanda
               </button>
             )}
           </>
@@ -103,16 +106,16 @@ export default function OraliSvolte() {
           </p>
         </div>
         <Link to="/orale" className="btn btn-ghost btn-sm" style={{ textDecoration: 'none' }}>
-          🎤 Prova
+          <IconOrale size={16} />Prova
         </Link>
       </div>
 
       {lista.length === 0 ? (
         <div className="empty-state">
-          <div className="empty-state-icon">📋</div>
+          <div className="empty-state-icon" style={{ lineHeight: 0 }}><IconList size={44} /></div>
           <p>Non hai ancora svolto domande orali.</p>
           <Link to="/orale" className="btn btn-primary" style={{ textDecoration: 'none', marginTop: '1rem', display: 'inline-flex' }}>
-            🎤 Inizia la Prova Orale
+            <IconOrale size={18} />Inizia la Prova Orale
           </Link>
         </div>
       ) : (

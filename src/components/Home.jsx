@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
-import { IconPratica, IconOrale } from './icons'
+import { IconPratica, IconOrale, IconSimulazione, IconList } from './icons'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -28,10 +28,10 @@ export default function Home() {
           </p>
           <div className="mode-card-actions">
             <button className="btn btn-primary btn-sm" onClick={e => { e.stopPropagation(); go('/quiz') }}>
-              📚 Quiz
+              <IconPratica size={16} />Quiz
             </button>
             <button className="btn btn-outline btn-sm" onClick={e => { e.stopPropagation(); go('/simulazione') }}>
-              ⏱️ Simulazione
+              <IconSimulazione size={16} />Simulazione
             </button>
           </div>
         </div>
@@ -46,10 +46,10 @@ export default function Home() {
           </p>
           <div className="mode-card-actions">
             <button className="btn btn-primary btn-sm" onClick={e => { e.stopPropagation(); go('/orale') }}>
-              🎤 Inizia
+              <IconOrale size={16} />Inizia
             </button>
             <button className="btn btn-outline btn-sm" onClick={e => { e.stopPropagation(); go('/orale/svolte') }}>
-              📋 Svolte
+              <IconList size={16} />Svolte
             </button>
           </div>
         </div>
