@@ -1,26 +1,40 @@
-// Run with: node generate-icons.js
-// Requires: npm install -g sharp  (or use online tool)
-// Alternatively, use realfavicongenerator.net
-
-// Quick workaround: create placeholder icons by copying SVG data
+// Genera le icone PWA + favicon dell'app.
+// Logo: croce medica bianca su sfondo blu (settore socio-sanitario), sobria e professionale.
+// Uso:  npm install --no-save sharp  &&  node generate-icons.js
 import { writeFileSync } from 'fs'
+import sharp from 'sharp'
 
-// Minimal 1x1 PNG in base64 — replace with real icons before deploying
-// Generated with: https://realfavicongenerator.net
+const grad = `
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>`
 
-const svg192 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
-  <rect width="192" height="192" rx="36" fill="#2563eb"/>
-  <text x="96" y="132" text-anchor="middle" font-size="110" font-family="system-ui">📚</text>
+// Croce a bracci arrotondati, centrata in (256,256)
+const cross = (half, thick, r) => `
+  <rect x="${256 - thick / 2}" y="${256 - half}" width="${thick}" height="${half * 2}" rx="${r}" fill="#fff"/>
+  <rect x="${256 - half}" y="${256 - thick / 2}" width="${half * 2}" height="${thick}" rx="${r}" fill="#fff"/>`
+
+// Icona standard: sfondo arrotondato (forma dell'icona) + croce ampia
+const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">${grad}
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  ${cross(136, 80, 28)}
 </svg>`
 
-const svg512 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="100" fill="#2563eb"/>
-  <text x="256" y="340" text-anchor="middle" font-size="280" font-family="system-ui">📚</text>
+// Icona maskable: sfondo a tutto campo (no angoli) + croce nella zona sicura centrale
+const maskableSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">${grad}
+  <rect width="512" height="512" fill="url(#g)"/>
+  ${cross(100, 60, 22)}
 </svg>`
 
-writeFileSync('public/icon-192.svg', svg192)
-writeFileSync('public/icon-512.svg', svg512)
+writeFileSync('public/icon.svg', iconSvg)
+writeFileSync('public/icon-192.svg', iconSvg)
+writeFileSync('public/icon-512.svg', iconSvg)
 
-console.log('SVG icons created. Convert to PNG with:')
-console.log('  npx sharp-cli -i public/icon-192.svg -o public/icon-192.png')
-console.log('  npx sharp-cli -i public/icon-512.svg -o public/icon-512.png')
+await sharp(Buffer.from(iconSvg)).resize(192, 192).png().toFile('public/icon-192.png')
+await sharp(Buffer.from(iconSvg)).resize(512, 512).png().toFile('public/icon-512.png')
+await sharp(Buffer.from(maskableSvg)).resize(512, 512).png().toFile('public/icon-maskable.png')
+
+console.log('Icone generate: icon.svg, icon-192.png, icon-512.png, icon-maskable.png')
