@@ -81,6 +81,11 @@
 
 .orale-voice .select-wrap { width: 100%; }
 
+/* Selettore "Su cosa esercitarti" */
+.orale-scope { text-align: center; margin-bottom: 1.25rem; }
+.orale-scope .orale-voice-label { display: block; margin-bottom: 0.5rem; }
+.orale-scope .chip-row { justify-content: center; margin-bottom: 0; }
+
 /* ─── Microfono ─── */
 .mic-btn {
   width: 100%;
