@@ -11,18 +11,18 @@ export function setSyncChannel(channel) {
   _syncChannel = channel
 }
 
-function broadcastDataUpdate() {
+export function broadcastDataUpdate() {
   if (_syncChannel) {
     _syncChannel.send({ type: 'broadcast', event: 'data-updated', payload: {} }).catch(() => {})
   }
 }
 
-function emitSync(delta, error = false) {
+export function emitSync(delta, error = false) {
   _syncPending = Math.max(0, _syncPending + delta)
   window.dispatchEvent(new CustomEvent('quiz-sync', { detail: { pending: _syncPending, error } }))
 }
 
-async function retryUpsert(fn, maxAttempts = 3) {
+export async function retryUpsert(fn, maxAttempts = 3) {
   let lastErr
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     if (_abortSync) return

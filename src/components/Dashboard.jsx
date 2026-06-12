@@ -4,6 +4,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts'
 import { getProgress, clearProgress } from '../utils/storage'
+import { clearOrale } from '../utils/oraleStorage'
 import { useDomande } from '../utils/domande'
 
 const SEZIONI_BREVI = {
@@ -69,6 +70,7 @@ export default function Dashboard() {
   function handleClear() {
     if (confirm('Cancellare tutti i progressi? L\'operazione non è reversibile.')) {
       clearProgress()
+      clearOrale()
       setRefreshKey(k => k + 1)
     }
   }

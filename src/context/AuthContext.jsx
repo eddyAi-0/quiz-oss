@@ -1,6 +1,7 @@
 import { createContext, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { syncToSupabase, syncFromSupabase, setSyncChannel } from '../utils/storage'
+import { syncOrale } from '../utils/oraleStorage'
 
 export const AuthContext = createContext(null)
 
@@ -17,6 +18,9 @@ export function AuthProvider({ children }) {
     const handler = () => {
       syncFromSupabase(userId).catch(err =>
         console.error('[realtime] sync fallita:', err)
+      )
+      syncOrale(userId).catch(err =>
+        console.error('[realtime] sync orale fallita:', err)
       )
     }
     const channel = supabase
@@ -49,6 +53,9 @@ export function AuthProvider({ children }) {
         syncFromSupabase(u.id).catch(err =>
           console.error('Sync iniziale da Supabase fallita:', err)
         )
+        syncOrale(u.id).catch(err =>
+          console.error('Sync iniziale orale fallita:', err)
+        )
         subscribeRealtime(u.id)
       }
     })
@@ -62,6 +69,7 @@ export function AuthProvider({ children }) {
         syncToSupabase(newUser.id)
           .then(() => syncFromSupabase(newUser.id))
           .catch(err => console.error('Sync post-login:', err))
+        syncOrale(newUser.id).catch(err => console.error('Sync orale post-login:', err))
         subscribeRealtime(newUser.id)
       }
 
@@ -73,6 +81,7 @@ export function AuthProvider({ children }) {
     function handleVisibility() {
       if (document.visibilityState === 'visible' && userRef.current) {
         syncFromSupabase(userRef.current.id).catch(() => {})
+        syncOrale(userRef.current.id).catch(() => {})
       }
     }
     document.addEventListener('visibilitychange', handleVisibility)
@@ -80,6 +89,7 @@ export function AuthProvider({ children }) {
     const pollInterval = setInterval(() => {
       if (userRef.current && document.visibilityState === 'visible') {
         syncFromSupabase(userRef.current.id).catch(() => {})
+        syncOrale(userRef.current.id).catch(() => {})
       }
     }, 30000)
 
