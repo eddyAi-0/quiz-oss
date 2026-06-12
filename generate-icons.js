@@ -1,5 +1,5 @@
 // Genera le icone PWA + favicon dell'app.
-// Logo: croce medica bianca su sfondo blu (settore socio-sanitario), sobria e professionale.
+// Logo: scudo bianco con croce blu su sfondo blu (fiducia + ambito socio-sanitario).
 // Uso:  npm install --no-save sharp  &&  node generate-icons.js
 import { writeFileSync } from 'fs'
 import sharp from 'sharp'
@@ -12,21 +12,22 @@ const grad = `
     </linearGradient>
   </defs>`
 
-// Croce a bracci arrotondati, centrata in (256,256)
-const cross = (half, thick, r) => `
-  <rect x="${256 - thick / 2}" y="${256 - half}" width="${thick}" height="${half * 2}" rx="${r}" fill="#fff"/>
-  <rect x="${256 - half}" y="${256 - thick / 2}" width="${half * 2}" height="${thick}" rx="${r}" fill="#fff"/>`
+// Scudo bianco con croce blu, centrato nel canvas 512
+const emblem = `
+  <path d="M256 128 L372 166 V268 C372 338 322 388 256 412 C190 388 140 338 140 268 V166 Z" fill="#fff"/>
+  <rect x="240" y="206" width="32" height="120" rx="12" fill="#2563eb"/>
+  <rect x="206" y="250" width="100" height="32" rx="12" fill="#2563eb"/>`
 
-// Icona standard: sfondo arrotondato (forma dell'icona) + croce ampia
+// Icona standard: sfondo arrotondato (forma dell'icona)
 const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">${grad}
   <rect width="512" height="512" rx="112" fill="url(#g)"/>
-  ${cross(136, 80, 28)}
+  ${emblem}
 </svg>`
 
-// Icona maskable: sfondo a tutto campo (no angoli) + croce nella zona sicura centrale
+// Icona maskable: sfondo a tutto campo + emblema rimpicciolito nella zona sicura
 const maskableSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">${grad}
   <rect width="512" height="512" fill="url(#g)"/>
-  ${cross(100, 60, 22)}
+  <g transform="translate(256 256) scale(0.84) translate(-256 -256)">${emblem}</g>
 </svg>`
 
 writeFileSync('public/icon.svg', iconSvg)

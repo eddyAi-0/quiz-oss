@@ -7,6 +7,7 @@
   </defs>
   <rect width="512" height="512" rx="112" fill="url(#g)"/>
   
-  <rect x="216" y="120" width="80" height="272" rx="28" fill="#fff"/>
-  <rect x="120" y="216" width="272" height="80" rx="28" fill="#fff"/>
+  <path d="M256 128 L372 166 V268 C372 338 322 388 256 412 C190 388 140 338 140 268 V166 Z" fill="#fff"/>
+  <rect x="240" y="206" width="32" height="120" rx="12" fill="#2563eb"/>
+  <rect x="206" y="250" width="100" height="32" rx="12" fill="#2563eb"/>
 </svg>
