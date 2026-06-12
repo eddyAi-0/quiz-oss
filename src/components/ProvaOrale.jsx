@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDomandeOrali } from '../utils/domande'
 import { getOraleAnswers } from '../utils/oraleStorage'
+import { useSpeech } from '../utils/useSpeech'
 import RobotIcon from './RobotIcon'
 import OraleResponder from './OraleResponder'
-import { IconList, IconTrophy, IconArrowRight, IconOrale } from './icons'
+import { IconList, IconTrophy, IconArrowRight, IconOrale, IconVolume } from './icons'
 
 export default function ProvaOrale() {
   const data = useDomandeOrali()
+  const { synthesisSupported, voices, voiceName, setVoice, speak } = useSpeech()
   const [done, setDone] = useState(() => getOraleAnswers())
   const [current, setCurrent] = useState(null)
   const [resultReady, setResultReady] = useState(false)
@@ -84,6 +86,25 @@ export default function ProvaOrale() {
             <p className="text-muted text-center" style={{ marginTop: '1rem' }}>
               Tocca il robot: ti leggerà una domanda d'esame a voce.
             </p>
+
+            {synthesisSupported && voices.length > 0 && (
+              <div className="orale-voice">
+                <label className="orale-voice-label">Voce del tutor</label>
+                <div className="select-wrap" style={{ marginBottom: '0.5rem' }}>
+                  <select value={voiceName} onChange={e => setVoice(e.target.value)}>
+                    <option value="">Automatica (consigliata)</option>
+                    {voices.map(v => <option key={v.name} value={v.name}>{v.name}</option>)}
+                  </select>
+                  <span className="select-arrow">▼</span>
+                </div>
+                <button
+                  className="btn btn-ghost btn-sm"
+                  onClick={() => speak('Ciao! Sarò io a leggerti le domande della prova orale.')}
+                >
+                  <IconVolume size={16} />Prova voce
+                </button>
+              </div>
+            )}
           </div>
         )
       )}

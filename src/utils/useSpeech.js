@@ -9,6 +9,7 @@ const SpeechRecognition =
 
 const synthesisSupported = typeof window !== 'undefined' && 'speechSynthesis' in window
 const recognitionSupported = !!SpeechRecognition
+const VOICE_KEY = 'quiz-oss-voice'
 
 // Voci italiane percepite come più dolci/femminili, in ordine di preferenza.
 const GENTLE_VOICES = ['alice', 'federica', 'eloisa', 'elsa', 'google ital', 'carla', 'bianca']
@@ -46,17 +47,30 @@ export function useSpeech() {
   const [transcript, setTranscript] = useState('')
   const [interim, setInterim] = useState('')
   const [error, setError] = useState(null)
+  const [voices, setVoices] = useState([])
+  const [voiceName, setVoiceName] = useState(() => {
+    try { return localStorage.getItem(VOICE_KEY) || '' } catch { return '' }
+  })
 
   const recognitionRef = useRef(null)
   const finalRef = useRef('')
 
-  // Pre-carica le voci (su alcuni browser arrivano in modo asincrono)
+  // Pre-carica e tiene aggiornato l'elenco delle voci (arrivano in modo asincrono)
   useEffect(() => {
     if (!synthesisSupported) return
-    const warm = () => pickGentleItalianVoice()
-    warm()
-    window.speechSynthesis.addEventListener?.('voiceschanged', warm)
-    return () => window.speechSynthesis.removeEventListener?.('voiceschanged', warm)
+    const refresh = () => {
+      const all = window.speechSynthesis.getVoices()
+      const italian = all.filter(v => v.lang?.toLowerCase().startsWith('it'))
+      setVoices(italian.length ? italian : all)
+    }
+    refresh()
+    window.speechSynthesis.addEventListener?.('voiceschanged', refresh)
+    return () => window.speechSynthesis.removeEventListener?.('voiceschanged', refresh)
+  }, [])
+
+  const setVoice = useCallback((name) => {
+    setVoiceName(name)
+    try { localStorage.setItem(VOICE_KEY, name) } catch { /* ignore */ }
   }, [])
 
   useEffect(() => {
@@ -127,7 +141,10 @@ export function useSpeech() {
     window.speechSynthesis.cancel()
     const utt = new SpeechSynthesisUtterance(text)
     utt.lang = 'it-IT'
-    const voice = pickGentleItalianVoice()
+    let saved = null
+    try { saved = localStorage.getItem(VOICE_KEY) } catch { /* ignore */ }
+    const all = window.speechSynthesis.getVoices()
+    const voice = (saved && all.find(v => v.name === saved)) || pickGentleItalianVoice()
     if (voice) utt.voice = voice
     utt.rate = 0.95
     utt.pitch = 1.2
@@ -159,6 +176,9 @@ export function useSpeech() {
     transcript,
     interim,
     error,
+    voices,
+    voiceName,
+    setVoice,
     startListening,
     stopListening,
     resetTranscript,
