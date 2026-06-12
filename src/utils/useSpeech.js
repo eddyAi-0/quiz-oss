@@ -12,7 +12,7 @@ const recognitionSupported = !!SpeechRecognition
 const VOICE_KEY = 'quiz-oss-voice'
 
 // Voci italiane percepite come più dolci/femminili, in ordine di preferenza.
-const GENTLE_VOICES = ['alice', 'federica', 'eloisa', 'elsa', 'google ital', 'carla', 'bianca']
+const GENTLE_VOICES = ['google ital', 'federica', 'alice', 'eloisa', 'paola']
 
 function pickGentleItalianVoice() {
   if (!synthesisSupported) return null
