@@ -1,0 +1,141 @@
+/* ─── Home: scelta modalità ─── */
+.mode-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mode-card {
+  display: block;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border: 2px solid transparent;
+  text-decoration: none;
+  color: var(--text);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mode-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.mode-card:active { transform: scale(0.99); }
+
+.mode-card-icon { font-size: 2.75rem; line-height: 1; margin-bottom: 0.5rem; }
+.mode-card-title { font-size: 1.3rem; font-weight: 700; }
+.mode-card-desc { color: var(--text-muted); font-size: 0.92rem; margin-top: 0.35rem; }
+.mode-card-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+
+/* ─── Prova Orale: robottino ─── */
+.orale-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.robot-btn {
+  background: var(--primary-light);
+  border: none;
+  border-radius: 50%;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+.robot-btn:hover { transform: scale(1.04); }
+.robot-btn:active { transform: scale(0.96); }
+
+@keyframes robotBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.robot-bob { animation: robotBob 2.4s ease-in-out infinite; }
+
+/* ─── Microfono ─── */
+.mic-btn {
+  width: 100%;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.mic-btn:hover:not(:disabled) { background: var(--primary); color: #fff; }
+.mic-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.mic-btn.mic-on {
+  background: var(--error);
+  color: #fff;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.mic-hint { font-size: 0.88rem; }
+
+.orale-textarea {
+  width: 100%;
+  min-height: 120px;
+  max-height: none;
+  margin: 0.75rem 0;
+}
+
+/* ─── Badge voto ─── */
+.voto-badge {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.voto-ok { background: var(--success-light); color: var(--success); border: 1px solid var(--success-border); }
+.voto-ko { background: var(--error-light); color: var(--error); border: 1px solid var(--error-border); }
+
+.orale-extra { font-size: 0.9rem; margin-top: 0.5rem; color: var(--text); }
+.orale-markdown p { margin-bottom: 0.4rem; }
+.orale-markdown p:last-child { margin-bottom: 0; }
+.orale-markdown ul, .orale-markdown ol { padding-left: 1.25rem; margin-bottom: 0.4rem; }
+
+/* ─── Lista svolte ─── */
+.orale-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.6rem;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.orale-item:hover { border-color: var(--primary); transform: translateY(-1px); }
+.orale-item:active { transform: scale(0.99); }
+
+.orale-item-text { flex: 1; min-width: 0; }
+
+.orale-item-domanda {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot-bob { animation: none; }
+  .mic-btn.mic-on { animation: none; }
+}
