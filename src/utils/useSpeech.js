@@ -147,7 +147,7 @@ export function useSpeech() {
     const voice = (saved && all.find(v => v.name === saved)) || pickGentleItalianVoice()
     if (voice) utt.voice = voice
     utt.rate = 0.95
-    utt.pitch = 1.2
+    utt.pitch = 1
     utt.onend = () => setSpeaking(false)
     utt.onerror = () => setSpeaking(false)
     setSpeaking(true)
