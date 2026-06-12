@@ -17,8 +17,12 @@ To provide a realistic and measurable preparation path for the OSS competition, 
 | ![Login](docs/screenshots/login.png) | ![Home](docs/screenshots/home.png) |
 | **Oral exam — start and voice picker** | **Oral exam — answering** |
 | ![Oral start](docs/screenshots/oral-start.png) | ![Oral answer](docs/screenshots/oral-answer.png) |
-| **Progress dashboard** | **Completed oral questions** |
-| ![Progress](docs/screenshots/progress.png) | ![Oral history](docs/screenshots/oral-history.png) |
+| **Completed oral questions** | **Progress — overview** |
+| ![Oral history](docs/screenshots/oral-history.png) | ![Progress overview](docs/screenshots/progress.png) |
+| **Progress — review and errors** | **Progress — oral section** |
+| ![Progress review](docs/screenshots/progress-review.png) | ![Progress oral](docs/screenshots/progress-oral.png) |
+| **AI Tutor** | |
+| ![AI Tutor](docs/screenshots/tutor.png) | |
 
 ## Features
 
