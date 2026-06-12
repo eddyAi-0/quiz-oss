@@ -10,7 +10,7 @@ vi.mock('../lib/supabase', () => ({
   }
 }))
 
-import { generaDomandeExtra, parseJsonArray } from './groq'
+import { generaDomandeExtra, parseJsonArray, parseJsonObject, correggiOrale } from './groq'
 
 const mockFetch = vi.fn()
 global.fetch = mockFetch
@@ -103,5 +103,90 @@ describe('generaDomandeExtra', () => {
     await expect(generaDomandeExtra('Igiene', ['pulizia']))
       .rejects
       .toThrow('Non sono riuscito a generare le domande, riprova.')
+  })
+})
+
+describe('parseJsonObject', () => {
+  it('parsa un oggetto JSON puro', () => {
+    const obj = { voto: 20, giudizio: 'Buona' }
+    expect(parseJsonObject(JSON.stringify(obj))).toEqual(obj)
+  })
+
+  it('estrae oggetto JSON embedded in testo', () => {
+    const obj = { voto: 12 }
+    const raw = `Ecco la valutazione:\n${JSON.stringify(obj)}\nSpero sia utile!`
+    expect(parseJsonObject(raw)).toEqual(obj)
+  })
+
+  it('lancia errore se non trova nessun oggetto', () => {
+    expect(() => parseJsonObject('nessun oggetto qui')).toThrow('Nessun oggetto JSON trovato')
+  })
+
+  it('lancia errore se il JSON è malformato', () => {
+    expect(() => parseJsonObject('{"voto": 10')).toThrow()
+  })
+})
+
+describe('correggiOrale', () => {
+  beforeEach(() => mockFetch.mockReset())
+
+  const ESITO_VALIDO = {
+    voto: 27,
+    giudizio: 'Completa',
+    feedback: 'Hai coperto i punti principali.',
+    collegamento: 'Si collega alla prevenzione delle infezioni.',
+    domanda_approfondimento: 'Quando usi i guanti?',
+    sintesi_vocale: 'Ottimo, 27 su 30.'
+  }
+
+  const ARGS = {
+    domanda: 'Chi è l\'OSS?',
+    argomento: 'Ruolo e profilo',
+    puntiChiave: ['supporto', 'bisogni primari'],
+    erroriComuni: ['confonderlo con l\'infermiere'],
+    rispostaModello: 'L\'OSS è una figura di supporto...',
+    rispostaData: 'È un operatore di supporto ai bisogni primari'
+  }
+
+  it('restituisce un esito normalizzato da JSON valido', async () => {
+    mockFetch.mockResolvedValue(groqResponse(JSON.stringify(ESITO_VALIDO)))
+    const res = await correggiOrale(ARGS)
+    expect(res).toEqual(ESITO_VALIDO)
+    expect(mockFetch).toHaveBeenCalledOnce()
+  })
+
+  it('arrotonda e limita il voto a 0-30 e deriva il giudizio mancante', async () => {
+    mockFetch.mockResolvedValue(groqResponse(JSON.stringify({ voto: 35.6, feedback: 'x' })))
+    const res = await correggiOrale(ARGS)
+    expect(res.voto).toBe(30)
+    expect(res.giudizio).toBe('Completa')
+    expect(res.sintesi_vocale).toContain('30')
+  })
+
+  it('deriva "Da rivedere" per voti sotto la sufficienza', async () => {
+    mockFetch.mockResolvedValue(groqResponse(JSON.stringify({ voto: 9 })))
+    const res = await correggiOrale(ARGS)
+    expect(res.giudizio).toBe('Da rivedere')
+  })
+
+  it('riprova con contesto correttivo se il primo parsing fallisce', async () => {
+    mockFetch
+      .mockResolvedValueOnce(groqResponse('testo non JSON'))
+      .mockResolvedValueOnce(groqResponse(JSON.stringify(ESITO_VALIDO)))
+
+    const res = await correggiOrale(ARGS)
+    expect(res.voto).toBe(27)
+    expect(mockFetch).toHaveBeenCalledTimes(2)
+
+    const secondCallBody = JSON.parse(mockFetch.mock.calls[1][1].body)
+    const roles = secondCallBody.messages.map(m => m.role)
+    expect(roles).toEqual(['system', 'user', 'assistant', 'user'])
+    expect(secondCallBody.messages.at(-1).content).toContain('JSON valido')
+  })
+
+  it('lancia errore esplicito dopo due tentativi falliti', async () => {
+    mockFetch.mockResolvedValue(groqResponse('nessun json'))
+    await expect(correggiOrale(ARGS)).rejects.toThrow('Non sono riuscito a valutare la risposta, riprova.')
+    expect(mockFetch).toHaveBeenCalledTimes(2)
   })
 })
