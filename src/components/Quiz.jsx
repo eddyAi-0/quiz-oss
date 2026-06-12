@@ -4,6 +4,7 @@ import { saveSession, getWrongAnswers, getUrgencyScore } from '../utils/storage'
 import { shuffle } from '../utils/shuffle'
 import { useDomande } from '../utils/domande'
 import QuestionCard from './QuestionCard'
+import { IconPratica, IconXCircle, IconProgressi, IconRepeat, IconArrowRight, IconTrophy, IconCheck } from './icons'
 
 const TUTTE = 'Tutte le sezioni'
 const LIMITI = [10, 20, 30, 'Tutte']
@@ -14,7 +15,7 @@ export default function Quiz() {
     return (
       <div className="page">
         <div className="empty-state">
-          <div className="empty-state-icon">📚</div>
+          <div className="empty-state-icon" style={{ lineHeight: 0 }}><IconPratica size={44} /></div>
           <p>Caricamento domande...</p>
         </div>
       </div>
@@ -150,8 +151,12 @@ function QuizInner({ domandeData }) {
         </div>
 
         <div className="card text-center">
-          <p style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.5rem' }}>
-            {pct >= 80 ? '🌟 Ottimo lavoro!' : pct >= 60 ? '👍 Buon risultato!' : '📖 Continua a studiare!'}
+          <p style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}>
+            {pct >= 80
+              ? <><IconTrophy size={22} />Ottimo lavoro!</>
+              : pct >= 60
+                ? <><IconCheck size={22} />Buon risultato!</>
+                : <><IconPratica size={22} />Continua a studiare!</>}
           </p>
           <p className="text-muted">
             Hai risposto correttamente a {correct} domande su {sessionAnswers.length}
@@ -159,7 +164,7 @@ function QuizInner({ domandeData }) {
         </div>
 
         <button className="btn btn-primary" onClick={resetSession}>
-          🔄 Nuova sessione
+          <IconRepeat size={18} />Nuova sessione
         </button>
       </div>
     )
@@ -169,7 +174,7 @@ function QuizInner({ domandeData }) {
     return (
       <div className="page">
         <div className="empty-state">
-          <div className="empty-state-icon">📚</div>
+          <div className="empty-state-icon" style={{ lineHeight: 0 }}><IconPratica size={44} /></div>
           <p>Nessuna domanda disponibile per questa sezione.</p>
         </div>
       </div>
@@ -212,7 +217,7 @@ function QuizInner({ domandeData }) {
           style={{ marginBottom: '1rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
           onClick={toggleWrongOnly}
         >
-          ❌ Solo errori
+          <IconXCircle size={16} />Solo errori
           <span style={{
             background: wrongOnly ? 'rgba(255,255,255,0.25)' : 'var(--error)',
             color: '#fff',
@@ -245,7 +250,9 @@ function QuizInner({ domandeData }) {
 
       {answered && (
         <button className="btn btn-primary fade-in" onClick={handleNext}>
-          {index + 1 >= activeQuestions.length ? '📊 Vedi risultati' : 'Prossima domanda →'}
+          {index + 1 >= activeQuestions.length
+            ? <><IconProgressi size={18} />Vedi risultati</>
+            : <>Prossima domanda<IconArrowRight size={18} /></>}
         </button>
       )}
     </div>

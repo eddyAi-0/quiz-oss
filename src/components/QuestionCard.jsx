@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { IconCheck, IconXCircle, IconTutor } from './icons'
 
 export default function QuestionCard({
   q,
@@ -58,8 +59,10 @@ export default function QuestionCard({
 
       {showFeedback && answered && (
         <div className={`feedback-box ${isCorrect ? 'correct' : 'wrong'} fade-in`}>
-          <div className="feedback-label">
-            {isCorrect ? '✅ Risposta corretta!' : '❌ Risposta sbagliata'}
+          <div className="feedback-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            {isCorrect
+              ? <><IconCheck size={20} />Risposta corretta!</>
+              : <><IconXCircle size={20} />Risposta sbagliata</>}
           </div>
           <div className="feedback-explanation">{q.spiegazione}</div>
           {!isCorrect && (
@@ -71,7 +74,7 @@ export default function QuestionCard({
                 })
               }
             >
-              🤖 Spiegami meglio
+              <IconTutor size={16} />Spiegami meglio
             </button>
           )}
         </div>

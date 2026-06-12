@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
+import { IconUser } from './icons'
 
 export default function UserMenu() {
   const { user, signOut } = useAuth()
@@ -42,7 +43,7 @@ export default function UserMenu() {
         style={btnStyle}
         aria-label="Accedi"
       >
-        👤
+        <IconUser size={20} />
       </button>
     )
   }
@@ -59,7 +60,7 @@ export default function UserMenu() {
         style={{ ...btnStyle, position: 'static', background: 'var(--primary)', borderColor: 'var(--primary)' }}
         aria-label="Menu utente"
       >
-        <span style={{ color: '#fff', fontSize: '1rem' }}>👤</span>
+        <span style={{ color: '#fff', display: 'flex' }}><IconUser size={20} /></span>
       </button>
 
       {open && (

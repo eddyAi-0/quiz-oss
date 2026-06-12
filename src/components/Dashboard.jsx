@@ -6,6 +6,7 @@ import {
 import { getProgress, clearProgress } from '../utils/storage'
 import { clearOrale } from '../utils/oraleStorage'
 import { useDomande } from '../utils/domande'
+import { IconProgressi, IconAlert, IconTutor, IconXCircle, IconPratica, IconCalendar, IconSimulazione, IconTrash, IconFlame } from './icons'
 
 const SEZIONI_BREVI = {
   'Anatomia e Fisiologia': 'Anatomia',
@@ -111,7 +112,7 @@ export default function Dashboard() {
         </div>
         <div className="stat-card">
           <div className="stat-value" style={{ color: streak.current > 0 ? 'var(--warning)' : 'var(--text-muted)' }}>
-            {streak.current}🔥
+            {streak.current}<IconFlame size={20} style={{ verticalAlign: '-3px', marginLeft: '2px' }} />
           </div>
           <div className="stat-label">Giorni streak</div>
         </div>
@@ -123,7 +124,7 @@ export default function Dashboard() {
 
       {/* Grafico sezioni */}
       <div className="card">
-        <h3 style={{ marginBottom: '1rem' }}>📊 Performance per sezione</h3>
+        <h3 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><IconProgressi size={18} />Performance per sezione</h3>
         {totalDomande === 0 ? (
           <div className="empty-state" style={{ padding: '2rem 1rem' }}>
             <p>Fai qualche quiz per vedere le statistiche!</p>
@@ -158,7 +159,7 @@ export default function Dashboard() {
       {/* Top 3 peggiori sezioni */}
       {worstSections.length > 0 && (
         <div className="card">
-          <h3 style={{ marginBottom: '1rem' }}>⚠️ Sezioni dove sbagli di più</h3>
+          <h3 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><IconAlert size={18} />Sezioni dove sbagli di più</h3>
           {worstSections.map((s, i) => (
             <div key={s.fullName} className="worst-section" style={{ marginBottom: '1rem' }}>
               <div className="row-between">
@@ -178,7 +179,7 @@ export default function Dashboard() {
                 className="btn btn-ghost btn-sm mt-1"
                 onClick={() => navigate(`/tutor/${encodeURIComponent(s.fullName)}`)}
               >
-                🤖 Chiedi al Tutor AI
+                <IconTutor size={16} />Chiedi al Tutor AI
               </button>
             </div>
           ))}
@@ -189,7 +190,7 @@ export default function Dashboard() {
       {totalErrors > 0 && (
         <div className="card">
           <div className="row-between" style={{ marginBottom: '0.75rem' }}>
-            <h3>❌ Errori da ripassare</h3>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><IconXCircle size={18} />Errori da ripassare</h3>
             <span style={{ fontWeight: 700, fontSize: '1.5rem', color: 'var(--error)' }}>
               {totalErrors}
             </span>
@@ -221,14 +222,14 @@ export default function Dashboard() {
             style={{ marginTop: '1rem', width: '100%' }}
             onClick={() => navigate('/quiz', { state: { filterErrors: true } })}
           >
-            📖 Ripassa errori
+            <IconPratica size={18} />Ripassa errori
           </button>
         </div>
       )}
 
       {/* Storico sessioni */}
       <div className="card">
-        <h3 style={{ marginBottom: '0.75rem' }}>📅 Ultime sessioni</h3>
+        <h3 style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><IconCalendar size={18} />Ultime sessioni</h3>
         {sessions.length === 0 ? (
           <p className="text-muted">Nessuna sessione ancora completata.</p>
         ) : (
@@ -238,8 +239,8 @@ export default function Dashboard() {
               <div key={s.id} className="session-item">
                 <div>
                   <div className="row" style={{ gap: '0.5rem', marginBottom: '0.2rem' }}>
-                    <span className={`badge ${s.mode === 'simulazione' ? 'badge-warning' : 'badge-primary'}`}>
-                      {s.mode === 'simulazione' ? '⏱️ Sim.' : '📚 Quiz'}
+                    <span className={`badge ${s.mode === 'simulazione' ? 'badge-warning' : 'badge-primary'}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                      {s.mode === 'simulazione' ? <><IconSimulazione size={12} />Sim.</> : <><IconPratica size={12} />Quiz</>}
                     </span>
                     <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
                       {formatDate(s.date)}
@@ -265,7 +266,7 @@ export default function Dashboard() {
           style={{ borderColor: 'var(--error)', color: 'var(--error)', fontSize: '0.9rem', minHeight: '44px' }}
           onClick={handleClear}
         >
-          🗑️ Cancella tutti i progressi
+          <IconTrash size={18} />Cancella tutti i progressi
         </button>
       )}
     </div>

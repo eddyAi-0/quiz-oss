@@ -3,6 +3,7 @@ import { saveSession } from '../utils/storage'
 import { shuffle } from '../utils/shuffle'
 import { useDomande } from '../utils/domande'
 import QuestionCard from './QuestionCard'
+import { IconSimulazione, IconList, IconBulb, IconPlay, IconTrophy, IconXCircle, IconCheck, IconRepeat, IconProgressi, IconArrowRight } from './icons'
 
 const TOTAL_Q = 15
 const TOTAL_SEC = 25 * 60
@@ -17,7 +18,7 @@ function TimerDisplay({ seconds }) {
   const cls = seconds < 60 ? 'danger' : seconds < 300 ? 'warning' : 'normal'
   return (
     <div className={`timer ${cls}`}>
-      ⏱️ {formatTime(seconds)}
+      <IconSimulazione size={22} />{formatTime(seconds)}
     </div>
   )
 }
@@ -31,7 +32,7 @@ function StartScreen({ onStart }) {
       </div>
 
       <div className="card">
-        <h3 style={{ marginBottom: '1rem' }}>📋 Regole della simulazione</h3>
+        <h3 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><IconList size={18} />Regole della simulazione</h3>
         <ul style={{ paddingLeft: '1.25rem', lineHeight: 2, color: 'var(--text)' }}>
           <li><strong>15 domande</strong> casuali da tutte le sezioni</li>
           <li>Tempo totale: <strong>25 minuti</strong></li>
@@ -43,12 +44,12 @@ function StartScreen({ onStart }) {
 
       <div className="card" style={{ background: 'var(--primary-light)', borderColor: 'var(--primary)' }}>
         <p style={{ color: 'var(--primary-dark)', fontWeight: 500 }}>
-          💡 Tip: Per superare l'esame OSS serve generalmente il <strong>60%</strong> delle risposte corrette (9 su 15).
+          <IconBulb size={16} style={{ verticalAlign: '-3px', marginRight: '0.3rem' }} />Tip: Per superare l'esame OSS serve generalmente il <strong>60%</strong> delle risposte corrette (9 su 15).
         </p>
       </div>
 
       <button className="btn btn-primary" onClick={onStart}>
-        🚀 Inizia simulazione
+        <IconPlay size={18} />Inizia simulazione
       </button>
     </div>
   )
@@ -90,8 +91,8 @@ function ResultScreen({ questions, answers, elapsed, responseTimes = [], onResta
       </div>
 
       <div className="card text-center mb-2">
-        <p style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.25rem' }}>
-          {passed ? '🎉 PROMOSSO!' : '❌ NON SUPERATO'}
+        <p style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}>
+          {passed ? <><IconTrophy size={24} />PROMOSSO!</> : <><IconXCircle size={24} />NON SUPERATO</>}
         </p>
         <p className="text-muted">
           {passed
@@ -108,7 +109,7 @@ function ResultScreen({ questions, answers, elapsed, responseTimes = [], onResta
           return (
             <div key={q.id} style={{ marginBottom: '1.25rem', paddingBottom: '1.25rem', borderBottom: i < questions.length - 1 ? '1px solid var(--border)' : 'none' }}>
               <div className="row" style={{ marginBottom: '0.4rem' }}>
-                <span style={{ fontSize: '1.1rem' }}>{isRight ? '✅' : '❌'}</span>
+                <span style={{ display: 'flex', color: isRight ? 'var(--success)' : 'var(--error)' }}>{isRight ? <IconCheck size={18} /> : <IconXCircle size={18} />}</span>
                 <span className="badge badge-primary" style={{ fontSize: '0.72rem' }}>{q.sezione}</span>
               </div>
               <p style={{ fontWeight: 500, marginBottom: '0.4rem', fontSize: '0.95rem' }}>{q.domanda}</p>
@@ -132,7 +133,7 @@ function ResultScreen({ questions, answers, elapsed, responseTimes = [], onResta
       </div>
 
       <button className="btn btn-primary" onClick={onRestart}>
-        🔄 Nuova simulazione
+        <IconRepeat size={18} />Nuova simulazione
       </button>
     </div>
   )
@@ -144,7 +145,7 @@ export default function SimulationMode() {
     return (
       <div className="page">
         <div className="empty-state">
-          <div className="empty-state-icon">⏱️</div>
+          <div className="empty-state-icon" style={{ lineHeight: 0 }}><IconSimulazione size={44} /></div>
           <p>Caricamento domande...</p>
         </div>
       </div>
@@ -286,7 +287,7 @@ function SimulationInner({ domandeData }) {
 
       {timerAlert && (
         <p style={{ textAlign: 'center', fontSize: '0.82rem', color: 'var(--warning)', marginBottom: '0.5rem' }}>
-          ⏱️ Timer aggiornato
+          <IconSimulazione size={15} style={{ verticalAlign: '-2px', marginRight: '0.25rem' }} />Timer aggiornato
         </p>
       )}
 
@@ -304,7 +305,9 @@ function SimulationInner({ domandeData }) {
       />
 
       <button className="btn btn-primary" onClick={handleNext}>
-        {currentIdx + 1 >= TOTAL_Q ? '📊 Termina e vedi risultati' : 'Prossima →'}
+        {currentIdx + 1 >= TOTAL_Q
+          ? <><IconProgressi size={18} />Termina e vedi risultati</>
+          : <>Prossima<IconArrowRight size={18} /></>}
       </button>
 
       <button

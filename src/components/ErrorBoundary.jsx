@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { IconAlert } from './icons'
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div className="page" style={{ textAlign: 'center', paddingTop: '4rem' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚠️</div>
+          <div style={{ marginBottom: '1rem', color: 'var(--warning)', display: 'flex', justifyContent: 'center' }}><IconAlert size={48} /></div>
           <h2 style={{ marginBottom: '0.5rem' }}>Qualcosa è andato storto</h2>
           <p className="text-muted" style={{ marginBottom: '2rem' }}>
             Si è verificato un errore inatteso. Prova a ricaricare l'app.

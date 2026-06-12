@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm'
 import { spiegaMeglio, chatTutor, generaDomandeExtra } from '../utils/groq'
 import { getWorstSections } from '../utils/storage'
 import { useDomande } from '../utils/domande'
+import { IconCheck, IconXCircle, IconLoader, IconSparkles, IconSend } from './icons'
 
 const INJECTION_PATTERNS = [
   /ignore\s+(previous|all|prior)\s+instructions?/gi,
@@ -63,8 +64,8 @@ function ExtraQuestionCard({ q, index }) {
       })}
       {answered && (
         <div className={`feedback-box ${isCorrect ? 'correct' : 'wrong'} fade-in`}>
-          <div className="feedback-label" style={{ fontSize: '1rem' }}>
-            {isCorrect ? '✅ Corretto!' : '❌ Sbagliato'}
+          <div className="feedback-label" style={{ fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            {isCorrect ? <><IconCheck size={18} />Corretto!</> : <><IconXCircle size={18} />Sbagliato</>}
           </div>
           <div className="feedback-explanation" style={{ fontSize: '0.88rem' }}>{q.spiegazione}</div>
         </div>
@@ -235,7 +236,11 @@ export default function TutorAI() {
             disabled={loadingExtra || loading || extraCooldown > 0}
             style={{ flex: 1 }}
           >
-            {loadingExtra ? '⏳ Generando...' : extraCooldown > 0 ? `⏳ Attendi ${extraCooldown}s` : '✨ Genera 3 domande extra'}
+            {loadingExtra
+              ? <><IconLoader size={16} className="spin" />Generando...</>
+              : extraCooldown > 0
+                ? <><IconLoader size={16} className="spin" />Attendi {extraCooldown}s</>
+                : <><IconSparkles size={16} />Genera 3 domande extra</>}
           </button>
         </div>
 
@@ -254,8 +259,8 @@ export default function TutorAI() {
 
       {extraQuestions.length > 0 && (
         <div style={{ padding: '0 1rem', overflowY: 'auto', maxHeight: '40vh', flexShrink: 0 }}>
-          <h3 style={{ marginBottom: '0.75rem', fontSize: '1rem' }}>
-            ✨ Domande extra — {targetSezione}
+          <h3 style={{ marginBottom: '0.75rem', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <IconSparkles size={16} />Domande extra — {targetSezione}
           </h3>
           {extraQuestions.map((q, i) => (
             <ExtraQuestionCard key={i} q={q} index={i} />
@@ -292,7 +297,7 @@ export default function TutorAI() {
           onClick={handleSend}
           disabled={loading || !input.trim()}
         >
-          ➤
+          <IconSend size={20} />
         </button>
       </div>
     </div>

@@ -231,3 +231,71 @@ export function IconAlert(p) {
     </Svg>
   )
 }
+
+export function IconXCircle(p) {
+  return (
+    <Svg {...p}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m15 9-6 6" />
+      <path d="m9 9 6 6" />
+    </Svg>
+  )
+}
+
+export function IconFlame(p) {
+  return (
+    <Svg {...p}>
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+    </Svg>
+  )
+}
+
+export function IconCalendar(p) {
+  return (
+    <Svg {...p}>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4" />
+      <path d="M8 2v4" />
+      <path d="M3 10h18" />
+    </Svg>
+  )
+}
+
+export function IconTrash(p) {
+  return (
+    <Svg {...p}>
+      <path d="M3 6h18" />
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      <path d="M10 11v6" />
+      <path d="M14 11v6" />
+    </Svg>
+  )
+}
+
+export function IconSparkles(p) {
+  return (
+    <Svg {...p}>
+      <path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-5.64-1.46a.5.5 0 0 1 0-.97L8.5 10.16a2 2 0 0 0 1.44-1.44l1.46-5.64a.5.5 0 0 1 .97 0l1.46 5.64a2 2 0 0 0 1.44 1.44l5.64 1.46a.5.5 0 0 1 0 .97l-5.64 1.46a2 2 0 0 0-1.44 1.44l-1.46 5.64a.5.5 0 0 1-.97 0z" />
+      <path d="M20 3v4" />
+      <path d="M22 5h-4" />
+    </Svg>
+  )
+}
+
+export function IconPlay(p) {
+  return (
+    <Svg {...p}>
+      <path d="M7 4v16l13-8z" />
+    </Svg>
+  )
+}
+
+export function IconUser(p) {
+  return (
+    <Svg {...p}>
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </Svg>
+  )
+}
