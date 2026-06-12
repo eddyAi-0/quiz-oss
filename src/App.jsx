@@ -73,6 +73,20 @@ const NAV = [
 
 function AppContent({ dark, setDark }) {
   const { user } = useAuth()
+  const [navHidden, setNavHidden] = useState(false)
+
+  // Nasconde la bottom-nav scorrendo verso il basso, la rimostra scorrendo su
+  useEffect(() => {
+    let last = window.scrollY
+    function onScroll() {
+      const y = window.scrollY
+      if (y > last + 4 && y > 60) setNavHidden(true)
+      else if (y < last - 4) setNavHidden(false)
+      last = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <div className="app-container">
@@ -117,7 +131,7 @@ function AppContent({ dark, setDark }) {
       </ErrorBoundary>
 
       {user && (
-        <nav className="bottom-nav">
+        <nav className={`bottom-nav${navHidden ? ' bottom-nav--hidden' : ''}`}>
           {NAV.map(({ to, label, Icon }) => (
             <NavLink
               key={to}

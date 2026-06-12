@@ -27,6 +27,10 @@
 
 /* Centra le icone SVG nella bottom-nav */
 .nav-icon { display: flex; align-items: center; justify-content: center; }
+
+/* La bottom-nav scompare scorrendo verso il basso e riappare scorrendo su */
+.bottom-nav { transition: bottom 0.25s ease; }
+.bottom-nav--hidden { bottom: -6rem; }
 .mode-card-title { font-size: 1.3rem; font-weight: 700; }
 .mode-card-desc { color: var(--text-muted); font-size: 0.92rem; margin-top: 0.35rem; }
 .mode-card-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }

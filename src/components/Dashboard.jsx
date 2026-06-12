@@ -4,9 +4,9 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts'
 import { getProgress, clearProgress } from '../utils/storage'
-import { clearOrale } from '../utils/oraleStorage'
+import { clearOrale, getOraleAnswers } from '../utils/oraleStorage'
 import { useDomande } from '../utils/domande'
-import { IconProgressi, IconAlert, IconTutor, IconXCircle, IconPratica, IconCalendar, IconSimulazione, IconTrash, IconFlame } from './icons'
+import { IconProgressi, IconAlert, IconTutor, IconXCircle, IconPratica, IconCalendar, IconSimulazione, IconTrash, IconFlame, IconOrale, IconList } from './icons'
 
 const SEZIONI_BREVI = {
   'Anatomia e Fisiologia': 'Anatomia',
@@ -32,6 +32,12 @@ function pctColor(pct, total = 1) {
   return 'var(--error)'
 }
 
+function votoColor(v) {
+  if (v >= 24) return 'var(--success)'
+  if (v >= 18) return 'var(--warning)'
+  return 'var(--error)'
+}
+
 export default function Dashboard() {
   const navigate = useNavigate()
   const domandeData = useDomande()
@@ -41,7 +47,11 @@ export default function Dashboard() {
   useEffect(() => {
     function onSync() { setRefreshKey(k => k + 1) }
     window.addEventListener('quiz-data-updated', onSync)
-    return () => window.removeEventListener('quiz-data-updated', onSync)
+    window.addEventListener('orale-data-updated', onSync)
+    return () => {
+      window.removeEventListener('quiz-data-updated', onSync)
+      window.removeEventListener('orale-data-updated', onSync)
+    }
   }, [])
 
   const { sessions, sectionStats, streak, wrongAnswers = {} } = data
@@ -67,6 +77,22 @@ export default function Dashboard() {
     .filter(s => s.total >= 3)
     .sort((a, b) => a.pct - b.pct)
     .slice(0, 3)
+
+  // Statistiche Prova Orale
+  const oralList = Object.values(getOraleAnswers())
+  const oralDone = oralList.length
+  const oralAvg = oralDone ? Math.round(oralList.reduce((s, e) => s + e.voto, 0) / oralDone) : 0
+  const oralWeak = oralList.filter(e => e.voto < 18).length
+  const oralTopics = {}
+  for (const e of oralList) {
+    if (!oralTopics[e.argomento]) oralTopics[e.argomento] = { sum: 0, n: 0 }
+    oralTopics[e.argomento].sum += e.voto
+    oralTopics[e.argomento].n += 1
+  }
+  const oralWeakTopics = Object.entries(oralTopics)
+    .map(([name, s]) => ({ name, avg: Math.round(s.sum / s.n), n: s.n }))
+    .sort((a, b) => a.avg - b.avg)
+    .slice(0, 5)
 
   function handleClear() {
     if (confirm('Cancellare tutti i progressi? L\'operazione non è reversibile.')) {
@@ -260,7 +286,58 @@ export default function Dashboard() {
         )}
       </div>
 
-      {totalDomande > 0 && (
+      {/* Prova Orale */}
+      <div className="card">
+        <h3 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          <IconOrale size={18} />Prova Orale
+        </h3>
+
+        {oralDone === 0 ? (
+          <div className="empty-state" style={{ padding: '1.5rem 1rem' }}>
+            <p>Non hai ancora svolto domande orali.</p>
+            <button className="btn btn-primary" style={{ marginTop: '0.75rem' }} onClick={() => navigate('/orale')}>
+              <IconOrale size={18} />Inizia la Prova Orale
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="stats-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr', marginBottom: oralWeakTopics.length ? '1rem' : 0 }}>
+              <div className="stat-card">
+                <div className="stat-value">{oralDone}</div>
+                <div className="stat-label">Svolte</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-value" style={{ color: votoColor(oralAvg) }}>{oralAvg}/30</div>
+                <div className="stat-label">Media voto</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-value" style={{ color: oralWeak ? 'var(--error)' : 'var(--text-muted)' }}>{oralWeak}</div>
+                <div className="stat-label">Sotto 18</div>
+              </div>
+            </div>
+
+            {oralWeakTopics.length > 0 && (
+              <>
+                <p className="text-muted" style={{ fontSize: '0.85rem', marginBottom: '0.5rem' }}>
+                  Argomenti più deboli
+                </p>
+                {oralWeakTopics.map(t => (
+                  <div key={t.name} className="row-between" style={{ marginBottom: '0.5rem' }}>
+                    <span style={{ fontSize: '0.9rem' }}>{t.name}</span>
+                    <span className={`voto-badge ${t.avg >= 18 ? 'voto-ok' : 'voto-ko'}`}>{t.avg}/30</span>
+                  </div>
+                ))}
+              </>
+            )}
+
+            <button className="btn btn-primary" style={{ marginTop: '1rem' }} onClick={() => navigate('/orale/svolte')}>
+              <IconList size={18} />Vai al ripasso orale
+            </button>
+          </>
+        )}
+      </div>
+
+      {(totalDomande > 0 || oralDone > 0) && (
         <button
           className="btn btn-outline"
           style={{ borderColor: 'var(--error)', color: 'var(--error)', fontSize: '0.9rem', minHeight: '44px' }}
