@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
           rewrite: () => '/openai/v1/chat/completions',
           configure: (proxy) => {
             proxy.on('proxyReq', (proxyReq) => {
-              proxyReq.setHeader('Authorization', `Bearer ${env.GROQ_API_KEY}`)
+              proxyReq.setHeader('Authorization', `Bearer ${env.GROQ_API_KEY || env.VITE_GROQ_API_KEY}`)
             })
           }
         }
