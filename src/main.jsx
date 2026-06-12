@@ -7,6 +7,7 @@ import './styles/components.css'
 import './styles/quiz.css'
 import './styles/dashboard.css'
 import './styles/chat.css'
+import './styles/orale.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

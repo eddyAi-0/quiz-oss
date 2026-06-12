@@ -219,7 +219,7 @@ export default function Dashboard() {
           <button
             className="btn btn-primary"
             style={{ marginTop: '1rem', width: '100%' }}
-            onClick={() => navigate('/', { state: { filterErrors: true } })}
+            onClick={() => navigate('/quiz', { state: { filterErrors: true } })}
           >
             📖 Ripassa errori
           </button>

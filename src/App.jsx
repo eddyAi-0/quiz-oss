@@ -42,8 +42,11 @@ function SyncStatus() {
   )
 }
 import { Navigate } from 'react-router-dom'
+import Home from './components/Home'
 import Quiz from './components/Quiz'
 import SimulationMode from './components/SimulationMode'
+import ProvaOrale from './components/ProvaOrale'
+import OraliSvolte from './components/OraliSvolte'
 import Dashboard from './components/Dashboard'
 import TutorAI from './components/TutorAI'
 import ErrorBoundary from './components/ErrorBoundary'
@@ -60,15 +63,17 @@ function RequireAuth({ children }) {
 }
 
 const NAV_GUEST = [
-  { to: '/', label: 'Quiz', icon: '📚' },
+  { to: '/', label: 'Home', icon: '🏠' },
+  { to: '/quiz', label: 'Quiz', icon: '📚' },
   { to: '/simulazione', label: 'Simulazione', icon: '⏱️' },
 ]
 
 const NAV_AUTH = [
-  { to: '/', label: 'Quiz', icon: '📚' },
-  { to: '/simulazione', label: 'Simulazione', icon: '⏱️' },
+  { to: '/', label: 'Home', icon: '🏠' },
+  { to: '/quiz', label: 'Quiz', icon: '📚' },
+  { to: '/orale', label: 'Orale', icon: '🎤' },
   { to: '/progressi', label: 'Progressi', icon: '📊' },
-  { to: '/tutor', label: 'Tutor AI', icon: '🤖' },
+  { to: '/tutor', label: 'Tutor', icon: '🤖' },
 ]
 
 function AppContent({ dark, setDark }) {
@@ -105,8 +110,11 @@ function AppContent({ dark, setDark }) {
 
       <ErrorBoundary>
         <Routes>
-          <Route path="/" element={<Quiz />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/quiz" element={<Quiz />} />
           <Route path="/simulazione" element={<SimulationMode />} />
+          <Route path="/orale" element={<RequireAuth><ProvaOrale /></RequireAuth>} />
+          <Route path="/orale/svolte" element={<RequireAuth><OraliSvolte /></RequireAuth>} />
           <Route path="/progressi" element={<RequireAuth><Dashboard /></RequireAuth>} />
           <Route path="/tutor" element={<RequireAuth><TutorAI /></RequireAuth>} />
           <Route path="/tutor/:sezione" element={<RequireAuth><TutorAI /></RequireAuth>} />
