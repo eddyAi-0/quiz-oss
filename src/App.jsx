@@ -52,6 +52,7 @@ import TutorAI from './components/TutorAI'
 import ErrorBoundary from './components/ErrorBoundary'
 import AuthPage from './components/AuthPage'
 import UserMenu from './components/UserMenu'
+import { IconHome, IconPratica, IconOrale, IconProgressi, IconTutor } from './components/icons'
 import { AuthProvider } from './context/AuthContext'
 import { useAuth } from './context/useAuth'
 
@@ -62,23 +63,16 @@ function RequireAuth({ children }) {
   return children
 }
 
-const NAV_GUEST = [
-  { to: '/', label: 'Home', icon: '🏠' },
-  { to: '/quiz', label: 'Quiz', icon: '📚' },
-  { to: '/simulazione', label: 'Simulazione', icon: '⏱️' },
-]
-
-const NAV_AUTH = [
-  { to: '/', label: 'Home', icon: '🏠' },
-  { to: '/quiz', label: 'Quiz', icon: '📚' },
-  { to: '/orale', label: 'Orale', icon: '🎤' },
-  { to: '/progressi', label: 'Progressi', icon: '📊' },
-  { to: '/tutor', label: 'Tutor', icon: '🤖' },
+const NAV = [
+  { to: '/', label: 'Home', Icon: IconHome },
+  { to: '/quiz', label: 'Quiz', Icon: IconPratica },
+  { to: '/orale', label: 'Orale', Icon: IconOrale },
+  { to: '/progressi', label: 'Progressi', Icon: IconProgressi },
+  { to: '/tutor', label: 'Tutor', Icon: IconTutor },
 ]
 
 function AppContent({ dark, setDark }) {
   const { user } = useAuth()
-  const nav = user ? NAV_AUTH : NAV_GUEST
 
   return (
     <div className="app-container">
@@ -110,9 +104,9 @@ function AppContent({ dark, setDark }) {
 
       <ErrorBoundary>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/simulazione" element={<SimulationMode />} />
+          <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path="/quiz" element={<RequireAuth><Quiz /></RequireAuth>} />
+          <Route path="/simulazione" element={<RequireAuth><SimulationMode /></RequireAuth>} />
           <Route path="/orale" element={<RequireAuth><ProvaOrale /></RequireAuth>} />
           <Route path="/orale/svolte" element={<RequireAuth><OraliSvolte /></RequireAuth>} />
           <Route path="/progressi" element={<RequireAuth><Dashboard /></RequireAuth>} />
@@ -122,19 +116,21 @@ function AppContent({ dark, setDark }) {
         </Routes>
       </ErrorBoundary>
 
-      <nav className="bottom-nav">
-        {nav.map(({ to, label, icon }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
-            className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
-          >
-            <span className="nav-icon">{icon}</span>
-            <span>{label}</span>
-          </NavLink>
-        ))}
-      </nav>
+      {user && (
+        <nav className="bottom-nav">
+          {NAV.map(({ to, label, Icon }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
+            >
+              <span className="nav-icon"><Icon size={24} /></span>
+              <span>{label}</span>
+            </NavLink>
+          ))}
+        </nav>
+      )}
     </div>
   )
 }

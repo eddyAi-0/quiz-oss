@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
+import { IconPratica, IconOrale } from './icons'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -20,7 +21,7 @@ export default function Home() {
       <div className="mode-grid">
         {/* Prova Pratica */}
         <div className="mode-card" role="button" tabIndex={0} onClick={() => go('/quiz')} onKeyDown={onKey('/quiz')}>
-          <div className="mode-card-icon">📚</div>
+          <div className="mode-card-icon"><IconPratica size={46} /></div>
           <div className="mode-card-title">Prova Pratica</div>
           <p className="mode-card-desc">
             Quiz a scelta multipla con spiegazioni e simulazione d'esame a tempo.
@@ -37,7 +38,7 @@ export default function Home() {
 
         {/* Prova Orale */}
         <div className="mode-card" role="button" tabIndex={0} onClick={() => go('/orale')} onKeyDown={onKey('/orale')}>
-          <div className="mode-card-icon">🎤</div>
+          <div className="mode-card-icon"><IconOrale size={46} /></div>
           <div className="mode-card-title">Prova Orale</div>
           <p className="mode-card-desc">
             Rispondi a voce: il tutor legge la domanda, valuta da 0 a 30 e ti corregge.

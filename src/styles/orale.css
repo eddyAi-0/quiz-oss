@@ -23,7 +23,10 @@
 .mode-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .mode-card:active { transform: scale(0.99); }
 
-.mode-card-icon { font-size: 2.75rem; line-height: 1; margin-bottom: 0.5rem; }
+.mode-card-icon { color: var(--primary); line-height: 0; margin-bottom: 0.65rem; }
+
+/* Centra le icone SVG nella bottom-nav */
+.nav-icon { display: flex; align-items: center; justify-content: center; }
 .mode-card-title { font-size: 1.3rem; font-weight: 700; }
 .mode-card-desc { color: var(--text-muted); font-size: 0.92rem; margin-top: 0.35rem; }
 .mode-card-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
