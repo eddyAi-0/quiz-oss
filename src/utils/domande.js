@@ -19,3 +19,23 @@ export function useDomande() {
 
   return data
 }
+
+let _cacheOrali = null
+let _promiseOrali = null
+
+export function useDomandeOrali() {
+  const [data, setData] = useState(_cacheOrali)
+
+  useEffect(() => {
+    if (_cacheOrali) { setData(_cacheOrali); return }
+    if (!_promiseOrali) {
+      _promiseOrali = fetch('/data/banca_orale.json')
+        .then(r => r.json())
+        .then(d => { _cacheOrali = d; return d })
+        .catch(() => { _promiseOrali = null })
+    }
+    _promiseOrali?.then(setData)
+  }, [])
+
+  return data
+}
